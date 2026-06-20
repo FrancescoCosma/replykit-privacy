@@ -3,82 +3,159 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ReplyKit — Text snippets & quick replies</title>
-    <meta name="description" content="Save text snippets and insert canned replies anywhere you type — email, support, social. Type // and go." />
+    <title>ReplyKit — Text Snippets & Canned Replies for Chrome | Type // to insert</title>
+    <meta
+      name="description"
+      content="ReplyKit is a free Chrome extension to save text snippets and insert canned replies anywhere you type — Gmail, support tools, marketplaces, forms. Type // and go. A lightweight, private text expander alternative."
+    />
+    <link rel="canonical" href="https://francescocosma.github.io/replykit-privacy/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ReplyKit — Text snippets & quick replies for Chrome" />
+    <meta
+      property="og:description"
+      content="Save your replies once and insert them anywhere by typing //. Free, private, lightweight."
+    />
+    <meta property="og:url" content="https://francescocosma.github.io/replykit-privacy/" />
+    <meta property="og:image" content="https://francescocosma.github.io/replykit-privacy/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ReplyKit — Text snippets & quick replies for Chrome" />
+    <meta
+      name="twitter:description"
+      content="Save your replies once and insert them anywhere by typing //. Free, private, lightweight."
+    />
+    <meta name="twitter:image" content="https://francescocosma.github.io/replykit-privacy/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ReplyKit",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "description": "Save text snippets and insert canned replies anywhere you type. Type // to insert. Free, private, lightweight.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is ReplyKit free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. ReplyKit is free for up to 10 snippets. Pro unlocks unlimited snippets and more." }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are my snippets stored?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Locally in your browser. Nothing is uploaded, tracked, or shared, and no account is required." }
+          },
+          {
+            "@type": "Question",
+            "name": "Where does ReplyKit work?",
+            "acceptedAnswer": { "@type": "Answer", "text": "In any standard text field and in Gmail. For isolated editors there is a Copy button to paste manually." }
+          }
+        ]
+      }
+    </script>
+
     <style>
-      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; }
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #6b7280; --bg: #fff; --card: #fff; --line: #ebedf0; }
       * { box-sizing: border-box; }
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        margin: 0; line-height: 1.6; color: #1a1a1a; background: #fff;
-      }
-      .hero {
-        background: linear-gradient(135deg, var(--blue), var(--purple));
-        color: #fff; padding: 72px 24px; text-align: center;
-      }
-      .hero h1 { font-size: 44px; margin: 0 0 12px; }
-      .hero p { font-size: 20px; margin: 0 auto; max-width: 560px; opacity: .95; }
-      .bubble {
-        display: inline-flex; align-items: center; justify-content: center;
-        width: 84px; height: 66px; background: #fff; color: var(--blue);
-        border-radius: 18px; font-size: 34px; font-weight: 800; margin-bottom: 24px;
-      }
-      .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
-      h2 { font-size: 24px; margin-top: 40px; }
-      ol, ul { padding-left: 20px; }
-      li { margin: 8px 0; }
-      code { background: #f1f1f1; padding: 1px 6px; border-radius: 4px; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.65; color: var(--ink); background: var(--bg); }
       a { color: var(--blue); }
-      .card {
-        border: 1px solid #eaeaea; border-radius: 12px; padding: 20px 24px; margin-top: 16px;
-      }
-      footer { border-top: 1px solid #eee; margin-top: 48px; padding-top: 20px; color: #888; font-size: 14px; }
+      .hero { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; padding: 80px 24px; text-align: center; }
+      .bubble { display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 70px; background: #fff; color: var(--blue); border-radius: 20px; font-size: 36px; font-weight: 800; margin-bottom: 24px; }
+      .hero h1 { font-size: 42px; line-height: 1.15; margin: 0 0 16px; }
+      .hero p { font-size: 20px; max-width: 600px; margin: 0 auto 28px; opacity: .96; }
+      .cta { display: inline-block; background: #fff; color: var(--blue); font-weight: 700; font-size: 17px; padding: 14px 28px; border-radius: 12px; text-decoration: none; }
+      .cta:hover { opacity: .92; }
+      .sub { display: block; margin-top: 12px; font-size: 13px; opacity: .85; }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 56px 24px; }
+      h2 { font-size: 28px; margin: 0 0 24px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+      .card { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--card); }
+      .card h3 { margin: 0 0 8px; font-size: 17px; }
+      .card p { margin: 0; color: var(--muted); font-size: 15px; }
+      ol.steps { counter-reset: step; list-style: none; padding: 0; }
+      ol.steps li { position: relative; padding: 0 0 18px 48px; }
+      ol.steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+      code { background: #f1f3f5; padding: 2px 7px; border-radius: 5px; font-size: .9em; }
+      .faq { margin-top: 12px; }
+      .faq h3 { font-size: 17px; margin: 22px 0 6px; }
+      .faq p { margin: 0; color: var(--muted); }
+      .center { text-align: center; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
       @media (prefers-color-scheme: dark) {
-        body { background: #161616; color: #e8e8e8; }
-        code { background: #2a2a2a; }
-        .card { border-color: #2c2c2c; }
-        footer { border-color: #2c2c2c; }
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --card: #1f1f22; --line: #2c2c30; }
+        code { background: #2a2a2d; }
+        .cta { background: #fff; color: var(--blue); }
       }
     </style>
   </head>
   <body>
     <header class="hero">
       <div class="bubble">//</div>
-      <h1>ReplyKit</h1>
-      <p>Save your replies once. Insert them anywhere you type — just type <code>//</code> and go.</p>
+      <h1>Text snippets &amp; canned replies, anywhere you type</h1>
+      <p>Save your most-used replies once and insert them into any text field by typing <code style="background:rgba(255,255,255,.2);color:#fff">//</code>. Free, private, lightweight.</p>
+      <a class="cta" href="<STORE_URL>">Add to Chrome — it's free</a>
+      <span class="sub">No account · Snippets stored locally · Works in Gmail &amp; more</span>
     </header>
 
-    <main class="wrap">
-      <h2>What it does</h2>
-      <p>
-        ReplyKit lets you save your most-used replies and drop them into any text field on the web in one keystroke.
-        Perfect for freelancers, customer support, online sellers, recruiters, and anyone who types the same things
-        every day.
-      </p>
+    <main>
+      <section class="wrap">
+        <h2>Why ReplyKit</h2>
+        <div class="grid">
+          <div class="card"><h3>One keystroke</h3><p>Type <code>//</code> (or a shortcut) and pick a snippet. It's inserted right at your cursor.</p></div>
+          <div class="card"><h3>Works everywhere</h3><p>Gmail, help desks, marketplaces, social, CRMs and forms — any standard text field.</p></div>
+          <div class="card"><h3>Private by design</h3><p>Snippets stay in your browser. Nothing uploaded, tracked, or shared. No account.</p></div>
+          <div class="card"><h3>Lightweight</h3><p>A fast, keyboard-first picker with instant search. No clutter, no slowdown.</p></div>
+          <div class="card"><h3>Copy fallback</h3><p>For editors that block auto-insert, one click copies the snippet to paste manually.</p></div>
+          <div class="card"><h3>Free to start</h3><p>Up to 10 snippets free. Pro unlocks unlimited — a fair, simple text expander alternative.</p></div>
+        </div>
+      </section>
 
-      <h2>How it works</h2>
-      <ol>
-        <li>Save your snippets from the toolbar popup.</li>
-        <li>In any text field, type <code>//</code> or press <code>Ctrl/Cmd+Shift+Space</code>.</li>
-        <li>Pick a snippet — it's inserted instantly. Or use the Copy button to paste it manually.</li>
-      </ol>
+      <section class="wrap">
+        <h2>Who it's for</h2>
+        <div class="grid">
+          <div class="card"><h3>Customer support</h3><p>Answer FAQs and tickets in seconds with canned responses.</p></div>
+          <div class="card"><h3>Freelancers &amp; agencies</h3><p>Proposals, onboarding and follow-ups without retyping.</p></div>
+          <div class="card"><h3>Online sellers</h3><p>Order, shipping and review replies on any marketplace.</p></div>
+          <div class="card"><h3>Recruiters &amp; sales</h3><p>Outreach and templated messages that stay personal.</p></div>
+        </div>
+      </section>
 
-      <h2>Private by design</h2>
-      <p>
-        Your snippets are stored locally in your browser. Nothing is uploaded, tracked, or shared.
-        Read the full <a href="privacy.html">Privacy Policy</a>.
-      </p>
+      <section class="wrap">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>Save a snippet from the toolbar popup — a greeting, FAQ answer, follow-up.</li>
+          <li>In any text field, type <code>//</code> or press <code>Ctrl/Cmd+Shift+Space</code>.</li>
+          <li>Pick a snippet from the instant search — it's inserted at your cursor. Or hit Copy.</li>
+        </ol>
+      </section>
 
-      <h2 id="support">Support</h2>
-      <div class="card">
-        <p>Need help, found a bug, or have a feature request?</p>
-        <p>Email us: <a href="mailto:cosmafrancesco93@gmail.com">cosmafrancesco93@gmail.com</a></p>
-        <p>We typically reply within a couple of days.</p>
-      </div>
-
-      <footer>
-        ReplyKit · <a href="privacy.html">Privacy</a> · <a href="#support">Support</a>
-      </footer>
+      <section class="wrap">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <h3>Is ReplyKit free?</h3>
+          <p>Yes — free for up to 10 snippets. Pro unlocks unlimited snippets and more.</p>
+          <h3>Are my data safe?</h3>
+          <p>Your snippets are stored locally via <code>chrome.storage.local</code>. Nothing is uploaded or tracked. See the <a href="privacy.html">Privacy Policy</a>.</p>
+          <h3>Does it work in Gmail?</h3>
+          <p>Yes. It works in Gmail and any standard text field. For isolated editors, use the Copy button.</p>
+          <h3>Is it a text expander?</h3>
+          <p>Think of it as a lightweight, private text-snippet tool — a simpler, free alternative to heavier text expanders.</p>
+        </div>
+        <p class="center" style="margin-top:32px"><a class="cta" href="<STORE_URL>" style="background:var(--blue);color:#fff">Add ReplyKit to Chrome</a></p>
+      </section>
     </main>
+
+    <footer id="support">
+      Need help or have a feature request? Email
+      <a href="mailto:cosmafrancesco93@gmail.com">cosmafrancesco93@gmail.com</a><br />
+      ReplyKit · <a href="privacy.html">Privacy</a>
+    </footer>
   </body>
 </html>
