@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://francescocosma.github.io/replykit-privacy/sitemap.xml
+Sitemap: https://replykit.pureprompting.com/sitemap.xml
