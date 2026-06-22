@@ -24,22 +24,47 @@
   <body>
     <p><a href="./">← ReplyKit</a></p>
     <h1>ReplyKit — Privacy Policy</h1>
-    <p class="updated">Last updated: 2026-06-20</p>
+    <p class="updated">Last updated: 2026-06-22</p>
 
-    <p>ReplyKit is designed to be private by default.</p>
+    <p>
+      ReplyKit is designed to be private by default. We (the developer) do not run any server that receives your
+      snippets, and we do not sell, rent, or share your data.
+    </p>
 
     <h2>What we collect</h2>
-    <p><strong>Nothing.</strong> ReplyKit does not collect, transmit, sell, or share any personal data.</p>
-
-    <h2>Where your data lives</h2>
     <p>
-      The text snippets you create are stored <strong>locally</strong> in your browser using the standard
-      <code>chrome.storage.local</code> API. They never leave your device and are not sent to us or to any third party.
+      ReplyKit itself does <strong>not</strong> collect or transmit your snippets to us. We have no analytics, no
+      trackers, and no advertising. Two optional Pro features involve data leaving your device — both described below.
+    </p>
+
+    <h2>Where your snippets live</h2>
+    <ul>
+      <li>
+        <strong>Free plan:</strong> the snippets you create are stored <strong>locally</strong> in your browser using
+        the standard <code>chrome.storage.local</code> API. They stay on your device.
+      </li>
+      <li>
+        <strong>Pro plan (sync):</strong> to keep your snippets available across your devices, they are saved using
+        Chrome's built-in <code>chrome.storage.sync</code> API. This syncs them through your browser's own sync service
+        (e.g. your Google account, if you are signed in to Chrome with sync enabled), under your browser vendor's
+        privacy policy. They are <strong>never sent to us or to any third-party server we control.</strong>
+      </li>
+    </ul>
+
+    <h2>Payments (Pro)</h2>
+    <p>
+      Pro subscriptions are processed by <strong>ExtensionPay</strong> (which uses <strong>Stripe</strong> for payment
+      processing). When you subscribe, ExtensionPay/Stripe handle your <strong>email address</strong> and
+      <strong>payment details</strong> to manage your subscription. ReplyKit never sees or stores your card data. See
+      the ExtensionPay and Stripe privacy policies for details on how they process this information.
     </p>
 
     <h2>Permissions</h2>
     <ul>
-      <li><strong>Storage</strong> — to save your snippets locally in the browser.</li>
+      <li>
+        <strong>Storage</strong> — to save your snippets locally (<code>chrome.storage.local</code>) and, for Pro
+        users, to sync them across your devices (<code>chrome.storage.sync</code>).
+      </li>
       <li>
         <strong>Host access / activeTab</strong> — required so the extension can insert a selected snippet into the
         text field of the page you are actively using. ReplyKit only reads or writes text in a field when you
@@ -52,10 +77,7 @@
     <p>ReplyKit contains no analytics, no trackers, and no advertising.</p>
 
     <h2>Changes</h2>
-    <p>
-      If a future version (e.g. optional cloud sync or AI features) processes data outside your device, this policy
-      will be updated and those features will be clearly opt-in.
-    </p>
+    <p>If a future version processes data in a new way, this policy will be updated to reflect it.</p>
 
     <h2>Contact</h2>
     <p>Questions? Contact: <a href="mailto:cosmafrancesco93@gmail.com">cosmafrancesco93@gmail.com</a></p>
