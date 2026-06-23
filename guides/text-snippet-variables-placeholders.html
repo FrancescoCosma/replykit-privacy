@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Text Snippet Variables &amp; Placeholders: Templates That Fill Themselves — ReplyKit</title>
+    <meta
+      name="description"
+      content="Use dynamic placeholders in your text snippets: {date} and {time} fill in automatically, {name} prompts you as you type. Build reusable templates that personalize themselves, free with ReplyKit."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Text Snippet Variables & Placeholders: Templates That Fill Themselves" />
+    <meta property="og:description" content="Dynamic placeholders for your snippets: {date}/{time} auto-fill, {name} prompts you. Build templates that personalize themselves." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Text Snippet Variables & Placeholders" />
+    <meta name="twitter:description" content="Dynamic templates that fill themselves: {date}/{time} auto-fill, {name} prompts you. Free with ReplyKit." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to use variables and placeholders in text snippets",
+        "description": "Add dynamic placeholders to reusable snippets so they personalize themselves when inserted.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "step": [
+          { "@type": "HowToStep", "name": "Add a placeholder", "text": "Write a snippet with tokens in curly braces, e.g. Hi {name}, your order ships on {date}." },
+          { "@type": "HowToStep", "name": "Insert it", "text": "Type // in any text field and pick the snippet." },
+          { "@type": "HowToStep", "name": "Auto and manual fill", "text": "{date} and {time} fill in automatically; {name} prompts you to type the value before inserting." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://replykit.pureprompting.com/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Text snippet variables & placeholders" }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../">ReplyKit</a> › Guides › Text snippet variables &amp; placeholders</div>
+
+      <h1>Text snippet variables &amp; placeholders: templates that fill themselves</h1>
+      <p class="lede">A good template saves time. A template that personalizes itself saves more. With placeholders, one snippet adapts to every message — the date fills in on its own, and the name is the only thing you type.</p>
+
+      <p>The problem with plain canned responses is the editing. You paste "Hi [name], your order ships on [date]" and then hunt for the brackets to fix them by hand. Placeholders remove that step: you mark the parts that change once, and ReplyKit fills them in when you insert the snippet.</p>
+
+      <h2>The two kinds of placeholders</h2>
+      <p>Wrap a token in curly braces anywhere in your snippet, like <code>{name}</code>. There are two behaviors:</p>
+      <table>
+        <tr><th>Placeholder</th><th>What happens on insert</th></tr>
+        <tr><td><code>{date}</code></td><td>Auto-fills today's date</td></tr>
+        <tr><td><code>{time}</code></td><td>Auto-fills the current time</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Auto-fills date and time together</td></tr>
+        <tr><td><code>{name}</code>, <code>{order}</code>, <code>{anything}</code></td><td>Prompts you to type the value before inserting</td></tr>
+      </table>
+      <p><code>{date}</code>, <code>{time}</code> and <code>{datetime}</code> are automatic — you never type them. Any other token becomes a fill-in field: when you insert the snippet, ReplyKit asks you for each one, then drops the finished text at your cursor.</p>
+
+      <h2>How to use them (in 3 steps)</h2>
+      <ol>
+        <li>Save a snippet with placeholders, e.g. <code>Hi {name}, your order ships on {date}. Thanks for your patience!</code></li>
+        <li>In any text field, type <code>//</code> and pick the snippet.</li>
+        <li>ReplyKit fills <code>{date}</code> automatically and asks you for <code>{name}</code>. Type "Maria", and you get: <em>Hi Maria, your order ships on 07/07/2026. Thanks for your patience!</em></li>
+      </ol>
+
+      <h2>Templates worth turning dynamic</h2>
+      <h2>Order update</h2>
+      <div class="tpl">Hi {name}, good news — your order {order} shipped today, {date}. You can track it here: {tracking}.</div>
+
+      <h2>Meeting confirmation</h2>
+      <div class="tpl">Hi {name}, confirming our call on {date} at {time}. Talk soon!</div>
+
+      <h2>Support follow-up</h2>
+      <div class="tpl">Hi {name}, just following up on ticket {ticket}. Is everything working now, or should I keep digging?</div>
+
+      <div class="ctabox">
+        <p><strong>Build templates that fill themselves.</strong> Add placeholders to any snippet and insert it anywhere by typing //.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Add ReplyKit to Chrome — free</a>
+      </div>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Reuse the same token name to fill it once — every <code>{name}</code> in a snippet gets the value you type.</li>
+        <li>Keep token names short and obvious (<code>{name}</code>, <code>{date}</code>, <code>{link}</code>) so you remember what to type.</li>
+        <li>Combine with a short trigger: type <code>;ship</code> to expand your order-update template instantly.</li>
+        <li>Use <code>{date}</code> for anything dated — logs, timestamps, "as of today" lines — and never update it by hand again.</li>
+      </ul>
+
+      <p>Related: <a href="text-shortcuts-abbreviations.html">Type faster with text shortcuts &amp; abbreviations</a> · <a href="customer-support-reply-templates.html">11 customer support reply templates</a> · <a href="free-text-expander-alternative.html">A free text expander alternative</a></p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../">Home</a> · <a href="../privacy.html">Privacy</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Get the extension</a>
+    </footer>
+  </body>
+</html>

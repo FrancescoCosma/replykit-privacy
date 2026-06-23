@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Type Faster with Text Shortcuts &amp; Abbreviations (Free Chrome Tool) — ReplyKit</title>
+    <meta
+      name="description"
+      content="Turn short triggers like ;hi into full messages. A free text abbreviation expander for Chrome: set a shortcut, type it anywhere, and your snippet appears instantly. No account needed."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Type Faster with Text Shortcuts & Abbreviations" />
+    <meta property="og:description" content="Turn short triggers like ;hi into full messages. A free text abbreviation expander for Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Type Faster with Text Shortcuts & Abbreviations" />
+    <meta name="twitter:description" content="Turn short triggers like ;hi into full messages. Free abbreviation expander for Chrome." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to create text shortcuts and abbreviations",
+        "description": "Set short triggers that expand into full snippets as you type, anywhere in Chrome.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "step": [
+          { "@type": "HowToStep", "name": "Create a snippet", "text": "Save the text you send often, e.g. a greeting or an address." },
+          { "@type": "HowToStep", "name": "Assign a shortcut", "text": "Give it a short trigger such as ;hi or ;addr." },
+          { "@type": "HowToStep", "name": "Type it anywhere", "text": "In any text field, type the trigger and it expands into the full snippet." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://replykit.pureprompting.com/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Text shortcuts & abbreviations" }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../">ReplyKit</a> › Guides › Text shortcuts &amp; abbreviations</div>
+
+      <h1>Type faster with text shortcuts &amp; abbreviations</h1>
+      <p class="lede">The fastest text to type is the text you don't. Assign a short trigger like <code>;hi</code> to a full message, and a couple of keystrokes become a complete reply — in Gmail, your help desk, a CRM, or any form.</p>
+
+      <p>A text expander (or abbreviation expander) watches what you type and swaps short triggers for longer text. It's the difference between typing a 200-character reply and typing <code>;thx</code>. ReplyKit does this for free, in any standard text field, with no account.</p>
+
+      <h2>Shortcuts vs. the // picker</h2>
+      <p>ReplyKit gives you two ways to insert a snippet — use whichever is faster in the moment:</p>
+      <ul>
+        <li><strong>The <code>//</code> picker</strong> — type <code>//</code>, search by name, pick. Great when you don't remember the exact trigger.</li>
+        <li><strong>Shortcuts</strong> — type the trigger (e.g. <code>;hi</code>) and it expands instantly, no menu. Great for the handful of snippets you use all day.</li>
+      </ul>
+
+      <h2>How to set one up (in 3 steps)</h2>
+      <ol>
+        <li>Open the ReplyKit popup and save (or edit) a snippet.</li>
+        <li>In the <strong>shortcut</strong> field, give it a trigger — something quick and memorable like <code>;hi</code>, <code>;sig</code>, or <code>;addr</code>.</li>
+        <li>In any text field, type the trigger. It expands into the full snippet right where your cursor is.</li>
+      </ol>
+
+      <h2>Choosing good triggers</h2>
+      <ul>
+        <li><strong>Use a prefix symbol</strong> like <code>;</code> or <code>/</code> so triggers never fire by accident inside a normal word.</li>
+        <li><strong>Keep them short and mnemonic</strong>: <code>;sig</code> for signature, <code>;ty</code> for thank-you, <code>;wfh</code> for "working from home today".</li>
+        <li><strong>Stay consistent</strong> — pick one prefix and use it for everything, so your fingers learn the pattern.</li>
+      </ul>
+
+      <h2>Handy shortcuts to start with</h2>
+      <table>
+        <tr><th>Trigger</th><th>Expands to</th></tr>
+        <tr><td><code>;hi</code></td><td>Hi! Thanks for reaching out — happy to help.</td></tr>
+        <tr><td><code>;thx</code></td><td>Thanks so much, really appreciate it!</td></tr>
+        <tr><td><code>;sig</code></td><td>Your full email signature</td></tr>
+        <tr><td><code>;addr</code></td><td>Your business address</td></tr>
+        <tr><td><code>;cal</code></td><td>Here's my calendar link to grab a time: …</td></tr>
+      </table>
+
+      <div class="ctabox">
+        <p><strong>Turn a couple of keystrokes into a full reply.</strong> Set a shortcut and type it anywhere.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Add ReplyKit to Chrome — free</a>
+      </div>
+
+      <h2>Make them even smarter</h2>
+      <p>Combine a shortcut with placeholders so the expanded text personalizes itself: a <code>;ship</code> trigger can expand to <em>"Hi {name}, your order shipped on {date}."</em> — filling the date automatically and prompting you for the name. See <a href="text-snippet-variables-placeholders.html">text snippet variables &amp; placeholders</a>.</p>
+
+      <p>Related: <a href="text-snippet-variables-placeholders.html">Variables &amp; placeholders</a> · <a href="canned-responses-in-gmail.html">Canned responses in Gmail</a> · <a href="free-text-expander-alternative.html">A free text expander alternative</a></p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../">Home</a> · <a href="../privacy.html">Privacy</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Get the extension</a>
+    </footer>
+  </body>
+</html>

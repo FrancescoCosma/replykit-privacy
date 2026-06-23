@@ -31,6 +31,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://replykit.pureprompting.com/guides/freelance-email-templates.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://replykit.pureprompting.com/privacy.html</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.3</priority>
