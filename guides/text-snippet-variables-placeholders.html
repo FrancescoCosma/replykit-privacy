@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Text Snippet Variables &amp; Placeholders: Templates That Fill Themselves — ReplyKit</title>
+    <title>Text Snippet Variables &amp; Placeholders — ReplyKit</title>
     <meta
       name="description"
-      content="Use dynamic placeholders in your text snippets: {date} and {time} fill in automatically, {name} prompts you as you type. Build reusable templates that personalize themselves, free with ReplyKit."
+      content="Use dynamic placeholders in your snippets: {date} and {time} fill in automatically, {name} prompts you. Build templates that personalize themselves."
     />
     <link rel="canonical" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
 
@@ -46,6 +46,18 @@
         ]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What are snippet variables or placeholders?", "acceptedAnswer": { "@type": "Answer", "text": "Dynamic fields inside a snippet, like {date} or {name}, that get filled in automatically or prompt you when you insert the snippet." } },
+          { "@type": "Question", "name": "Which placeholders fill in automatically?", "acceptedAnswer": { "@type": "Answer", "text": "{date}, {time} and {datetime} fill in automatically. Any other field, like {name}, prompts you as you insert." } },
+          { "@type": "Question", "name": "Can I create my own custom fields?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Write any {word} in a snippet and ReplyKit asks you to fill it in when you insert it." } },
+          { "@type": "Question", "name": "Is the clipboard supported as a placeholder?", "acceptedAnswer": { "@type": "Answer", "text": "No. {clipboard} isn't supported on purpose, so ReplyKit never needs clipboard-read permission." } }
+        ]
+      }
+    </script>
 
     <style>
       :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
@@ -81,6 +93,7 @@
       <div class="crumbs"><a href="../">ReplyKit</a> › Guides › Text snippet variables &amp; placeholders</div>
 
       <h1>Text snippet variables &amp; placeholders: templates that fill themselves</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Updated June 2026</p>
       <p class="lede">A good template saves time. A template that personalizes itself saves more. With placeholders, one snippet adapts to every message — the date fills in on its own, and the name is the only thing you type.</p>
 
       <p>The problem with plain canned responses is the editing. You paste "Hi [name], your order ships on [date]" and then hunt for the brackets to fix them by hand. Placeholders remove that step: you mark the parts that change once, and ReplyKit fills them in when you insert the snippet.</p>
@@ -127,6 +140,15 @@
       </ul>
 
       <p>Related: <a href="text-shortcuts-abbreviations.html">Type faster with text shortcuts &amp; abbreviations</a> · <a href="customer-support-reply-templates.html">11 customer support reply templates</a> · <a href="free-text-expander-alternative.html">A free text expander alternative</a></p>
+      <h2>Frequently asked questions</h2>
+      <p><strong>What are snippet variables or placeholders?</strong><br />
+      Dynamic fields inside a snippet, like <code>{date}</code> or <code>{name}</code>, that get filled in automatically or prompt you when you insert the snippet.</p>
+      <p><strong>Which placeholders fill in automatically?</strong><br />
+      <code>{date}</code>, <code>{time}</code> and <code>{datetime}</code> fill in automatically. Any other field, like <code>{name}</code>, prompts you as you insert.</p>
+      <p><strong>Can I create my own custom fields?</strong><br />
+      Yes. Write any <code>{word}</code> in a snippet and ReplyKit asks you to fill it in when you insert it.</p>
+      <p><strong>Is the clipboard supported as a placeholder?</strong><br />
+      No. <code>{clipboard}</code> isn't supported on purpose, so ReplyKit never needs clipboard-read permission.</p>
     </main>
 
     <footer>
