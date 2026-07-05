@@ -71,6 +71,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://replykit.pureprompting.com/guides/replykit-vs-textexpander.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://replykit.pureprompting.com/guides/replykit-vs-text-blaze.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://replykit.pureprompting.com/privacy.html</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.3</priority>
