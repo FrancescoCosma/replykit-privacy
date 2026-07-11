@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Uma alternativa gratuita aos expansores de texto</title>
+    <meta
+      name="description"
+      content="Procura um expansor de texto gratuito? O ReplyKit é uma extensão leve do Chrome que guarda modelos e insere respostas salvas digitando //."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/pt/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="pt" href="https://replykit.pureprompting.com/pt/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/free-text-expander-alternative.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Uma alternativa gratuita aos expansores de texto para Chrome" />
+    <meta property="og:description" content="Guarde modelos de texto e insira-os em qualquer lugar digitando //. Um expansor de texto gratuito, privado e leve para o Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/pt/guides/free-text-expander-alternative.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Uma alternativa gratuita aos expansores de texto para Chrome" />
+    <meta name="twitter:description" content="Um expansor de texto gratuito, privado e leve para o Chrome. Digite // para inserir suas respostas salvas." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Uma alternativa gratuita aos expansores de texto para Chrome (2026)",
+        "description": "Como o ReplyKit funciona como um expansor de texto gratuito e leve para Chrome: salve modelos e insira-os em qualquer lugar digitando //.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "author": { "@type": "Person", "name": "Francesco Cosma" },
+        "publisher": { "@type": "Organization", "name": "ReplyKit" },
+        "mainEntityOfPage": "https://replykit.pureprompting.com/pt/guides/free-text-expander-alternative.html",
+        "datePublished": "2026-06-22"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guias", "item": "https://replykit.pureprompting.com/pt/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Alternativa gratuita aos expansores de texto" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "O que é um expansor de texto?", "acceptedAnswer": { "@type": "Answer", "text": "Um expansor de texto guarda texto reutilizável — saudações, respostas a perguntas frequentes, assinaturas — e insere-o em qualquer campo com um atalho curto, para você parar de reescrever sempre a mesma coisa." } },
+          { "@type": "Question", "name": "Existe um expansor de texto gratuito para Chrome?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O ReplyKit é gratuito até 10 modelos, sem necessidade de conta. O Pro desbloqueia modelos ilimitados e sincronização." } },
+          { "@type": "Question", "name": "Em que o ReplyKit se diferencia do TextExpander?", "acceptedAnswer": { "@type": "Answer", "text": "O ReplyKit é leve e feito para o navegador: sem instalação no computador, sem conta no plano gratuito, focado na inserção rápida com // em qualquer campo de texto da web." } },
+          { "@type": "Question", "name": "Funciona fora do navegador?", "acceptedAnswer": { "@type": "Answer", "text": "O ReplyKit é uma extensão do Chrome, então funciona em qualquer campo de texto padrão da web. Para aplicativos de computador, você precisaria de um expansor em nível de sistema." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 23px; margin: 36px 0 12px; }
+      p, li { font-size: 17px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 16px; }
+      th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; }
+      th { background: var(--soft); }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guias › Alternativa gratuita aos expansores de texto</div>
+
+      <h1>Uma alternativa gratuita aos expansores de texto para Chrome</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Atualizado em julho de 2026</p>
+      <p class="lede">Se você continua reescrevendo as mesmas respostas, um expansor de texto economiza tempo de verdade — mas a maioria é paga ou pesada. O ReplyKit é uma alternativa gratuita e leve: você salva um modelo uma vez, depois insere onde quiser digitando <code>//</code>.</p>
+
+      <p>Expansores de texto permitem salvar texto reutilizável (saudações, respostas a perguntas frequentes, follow-ups, assinaturas) e inseri-lo em qualquer campo com um atalho curto. As ferramentas clássicas — TextExpander, aText e similares — são poderosas, mas costumam vir com assinatura, instalação no computador ou curva de aprendizado. Se você só quer respostas rápidas no navegador, isso pode ser exagero.</p>
+
+      <p>O <strong>ReplyKit</strong> foca em fazer uma coisa bem: modelos de texto rápidos, bem onde você digita, sem nada para aprender.</p>
+
+      <h2>Como funciona</h2>
+      <ul>
+        <li>Salve suas respostas mais usadas como <strong>modelos</strong> (um título e o texto).</li>
+        <li>Em qualquer campo de texto, digite <code>//</code> (ou use um atalho de teclado).</li>
+        <li>Escolha o modelo na busca instantânea — ele é inserido onde estiver seu cursor.</li>
+        <li>Ou clique em <strong>Copiar</strong> para colar manualmente em editores que bloqueiam a inserção automática.</li>
+      </ul>
+      <p>Funciona no Gmail, central de ajuda, marketplaces, redes sociais, CRMs e formulários comuns — onde houver um campo de texto padrão.</p>
+
+      <h2>Por que escolher uma ferramenta leve</h2>
+      <table>
+        <tr><th>O que você procura</th><th>ReplyKit</th></tr>
+        <tr><td>Preço</td><td>Grátis até 10 modelos; Pro desbloqueia ilimitados + sync</td></tr>
+        <tr><td>Configuração</td><td>Instale a extensão — sem conta no plano gratuito</td></tr>
+        <tr><td>Privacidade</td><td>Modelos ficam no seu dispositivo no plano gratuito; sem rastreadores, sem anúncios</td></tr>
+        <tr><td>Onde funciona</td><td>Direto no Chrome, em qualquer campo de texto</td></tr>
+      </table>
+
+      <h2>Quando uma ferramenta leve é suficiente</h2>
+      <p>Expansores completos brilham quando você precisa de formulários com lógica condicional, bibliotecas compartilhadas para equipes, ou expansão em nível de sistema entre apps nativos de computador. A maioria das pessoas não precisa disso. Se sua digitação repetitiva acontece no navegador — e-mail, ferramentas de suporte, marketplaces, redes sociais, formulários — uma extensão leve cobre a necessidade sem assinatura ou configuração. Você sempre pode migrar para uma ferramenta mais pesada depois; começar simples significa que você realmente cria o hábito em vez de abandonar uma configuração complicada.</p>
+
+      <h2>Os modelos que vale a pena salvar primeiro</h2>
+      <p>A forma mais rápida de sentir a economia de tempo é capturar as poucas coisas que você já reescreve todos os dias:</p>
+      <ul>
+        <li>Sua saudação e despedida, como modelos separados que você pode combinar.</li>
+        <li>Respostas às suas três perguntas mais comuns.</li>
+        <li>O link do seu calendário ou reserva.</li>
+        <li>Uma resposta educada de "estou verificando isso e já retorno" para ganhar tempo.</li>
+        <li>Texto padrão que você cola com frequência — um endereço, dados de pagamento, uma cláusula padrão.</li>
+      </ul>
+      <p>Cinco modelos já são suficientes para notar a diferença logo na primeira tarde.</p>
+
+      <h2>Quanto tempo um expansor de texto economiza?</h2>
+      <p>Acumula mais rápido do que parece. Se você reescreve dez respostas curtas por dia a cerca de quinze segundos cada, são dois minutos e meio por dia — mais de dez horas por ano em frases que você poderia inserir com uma tecla. Para quem trabalha em suporte ou vendas lidando com dezenas de mensagens, a economia se multiplica. E não é só velocidade: não reescrever a mesma mensagem mantém seu tom consistente e libera sua atenção para as partes que realmente exigem pensar.</p>
+
+      <h2>Migrando de outro expansor de texto</h2>
+      <p>A transição é indolor: não há nada para importar ou configurar. Instale o ReplyKit, recrie manualmente seus 5-10 modelos mais usados (poucos minutos), e atribua um atalho curto aos que você usa constantemente. Os modelos são salvos localmente no plano gratuito, então não há conta para configurar e nada sai do seu navegador. Se depois você passar para o Pro, eles sincronizam entre seus dispositivos pela sincronização integrada do navegador.</p>
+
+      <h2>O que você ganha de graça</h2>
+      <p>O plano gratuito cobre até dez modelos salvos localmente — suficiente para as respostas que a maioria reutiliza diariamente, sem conta e sem limite de tempo. Se não for suficiente, o Pro remove o limite e adiciona sincronização entre seus dispositivos, para que a mesma biblioteca te acompanhe entre trabalho e casa. Sem contagem regressiva de teste nem insistência sobre recursos no meio do caminho: o plano gratuito é genuinamente usável sozinho, não é uma amostra.</p>
+
+      <div class="ctabox">
+        <p><strong>Experimente o ReplyKit gratuitamente</strong> — salve seus primeiros modelos em menos de um minuto.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Adicionar ao Chrome — é grátis</a>
+      </div>
+
+      <h2>Para quem é</h2>
+      <p>Agentes de suporte que respondem perguntas frequentes, freelancers que enviam propostas e follow-ups, vendedores online que respondem sobre pedidos e envios, recrutadores e vendedores fazendo prospecção — qualquer um que digite as mesmas coisas todos os dias. Se for você, um expansor de texto simples se paga em minutos economizados já na primeira semana.</p>
+
+      <h2>Privado por design</h2>
+      <p>No plano gratuito, seus modelos são salvos localmente no seu navegador — sem conta, sem upload, sem rastreamento. Com o Pro, eles também sincronizam entre seus dispositivos pela sincronização integrada do navegador, nunca pelos nossos próprios servidores. Veja a <a href="../privacy.html">política de privacidade</a> para mais detalhes.</p>
+
+      <h2>Guias relacionados</h2>
+      <ul>
+        <li><a href="replykit-vs-textexpander.html">ReplyKit vs TextExpander</a> — uma comparação direta.</li>
+        <li><a href="replykit-vs-text-blaze.html">ReplyKit vs Text Blaze</a> — modelos simples vs. automação avançada.</li>
+        <li><a href="text-shortcuts-abbreviations.html">Atalhos e abreviações de texto</a> — expanda atalhos curtos como <code>;oi</code> instantaneamente.</li>
+        <li><a href="text-snippet-variables-placeholders.html">Variáveis e campos dinâmicos</a> — modelos que se preenchem sozinhos.</li>
+        <li><a href="canned-responses-in-gmail.html">Respostas salvas no Gmail</a> — insira-as digitando //.</li>
+        <li><a href="customer-support-reply-templates.html">11 modelos de resposta para atendimento ao cliente</a> — prontos para copiar.</li>
+      </ul>
+      <h2>Perguntas frequentes</h2>
+      <p><strong>O que é um expansor de texto?</strong><br />
+      Um expansor de texto guarda texto reutilizável — saudações, respostas a perguntas frequentes, assinaturas — e insere-o em qualquer campo com um atalho curto, para você parar de reescrever sempre a mesma coisa.</p>
+      <p><strong>Existe um expansor de texto gratuito para Chrome?</strong><br />
+      Sim. O ReplyKit é gratuito até 10 modelos, sem necessidade de conta. O Pro desbloqueia modelos ilimitados e sincronização.</p>
+      <p><strong>Em que o ReplyKit se diferencia de expansores mais pesados?</strong><br />
+      É leve e feito para o navegador: sem instalação no computador, sem conta no plano gratuito, focado na inserção rápida com <code>//</code> em qualquer campo de texto da web.</p>
+      <p><strong>Funciona fora do navegador?</strong><br />
+      O ReplyKit é uma extensão do Chrome, então funciona em qualquer campo de texto padrão da web. Para aplicativos de computador, você precisaria de um expansor em nível de sistema.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Início</a> · <a href="../../privacy.html">Privacidade</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obter a extensão</a>
+    </footer>
+  </body>
+</html>
