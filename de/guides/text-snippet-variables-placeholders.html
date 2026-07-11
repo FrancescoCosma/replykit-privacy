@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Variablen und Platzhalter in Textbausteinen — ReplyKit</title>
+    <meta
+      name="description"
+      content="Nutze dynamische Platzhalter in deinen Textbausteinen: {date} und {time} füllen sich selbst, {name} fragt dich. Erstelle Vorlagen, die sich selbst personalisieren."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/de/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Variablen und Platzhalter: Vorlagen, die sich selbst ausfüllen" />
+    <meta property="og:description" content="Dynamische Platzhalter für deine Textbausteine: {date}/{time} füllen sich selbst, {name} fragt dich. Vorlagen, die sich selbst personalisieren." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/de/guides/text-snippet-variables-placeholders.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Variablen und Platzhalter in Textbausteinen" />
+    <meta name="twitter:description" content="Dynamische Vorlagen, die sich selbst ausfüllen: {date}/{time} automatisch, {name} fragt dich. Kostenlos mit ReplyKit." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Wie man Variablen und Platzhalter in Textbausteinen verwendet",
+        "description": "Füge wiederverwendbaren Textbausteinen dynamische Platzhalter hinzu, damit sie sich beim Einfügen selbst personalisieren.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "step": [
+          { "@type": "HowToStep", "name": "Einen Platzhalter hinzufügen", "text": "Schreibe einen Textbaustein mit Tokens in geschweiften Klammern, z. B. Hallo {name}, deine Bestellung wird am {date} versandt." },
+          { "@type": "HowToStep", "name": "Einfügen", "text": "Tippe // in jedem Textfeld und wähle den Textbaustein." },
+          { "@type": "HowToStep", "name": "Automatisches und manuelles Ausfüllen", "text": "{date} und {time} füllen sich selbst aus; {name} fragt dich vor dem Einfügen nach dem Wert." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Anleitungen", "item": "https://replykit.pureprompting.com/de/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Variablen und Platzhalter in Textbausteinen" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Was sind Variablen oder Platzhalter in Textbausteinen?", "acceptedAnswer": { "@type": "Answer", "text": "Dynamische Felder in einem Textbaustein, wie {date} oder {name}, die sich selbst ausfüllen oder dich beim Einfügen nach einem Wert fragen." } },
+          { "@type": "Question", "name": "Welche Platzhalter füllen sich automatisch aus?", "acceptedAnswer": { "@type": "Answer", "text": "{date}, {time} und {datetime} füllen sich selbst aus. Jedes andere Feld, wie {name}, fragt dich beim Einfügen." } },
+          { "@type": "Question", "name": "Kann ich eigene benutzerdefinierte Felder erstellen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Schreibe ein beliebiges {wort} in einen Textbaustein und ReplyKit bittet dich, es beim Einfügen auszufüllen." } },
+          { "@type": "Question", "name": "Wird die Zwischenablage als Platzhalter unterstützt?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. {clipboard} wird absichtlich nicht unterstützt, damit ReplyKit nie die Berechtigung zum Lesen der Zwischenablage braucht." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Anleitungen › Variablen und Platzhalter in Textbausteinen</div>
+
+      <h1>Variablen und Platzhalter: Vorlagen, die sich selbst ausfüllen</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Aktualisiert im Juli 2026</p>
+      <p class="lede">Eine gute Vorlage spart Zeit. Eine Vorlage, die sich selbst personalisiert, spart mehr. Mit Platzhaltern passt sich ein Textbaustein an jede Nachricht an — das Datum füllt sich von selbst aus, und der Name ist das Einzige, was du tippst.</p>
+
+      <p>Das Problem mit einfachen gespeicherten Antworten ist die Bearbeitung. Du fügst „Hallo [Name], deine Bestellung wird am [Datum] versandt" ein und suchst dann die Klammern, um sie von Hand zu korrigieren. Platzhalter entfernen diesen Schritt: Du markierst die sich ändernden Teile einmal, und ReplyKit füllt sie aus, wenn du den Textbaustein einfügst.</p>
+
+      <h2>Die zwei Arten von Platzhaltern</h2>
+      <p>Umschließe ein Token mit geschweiften Klammern irgendwo in deinem Textbaustein, wie <code>{name}</code>. Es gibt zwei Verhaltensweisen:</p>
+      <table>
+        <tr><th>Platzhalter</th><th>Was beim Einfügen passiert</th></tr>
+        <tr><td><code>{date}</code></td><td>Füllt sich selbst mit dem heutigen Datum</td></tr>
+        <tr><td><code>{time}</code></td><td>Füllt sich selbst mit der aktuellen Uhrzeit</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Füllt sich mit Datum und Uhrzeit zusammen</td></tr>
+        <tr><td><code>{name}</code>, <code>{order}</code>, <code>{beliebig}</code></td><td>Fragt dich, den Wert vor dem Einfügen einzugeben</td></tr>
+      </table>
+      <p><code>{date}</code>, <code>{time}</code> und <code>{datetime}</code> sind automatisch — du tippst sie nie. Jedes andere Token wird zu einem auszufüllenden Feld: Wenn du den Textbaustein einfügst, fragt ReplyKit dich nach jedem, und legt dann den fertigen Text an deiner Cursorposition ab.</p>
+
+      <h2>So verwendest du sie (in 3 Schritten)</h2>
+      <ol>
+        <li>Speichere einen Textbaustein mit Platzhaltern, z. B. <code>Hallo {name}, deine Bestellung wird am {date} versandt. Danke für deine Geduld!</code></li>
+        <li>Tippe in jedem Textfeld <code>//</code> und wähle den Textbaustein.</li>
+        <li>ReplyKit füllt <code>{date}</code> automatisch aus und fragt dich nach <code>{name}</code>. Tippe „Maria", und du erhältst: <em>Hallo Maria, deine Bestellung wird am 07.07.2026 versandt. Danke für deine Geduld!</em></li>
+      </ol>
+
+      <h2>Vorlagen, die es wert sind, dynamisch zu werden</h2>
+      <h2>Bestellaktualisierung</h2>
+      <div class="tpl">Hallo {name}, gute Nachrichten — deine Bestellung {order} wurde heute, am {date}, versandt. Du kannst sie hier verfolgen: {tracking}.</div>
+
+      <h2>Terminbestätigung</h2>
+      <div class="tpl">Hallo {name}, ich bestätige unseren Anruf am {date} um {time}. Bis dahin!</div>
+
+      <h2>Support-Nachfassung</h2>
+      <div class="tpl">Hallo {name}, nur eine Nachfrage zu Ticket {ticket}. Funktioniert jetzt alles, oder soll ich weiter nachforschen?</div>
+
+      <div class="ctabox">
+        <p><strong>Erstelle Vorlagen, die sich selbst ausfüllen.</strong> Füge jedem Textbaustein Platzhalter hinzu und füge ihn überall ein, indem du // tippst.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit zu Chrome hinzufügen — kostenlos</a>
+      </div>
+
+      <h2>Tipps</h2>
+      <ul>
+        <li>Verwende denselben Token-Namen wieder, um ihn einmal auszufüllen — jedes <code>{name}</code> in einem Textbaustein erhält den Wert, den du tippst.</li>
+        <li>Halte Token-Namen kurz und eindeutig (<code>{name}</code>, <code>{date}</code>, <code>{link}</code>), damit du dich erinnerst, was zu tippen ist.</li>
+        <li>Kombiniere mit einer kurzen Abkürzung: Tippe <code>;vers</code>, um deine Bestellaktualisierungs-Vorlage sofort zu erweitern.</li>
+        <li>Nutze <code>{date}</code> für alles Datierte — Logs, Zeitstempel, „Stand heute"-Zeilen — und aktualisiere es nie wieder von Hand.</li>
+      </ul>
+
+      <p>Verwandt: <a href="text-shortcuts-abbreviations.html">Schneller tippen mit Textkürzeln und Abkürzungen</a> · <a href="customer-support-reply-templates.html">11 Antwortvorlagen für den Kundensupport</a> · <a href="free-text-expander-alternative.html">Eine kostenlose Alternative zu Textbausteinprogrammen</a></p>
+      <h2>Häufig gestellte Fragen</h2>
+      <p><strong>Was sind Variablen oder Platzhalter in Textbausteinen?</strong><br />
+      Dynamische Felder in einem Textbaustein, wie <code>{date}</code> oder <code>{name}</code>, die sich selbst ausfüllen oder dich beim Einfügen nach einem Wert fragen.</p>
+      <p><strong>Welche Platzhalter füllen sich automatisch aus?</strong><br />
+      <code>{date}</code>, <code>{time}</code> und <code>{datetime}</code> füllen sich selbst aus. Jedes andere Feld, wie <code>{name}</code>, fragt dich beim Einfügen.</p>
+      <p><strong>Kann ich eigene benutzerdefinierte Felder erstellen?</strong><br />
+      Ja. Schreibe ein beliebiges <code>{wort}</code> in einen Textbaustein und ReplyKit bittet dich, es beim Einfügen auszufüllen.</p>
+      <p><strong>Wird die Zwischenablage als Platzhalter unterstützt?</strong><br />
+      Nein. <code>{clipboard}</code> wird absichtlich nicht unterstützt, damit ReplyKit nie die Berechtigung zum Lesen der Zwischenablage braucht.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Startseite</a> · <a href="../../privacy.html">Datenschutz</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Erweiterung holen</a>
+    </footer>
+  </body>
+</html>

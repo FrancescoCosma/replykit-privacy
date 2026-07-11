@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Schneller tippen mit Textkürzeln und Abkürzungen</title>
+    <meta
+      name="description"
+      content="Verwandle kurze Trigger wie ;hi in vollständige Nachrichten. Ein kostenloses Abkürzungs-Tool für Chrome: Kürzel festlegen, tippen, Textbaustein erscheint."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/de/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Schneller tippen mit Textkürzeln und Abkürzungen" />
+    <meta property="og:description" content="Verwandle kurze Trigger wie ;hi in vollständige Nachrichten. Ein kostenloses Abkürzungs-Tool für Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/de/guides/text-shortcuts-abbreviations.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Schneller tippen mit Textkürzeln und Abkürzungen" />
+    <meta name="twitter:description" content="Verwandle kurze Trigger wie ;hi in vollständige Nachrichten. Kostenloses Abkürzungs-Tool für Chrome." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Wie man Textkürzel und Abkürzungen erstellt",
+        "description": "Lege kurze Trigger fest, die sich beim Tippen überall in Chrome zu vollständigen Textbausteinen erweitern.",
+        "step": [
+          { "@type": "HowToStep", "name": "Einen Textbaustein erstellen", "text": "Speichere Text, den du oft sendest, z. B. eine Begrüßung oder eine Adresse." },
+          { "@type": "HowToStep", "name": "Ein Kürzel zuweisen", "text": "Gib ihm einen kurzen Trigger wie ;hi oder ;adr." },
+          { "@type": "HowToStep", "name": "Überall tippen", "text": "Tippe in jedem Textfeld den Trigger und er erweitert sich zum vollständigen Textbaustein." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Anleitungen", "item": "https://replykit.pureprompting.com/de/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Textkürzel und Abkürzungen" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Was ist ein Textkürzel oder eine Abkürzung?", "acceptedAnswer": { "@type": "Answer", "text": "Ein kurzer Trigger — wie ;hi — der sich beim Tippen automatisch zu einem längeren gespeicherten Textbaustein erweitert, sodass ein paar Zeichen zu einer vollständigen Nachricht werden." } },
+          { "@type": "Question", "name": "Wie erstelle ich ein Kürzel in ReplyKit?", "acceptedAnswer": { "@type": "Answer", "text": "Füge einen Textbaustein hinzu oder bearbeite ihn und fülle sein Kürzel-Feld aus (z. B. ;hi). Tippe dann dieses Kürzel in jedem Textfeld und es erweitert sich sofort." } },
+          { "@type": "Question", "name": "Erweitern sich Kürzel versehentlich?", "acceptedAnswer": { "@type": "Answer", "text": "Alphanumerische Kürzel benötigen eine Wortgrenze zum Auslösen, und Kürzel, die mit einem Symbol beginnen (wie ;), vermeiden Konflikte mit normalem Tippen." } },
+          { "@type": "Question", "name": "Funktionieren Kürzel überall?", "acceptedAnswer": { "@type": "Answer", "text": "Sie funktionieren in jedem Standard-Textfeld im Web — Gmail, Helpdesks, Formulare und mehr. Für isolierte Editoren gibt es einen Kopieren-Button." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Anleitungen › Textkürzel und Abkürzungen</div>
+
+      <h1>Schneller tippen mit Textkürzeln und Abkürzungen</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Aktualisiert im Juli 2026</p>
+      <p class="lede">Der schnellste Text zum Tippen ist der, den du nicht tippst. Weise einer vollständigen Nachricht einen kurzen Trigger wie <code>;hi</code> zu, und ein paar Tastendrücke werden zu einer vollständigen Antwort — in Gmail, deinem Helpdesk, einem CRM oder jedem Formular.</p>
+
+      <p>Ein Textbaustein-Tool (oder Abkürzungs-Tool) beobachtet, was du tippst, und ersetzt kurze Trigger durch längeren Text. Es ist der Unterschied zwischen dem Tippen einer 200-Zeichen-Antwort und dem Tippen von <code>;dank</code>. ReplyKit macht das kostenlos, in jedem Standard-Textfeld, ohne Konto.</p>
+
+      <h2>Kürzel vs. der //-Selektor</h2>
+      <p>ReplyKit gibt dir zwei Wege, einen Textbaustein einzufügen — nutze, was im Moment schneller ist:</p>
+      <ul>
+        <li><strong>Der <code>//</code>-Selektor</strong> — du tippst <code>//</code>, suchst nach Namen, wählst aus. Großartig, wenn du dich nicht an das genaue Kürzel erinnerst.</li>
+        <li><strong>Kürzel</strong> — du tippst den Trigger (z. B. <code>;hi</code>) und er erweitert sich sofort, ohne Menü. Großartig für die Handvoll Textbausteine, die du den ganzen Tag nutzt.</li>
+      </ul>
+
+      <h2>So richtest du eines ein (in 3 Schritten)</h2>
+      <ol>
+        <li>Öffne das ReplyKit-Popup und speichere (oder bearbeite) einen Textbaustein.</li>
+        <li>Gib ihm im Feld <strong>Kürzel</strong> einen Trigger — etwas Schnelles und Einprägsames wie <code>;hi</code>, <code>;sig</code> oder <code>;adr</code>.</li>
+        <li>Tippe in jedem Textfeld den Trigger. Er erweitert sich zum vollständigen Textbaustein genau an deiner Cursorposition.</li>
+      </ol>
+
+      <h2>Gute Trigger wählen</h2>
+      <ul>
+        <li><strong>Nutze ein Präfix-Symbol</strong> wie <code>;</code> oder <code>/</code>, damit Trigger nie versehentlich innerhalb eines normalen Wortes auslösen.</li>
+        <li><strong>Halte sie kurz und einprägsam</strong>: <code>;sig</code> für Signatur, <code>;dank</code> für Danke, <code>;hom</code> für „heute im Homeoffice".</li>
+        <li><strong>Bleib konsistent</strong> — wähle ein Präfix und nutze es für alles, damit deine Finger das Muster lernen.</li>
+      </ul>
+
+      <h2>Praktische Kürzel zum Einstieg</h2>
+      <table>
+        <tr><th>Trigger</th><th>Erweitert sich zu</th></tr>
+        <tr><td><code>;hi</code></td><td>Hallo! Danke für deine Nachricht — gerne helfe ich weiter.</td></tr>
+        <tr><td><code>;dank</code></td><td>Vielen Dank, wirklich sehr geschätzt!</td></tr>
+        <tr><td><code>;sig</code></td><td>Deine vollständige E-Mail-Signatur</td></tr>
+        <tr><td><code>;adr</code></td><td>Deine Geschäftsadresse</td></tr>
+        <tr><td><code>;cal</code></td><td>Hier ist mein Kalenderlink, um einen Termin zu buchen: …</td></tr>
+      </table>
+
+      <h2>Wo Textkürzel am meisten Zeit sparen</h2>
+      <p>Jeder, der sich wiederholende Nachrichten tippt, profitiert, aber einige Rollen sehen die größten Gewinne:</p>
+      <ul>
+        <li><strong>Kundensupport</strong> — eine Begrüßung, ein „ich schaue mir das an" und eine Abschlusszeile decken einen großen Teil der Tickets ab. Drei Trigger ersetzen Hunderte von Tastendrücken pro Tag.</li>
+        <li><strong>Vertrieb und Akquise</strong> — dein Kalenderlink, eine Nachfass-Erinnerung und eine Preiszeile sind immer nur ein paar Zeichen entfernt.</li>
+        <li><strong>Recruiting</strong> — Terminplanung, „danke für deine Bewerbung" und Absagen, die trotzdem menschlich klingen.</li>
+        <li><strong>Entwickler und Betrieb</strong> — Standardtext wie PR-Beschreibungen, Standup-Updates oder eine Standard-Incident-Antwort.</li>
+      </ul>
+      <p>Das Muster ist immer gleich: Liste die zehn Sätze auf, die du diese Woche am häufigsten neu tippst, gib jedem einen Trigger, und lass das Muskelgedächtnis den Rest übernehmen.</p>
+
+      <h2>Kürzel vs. Autokorrektur und Textersatz des Betriebssystems</h2>
+      <p>Die Textersetzung deines Telefons oder die Autokorrektur deines Betriebssystems können ein paar Abkürzungen erweitern, aber sie sind eingeschränkt: unhandlich auf einem Laptop zu verwalten, passen nicht zu deiner Browser-Arbeit, und verhunzen oft längere, mehrzeilige Antworten. Ein dediziertes Browser-Tool hält Textbausteine mit Namen, Ordnern und Kürzeln organisiert, erweitert mehrabsätzige Nachrichten sauber, und verhält sich in jeder Web-App, die du nutzt, gleich — von Gmail über deinen Helpdesk bis zu einem CRM.</p>
+
+      <h2>Erstelle eine Kürzel-Übersicht</h2>
+      <p>Beim Einstieg halte eine kurze Liste deiner Trigger eine Woche lang sichtbar — ein Post-it oder ein angehefteter Textbaustein funktioniert gut. Nach ein paar Tagen bleiben die nützlichen hängen und du kannst den Rest ausdünnen. Gruppiere verwandte Trigger mit einem gemeinsamen Präfix (<code>;g-</code> für Begrüßungen, <code>;n-</code> für Nachfassungen), damit sie leicht zu merken sind, und überprüfe die Liste monatlich: streiche, was du nie auslöst, und füge die Sätze hinzu, die du weiter von Hand tippst. Ein Dutzend gut gewählter Trigger schlägt fünfzig, an die du dich nicht erinnerst.</p>
+
+      <h2>Verlangsamen Kürzel dein Tippen?</h2>
+      <p>Nein — die Erweiterung passiert in dem Moment, in dem du einen Trigger vervollständigst, und ReplyKit reagiert nur auf die kleine Menge der Kürzel, die du definiert hast, sodass normales Tippen unberührt bleibt. Da Trigger an einer Wortgrenze auslösen (oder mit einem Symbol beginnen), erweitern sich alltägliche Wörter nie versehentlich. Und falls ein Textbaustein im Moment nicht passend erscheint, kannst du immer noch zum <code>//</code>-Selektor greifen — beide Methoden teilen dieselbe Bibliothek.</p>
+      <p>Die meisten finden innerhalb der ersten Woche einen angenehmen Rhythmus — ein paar Trigger werden automatisch, und die zehnte identische Antwort des Vormittags hört einfach auf, etwas zu sein, worüber du nachdenkst.</p>
+
+      <div class="ctabox">
+        <p><strong>Verwandle ein paar Tastendrücke in eine vollständige Antwort.</strong> Lege ein Kürzel fest und tippe es überall.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit zu Chrome hinzufügen — kostenlos</a>
+      </div>
+
+      <h2>Mach sie noch intelligenter</h2>
+      <p>Kombiniere ein Kürzel mit Platzhaltern, damit sich der erweiterte Text selbst personalisiert: Ein <code>;vers</code>-Trigger kann sich zu <em>„Hallo {name}, deine Bestellung wurde am {date} versandt."</em> erweitern — dabei das Datum automatisch ausfüllen und dich nach dem Namen fragen. Siehe <a href="text-snippet-variables-placeholders.html">Variablen und Platzhalter in Textbausteinen</a>. Ein einprägsames Kürzel mit einer sich selbst ausfüllenden Vorlage zu kombinieren ist, wo ein paar Tastendrücke die größte Arbeit leisten.</p>
+
+      <p>Verwandt: <a href="text-snippet-variables-placeholders.html">Variablen und Platzhalter</a> · <a href="canned-responses-in-gmail.html">Gespeicherte Antworten in Gmail</a> · <a href="free-text-expander-alternative.html">Eine kostenlose Alternative zu Textbausteinprogrammen</a></p>
+      <h2>Häufig gestellte Fragen</h2>
+      <p><strong>Was ist ein Textkürzel oder eine Abkürzung?</strong><br />
+      Ein kurzer Trigger — wie <code>;hi</code> — der sich beim Tippen automatisch zu einem längeren gespeicherten Textbaustein erweitert, sodass ein paar Zeichen zu einer vollständigen Nachricht werden.</p>
+      <p><strong>Wie erstelle ich ein Kürzel in ReplyKit?</strong><br />
+      Füge einen Textbaustein hinzu oder bearbeite ihn und fülle sein Kürzel-Feld aus (z. B. <code>;hi</code>). Tippe dann dieses Kürzel in jedem Textfeld und es erweitert sich sofort.</p>
+      <p><strong>Erweitern sich Kürzel versehentlich?</strong><br />
+      Alphanumerische Kürzel benötigen eine Wortgrenze zum Auslösen, und Kürzel, die mit einem Symbol beginnen (wie <code>;</code>), vermeiden Konflikte mit normalem Tippen.</p>
+      <p><strong>Funktionieren Kürzel überall?</strong><br />
+      Sie funktionieren in jedem Standard-Textfeld im Web — Gmail, Helpdesks, Formulare und mehr. Für isolierte Editoren gibt es einen Kopieren-Button.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Startseite</a> · <a href="../../privacy.html">Datenschutz</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Erweiterung holen</a>
+    </footer>
+  </body>
+</html>
