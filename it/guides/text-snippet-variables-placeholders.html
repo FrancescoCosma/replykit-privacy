@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Variabili e segnaposto negli snippet — ReplyKit</title>
+    <meta
+      name="description"
+      content="Usa segnaposto dinamici nei tuoi snippet: {date} e {time} si compilano da soli, {name} te lo chiede. Crea template che si personalizzano da sé."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/it/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Variabili e segnaposto negli snippet: template che si compilano da soli" />
+    <meta property="og:description" content="Segnaposto dinamici per i tuoi snippet: {date}/{time} si compilano da soli, {name} te lo chiede. Template che si personalizzano da sé." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/it/guides/text-snippet-variables-placeholders.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Variabili e segnaposto negli snippet" />
+    <meta name="twitter:description" content="Template dinamici che si compilano da soli: {date}/{time} in automatico, {name} te lo chiede. Gratis con ReplyKit." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Come usare variabili e segnaposto negli snippet di testo",
+        "description": "Aggiungi segnaposto dinamici agli snippet riutilizzabili così si personalizzano da soli all'inserimento.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "step": [
+          { "@type": "HowToStep", "name": "Aggiungi un segnaposto", "text": "Scrivi uno snippet con token tra parentesi graffe, es. Ciao {name}, il tuo ordine parte il {date}." },
+          { "@type": "HowToStep", "name": "Inseriscilo", "text": "Digita // in qualsiasi campo di testo e scegli lo snippet." },
+          { "@type": "HowToStep", "name": "Compilazione automatica e manuale", "text": "{date} e {time} si compilano da soli; {name} ti chiede di digitare il valore prima dell'inserimento." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guide", "item": "https://replykit.pureprompting.com/it/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Variabili e segnaposto negli snippet" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Cosa sono le variabili o i segnaposto negli snippet?", "acceptedAnswer": { "@type": "Answer", "text": "Campi dinamici dentro uno snippet, come {date} o {name}, che si compilano da soli o ti chiedono un valore quando inserisci lo snippet." } },
+          { "@type": "Question", "name": "Quali segnaposto si compilano automaticamente?", "acceptedAnswer": { "@type": "Answer", "text": "{date}, {time} e {datetime} si compilano da soli. Qualsiasi altro campo, come {name}, ti chiede il valore mentre inserisci." } },
+          { "@type": "Question", "name": "Posso creare campi personalizzati?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. Scrivi qualsiasi {parola} in uno snippet e ReplyKit ti chiederà di compilarla quando lo inserisci." } },
+          { "@type": "Question", "name": "Gli appunti (clipboard) sono supportati come segnaposto?", "acceptedAnswer": { "@type": "Answer", "text": "No. {clipboard} non è supportato di proposito, così ReplyKit non ha mai bisogno del permesso di lettura degli appunti." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guide › Variabili e segnaposto negli snippet</div>
+
+      <h1>Variabili e segnaposto negli snippet: template che si compilano da soli</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Aggiornato a luglio 2026</p>
+      <p class="lede">Un buon template fa risparmiare tempo. Un template che si personalizza da solo ne fa risparmiare di più. Con i segnaposto, uno snippet si adatta a ogni messaggio — la data si compila da sola, e il nome è l'unica cosa che digiti.</p>
+
+      <p>Il problema delle risposte pronte semplici è la modifica. Incolli "Ciao [nome], il tuo ordine parte il [data]" e poi cerchi le parentesi per correggerle a mano. I segnaposto eliminano questo passaggio: segni una volta le parti che cambiano, e ReplyKit le compila quando inserisci lo snippet.</p>
+
+      <h2>I due tipi di segnaposto</h2>
+      <p>Racchiudi un token tra parentesi graffe ovunque nel tuo snippet, come <code>{name}</code>. Ci sono due comportamenti:</p>
+      <table>
+        <tr><th>Segnaposto</th><th>Cosa succede all'inserimento</th></tr>
+        <tr><td><code>{date}</code></td><td>Si compila da solo con la data di oggi</td></tr>
+        <tr><td><code>{time}</code></td><td>Si compila da solo con l'ora corrente</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Si compila con data e ora insieme</td></tr>
+        <tr><td><code>{name}</code>, <code>{order}</code>, <code>{qualsiasi}</code></td><td>Ti chiede di digitare il valore prima dell'inserimento</td></tr>
+      </table>
+      <p><code>{date}</code>, <code>{time}</code> e <code>{datetime}</code> sono automatici — non li digiti mai. Qualsiasi altro token diventa un campo da compilare: quando inserisci lo snippet, ReplyKit te lo chiede uno per uno, poi lascia il testo finito al cursore.</p>
+
+      <h2>Come usarli (in 3 passi)</h2>
+      <ol>
+        <li>Salva uno snippet con segnaposto, es. <code>Ciao {name}, il tuo ordine parte il {date}. Grazie per la pazienza!</code></li>
+        <li>In qualsiasi campo di testo, digita <code>//</code> e scegli lo snippet.</li>
+        <li>ReplyKit compila <code>{date}</code> automaticamente e ti chiede <code>{name}</code>. Digita "Maria", e ottieni: <em>Ciao Maria, il tuo ordine parte il 07/07/2026. Grazie per la pazienza!</em></li>
+      </ol>
+
+      <h2>Template da rendere dinamici</h2>
+      <h2>Aggiornamento ordine</h2>
+      <div class="tpl">Ciao {name}, buone notizie — il tuo ordine {order} è partito oggi, {date}. Puoi tracciarlo qui: {tracking}.</div>
+
+      <h2>Conferma appuntamento</h2>
+      <div class="tpl">Ciao {name}, ti confermo la nostra chiamata del {date} alle {time}. A presto!</div>
+
+      <h2>Follow-up di supporto</h2>
+      <div class="tpl">Ciao {name}, solo un follow-up sul ticket {ticket}. Va tutto bene ora, o devo continuare ad approfondire?</div>
+
+      <div class="ctabox">
+        <p><strong>Crea template che si compilano da soli.</strong> Aggiungi segnaposto a qualsiasi snippet e inseriscilo ovunque digitando //.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Aggiungi ReplyKit a Chrome — gratis</a>
+      </div>
+
+      <h2>Suggerimenti</h2>
+      <ul>
+        <li>Riusa lo stesso nome di token per compilarlo una volta — ogni <code>{name}</code> in uno snippet riceve il valore che digiti.</li>
+        <li>Tieni i nomi dei token brevi e ovvi (<code>{name}</code>, <code>{date}</code>, <code>{link}</code>) così ricordi cosa digitare.</li>
+        <li>Combina con un trigger breve: digita <code>;sped</code> per espandere all'istante il tuo template di aggiornamento ordine.</li>
+        <li>Usa <code>{date}</code> per tutto ciò che è datato — log, timestamp, righe "a oggi" — e non aggiornarlo mai più a mano.</li>
+      </ul>
+
+      <p>Correlati: <a href="text-shortcuts-abbreviations.html">Digita più veloce con scorciatoie e abbreviazioni</a> · <a href="customer-support-reply-templates.html">11 template di risposta per il supporto clienti</a> · <a href="free-text-expander-alternative.html">Un'alternativa gratuita ai text expander</a></p>
+      <h2>Domande frequenti</h2>
+      <p><strong>Cosa sono le variabili o i segnaposto negli snippet?</strong><br />
+      Campi dinamici dentro uno snippet, come <code>{date}</code> o <code>{name}</code>, che si compilano da soli o ti chiedono un valore quando inserisci lo snippet.</p>
+      <p><strong>Quali segnaposto si compilano automaticamente?</strong><br />
+      <code>{date}</code>, <code>{time}</code> e <code>{datetime}</code> si compilano da soli. Qualsiasi altro campo, come <code>{name}</code>, ti chiede il valore mentre inserisci.</p>
+      <p><strong>Posso creare campi personalizzati?</strong><br />
+      Sì. Scrivi qualsiasi <code>{parola}</code> in uno snippet e ReplyKit ti chiederà di compilarla quando lo inserisci.</p>
+      <p><strong>Gli appunti (clipboard) sono supportati come segnaposto?</strong><br />
+      No. <code>{clipboard}</code> non è supportato di proposito, così ReplyKit non ha mai bisogno del permesso di lettura degli appunti.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Home</a> · <a href="../../privacy.html">Privacy</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Ottieni l'estensione</a>
+    </footer>
+  </body>
+</html>
