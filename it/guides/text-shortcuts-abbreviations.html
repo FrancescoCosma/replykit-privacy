@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Scorciatoie e abbreviazioni per digitare più veloce</title>
+    <meta
+      name="description"
+      content="Trasforma trigger brevi come ;ciao in messaggi completi. Un expander gratuito di abbreviazioni per Chrome: imposta una scorciatoia, digitala, appare lo snippet."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/it/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Digita più veloce con scorciatoie e abbreviazioni" />
+    <meta property="og:description" content="Trasforma trigger brevi come ;ciao in messaggi completi. Un expander gratuito di abbreviazioni per Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/it/guides/text-shortcuts-abbreviations.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Digita più veloce con scorciatoie e abbreviazioni" />
+    <meta name="twitter:description" content="Trasforma trigger brevi come ;ciao in messaggi completi. Expander di abbreviazioni gratis per Chrome." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Come creare scorciatoie e abbreviazioni di testo",
+        "description": "Imposta trigger brevi che si espandono in snippet completi mentre digiti, ovunque in Chrome.",
+        "step": [
+          { "@type": "HowToStep", "name": "Crea uno snippet", "text": "Salva il testo che invii spesso, es. un saluto o un indirizzo." },
+          { "@type": "HowToStep", "name": "Assegna una scorciatoia", "text": "Dagli un trigger breve come ;ciao o ;indir." },
+          { "@type": "HowToStep", "name": "Digitala ovunque", "text": "In qualsiasi campo di testo, digita il trigger e si espande nello snippet completo." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guide", "item": "https://replykit.pureprompting.com/it/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Scorciatoie e abbreviazioni" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Cos'è una scorciatoia o abbreviazione di testo?", "acceptedAnswer": { "@type": "Answer", "text": "Un trigger breve — come ;ciao — che si espande automaticamente in uno snippet salvato più lungo mentre digiti, così pochi caratteri diventano un messaggio completo." } },
+          { "@type": "Question", "name": "Come creo una scorciatoia in ReplyKit?", "acceptedAnswer": { "@type": "Answer", "text": "Aggiungi o modifica uno snippet e compila il suo campo scorciatoia (es. ;ciao). Poi digita quella scorciatoia in qualsiasi campo di testo e si espande all'istante." } },
+          { "@type": "Question", "name": "Le scorciatoie si espandono per errore?", "acceptedAnswer": { "@type": "Answer", "text": "Le scorciatoie alfanumeriche richiedono un confine di parola per attivarsi, e quelle che iniziano con un simbolo (come ;) evitano conflitti con la digitazione normale." } },
+          { "@type": "Question", "name": "Le scorciatoie funzionano ovunque?", "acceptedAnswer": { "@type": "Answer", "text": "Funzionano in qualsiasi campo di testo web standard — Gmail, help desk, form e altro. Per gli editor isolati c'è un pulsante Copia." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guide › Scorciatoie e abbreviazioni</div>
+
+      <h1>Digita più veloce con scorciatoie e abbreviazioni</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Aggiornato a luglio 2026</p>
+      <p class="lede">Il testo più veloce da digitare è quello che non digiti. Assegna un trigger breve come <code>;ciao</code> a un messaggio completo, e un paio di tasti diventano una risposta completa — in Gmail, nel tuo help desk, in un CRM, o in qualsiasi form.</p>
+
+      <p>Un text expander (o expander di abbreviazioni) osserva cosa digiti e sostituisce trigger brevi con testo più lungo. È la differenza tra digitare una risposta di 200 caratteri e digitare <code>;grz</code>. ReplyKit lo fa gratis, in qualsiasi campo di testo standard, senza account.</p>
+
+      <h2>Scorciatoie vs il selettore //</h2>
+      <p>ReplyKit ti dà due modi per inserire uno snippet — usa quello più veloce nel momento:</p>
+      <ul>
+        <li><strong>Il selettore <code>//</code></strong> — digiti <code>//</code>, cerchi per nome, scegli. Ottimo quando non ricordi il trigger esatto.</li>
+        <li><strong>Le scorciatoie</strong> — digiti il trigger (es. <code>;ciao</code>) e si espande all'istante, senza menu. Ottimo per la manciata di snippet che usi tutto il giorno.</li>
+      </ul>
+
+      <h2>Come impostarne una (in 3 passi)</h2>
+      <ol>
+        <li>Apri il popup di ReplyKit e salva (o modifica) uno snippet.</li>
+        <li>Nel campo <strong>scorciatoia</strong>, assegnale un trigger — qualcosa di rapido e memorabile come <code>;ciao</code>, <code>;firma</code>, o <code>;indir</code>.</li>
+        <li>In qualsiasi campo di testo, digita il trigger. Si espande nello snippet completo proprio dove hai il cursore.</li>
+      </ol>
+
+      <h2>Scegliere buoni trigger</h2>
+      <ul>
+        <li><strong>Usa un simbolo prefisso</strong> come <code>;</code> o <code>/</code> così i trigger non si attivano mai per errore dentro una parola normale.</li>
+        <li><strong>Tienili brevi e mnemonici</strong>: <code>;firma</code> per la firma, <code>;grz</code> per grazie, <code>;smart</code> per "oggi lavoro da remoto".</li>
+        <li><strong>Rimani coerente</strong> — scegli un prefisso e usalo per tutto, così le dita imparano lo schema.</li>
+      </ul>
+
+      <h2>Scorciatoie utili per iniziare</h2>
+      <table>
+        <tr><th>Trigger</th><th>Si espande in</th></tr>
+        <tr><td><code>;ciao</code></td><td>Ciao! Grazie per averci scritto — felice di aiutarti.</td></tr>
+        <tr><td><code>;grz</code></td><td>Grazie mille, davvero apprezzato!</td></tr>
+        <tr><td><code>;firma</code></td><td>La tua firma email completa</td></tr>
+        <tr><td><code>;indir</code></td><td>Il tuo indirizzo aziendale</td></tr>
+        <tr><td><code>;cal</code></td><td>Ecco il mio link al calendario per fissare un orario: …</td></tr>
+      </table>
+
+      <h2>Dove le scorciatoie di testo fanno risparmiare più tempo</h2>
+      <p>Chiunque digiti messaggi ripetitivi ne beneficia, ma alcuni ruoli vedono i guadagni maggiori:</p>
+      <ul>
+        <li><strong>Supporto clienti</strong> — un saluto, un "ci sto lavorando" e una chiusura coprono una grande fetta dei ticket. Tre trigger sostituiscono centinaia di tasti al giorno.</li>
+        <li><strong>Vendite e outreach</strong> — il tuo link al calendario, un sollecito di follow-up e una riga sui prezzi sono sempre a un paio di caratteri di distanza.</li>
+        <li><strong>Recruiting</strong> — pianificazione colloqui, "grazie per la candidatura", e note di rifiuto che restano comunque umane.</li>
+        <li><strong>Sviluppatori e operations</strong> — testo standard come descrizioni PR, aggiornamenti standup, o una risposta standard agli incidenti.</li>
+      </ul>
+      <p>Lo schema è sempre lo stesso: elenca le dieci frasi che riscrivi di più questa settimana, dai a ciascuna un trigger, e lascia che sia la memoria muscolare a fare il resto.</p>
+
+      <h2>Scorciatoie vs autocorrezione e sostituzione testo del sistema operativo</h2>
+      <p>La sostituzione testo del telefono o l'autocorrezione del sistema operativo possono espandere qualche abbreviazione, ma sono limitate: sono scomode da gestire su un laptop, non si allineano al lavoro nel browser, e spesso rovinano risposte lunghe su più righe. Uno strumento dedicato del browser mantiene gli snippet organizzati con nomi, cartelle e scorciatoie, espande messaggi multi-paragrafo in modo pulito, e si comporta allo stesso modo in ogni app web che usi — da Gmail al tuo help desk a un CRM.</p>
+
+      <h2>Costruisci un promemoria delle scorciatoie</h2>
+      <p>Quando inizi, tieni visibile per una settimana un breve elenco dei tuoi trigger — va bene anche un post-it o uno snippet fissato. Dopo qualche giorno quelli utili si fissano in memoria e puoi eliminare il resto. Raggruppa trigger correlati con un prefisso condiviso (<code>;s-</code> per i saluti, <code>;f-</code> per i follow-up) così sono facili da ricordare, e rivedi l'elenco ogni mese: elimina ciò che non attivi mai e aggiungi le frasi che continui a digitare a mano. Una dozzina di trigger ben scelti batte cinquanta che non ricordi.</p>
+
+      <h2>Le scorciatoie rallentano la digitazione?</h2>
+      <p>No — l'espansione avviene nell'istante in cui completi un trigger, e ReplyKit agisce solo sul piccolo insieme di scorciatoie che hai definito, quindi la digitazione normale resta intatta. Poiché i trigger si attivano su un confine di parola (o iniziano con un simbolo), le parole comuni non si espandono mai per errore. E se uno snippet non sembra giusto per il momento, puoi sempre ricorrere al selettore <code>//</code> — i due metodi condividono la stessa libreria.</p>
+      <p>La maggior parte delle persone trova un ritmo confortevole entro la prima settimana — qualche trigger diventa automatico, e la decima risposta identica della mattinata smette semplicemente di essere qualcosa a cui pensare.</p>
+
+      <div class="ctabox">
+        <p><strong>Trasforma un paio di tasti in una risposta completa.</strong> Imposta una scorciatoia e digitala ovunque.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Aggiungi ReplyKit a Chrome — gratis</a>
+      </div>
+
+      <h2>Rendile ancora più intelligenti</h2>
+      <p>Combina una scorciatoia con i segnaposto così il testo espanso si personalizza da solo: un trigger <code>;sped</code> può espandersi in <em>"Ciao {name}, il tuo ordine è partito il {date}."</em> — compilando la data automaticamente e chiedendoti il nome. Vedi <a href="text-snippet-variables-placeholders.html">variabili e segnaposto negli snippet</a>. Abbinare un trigger memorabile a un template che si compila da solo è dove un paio di tasti fanno il lavoro più grande di tutti.</p>
+
+      <p>Correlati: <a href="text-snippet-variables-placeholders.html">Variabili e segnaposto</a> · <a href="canned-responses-in-gmail.html">Risposte pronte in Gmail</a> · <a href="free-text-expander-alternative.html">Un'alternativa gratuita ai text expander</a></p>
+      <h2>Domande frequenti</h2>
+      <p><strong>Cos'è una scorciatoia o abbreviazione di testo?</strong><br />
+      Un trigger breve — come <code>;ciao</code> — che si espande automaticamente in uno snippet salvato più lungo mentre digiti, così pochi caratteri diventano un messaggio completo.</p>
+      <p><strong>Come creo una scorciatoia in ReplyKit?</strong><br />
+      Aggiungi o modifica uno snippet e compila il suo campo scorciatoia (es. <code>;ciao</code>). Poi digita quella scorciatoia in qualsiasi campo di testo e si espande all'istante.</p>
+      <p><strong>Le scorciatoie si espandono per errore?</strong><br />
+      Le scorciatoie alfanumeriche richiedono un confine di parola per attivarsi, e quelle che iniziano con un simbolo (come <code>;</code>) evitano conflitti con la digitazione normale.</p>
+      <p><strong>Le scorciatoie funzionano ovunque?</strong><br />
+      Funzionano in qualsiasi campo di testo web standard — Gmail, help desk, form e altro. Per gli editor isolati c'è un pulsante Copia.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Home</a> · <a href="../../privacy.html">Privacy</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Ottieni l'estensione</a>
+    </footer>
+  </body>
+</html>
