@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Gespeicherte Antworten in Gmail (und überall) — ReplyKit</title>
+    <meta
+      name="description"
+      content="Füge gespeicherte Antworten in Gmail und jedem Textfeld ein, indem du // tippst. Speichere deine Vorlagen einmal mit ReplyKit — kostenlos, kein Konto."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/de/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Gespeicherte Antworten in Gmail einfügen (und überall)" />
+    <meta property="og:description" content="Speichere Antwortvorlagen einmal und füge sie überall ein, indem du // tippst. Kostenlose, private Chrome-Erweiterung." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/de/guides/canned-responses-in-gmail.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gespeicherte Antworten in Gmail einfügen (und überall)" />
+    <meta name="twitter:description" content="Speichere Antwortvorlagen einmal und füge sie überall ein, indem du // tippst. Kostenlose, private Chrome-Erweiterung." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Wie man gespeicherte Antworten in Gmail mit ReplyKit einfügt",
+        "description": "Speichere Antwortvorlagen und füge sie in Gmail oder jedem Textfeld ein, indem du // tippst.",
+        "step": [
+          { "@type": "HowToStep", "name": "ReplyKit installieren", "text": "Füge die kostenlose ReplyKit-Erweiterung zu Chrome hinzu." },
+          { "@type": "HowToStep", "name": "Einen Textbaustein speichern", "text": "Öffne das Popup und speichere deine meistgenutzte Antwort als Textbaustein." },
+          { "@type": "HowToStep", "name": "Einfügen", "text": "Tippe in Gmail // in den Nachrichtentext und wähle deinen Textbaustein, um ihn an der Cursorposition einzufügen." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Anleitungen", "item": "https://replykit.pureprompting.com/de/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Gespeicherte Antworten in Gmail" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Hat Gmail integrierte gespeicherte Antworten?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Die Vorlagen von Gmail (früher gespeicherte Antworten) findest du unter Einstellungen → Erweitert, aber sie funktionieren nur innerhalb von Gmail und brauchen mehrere Klicks. ReplyKit lässt dich Antworten einfügen, indem du // in Gmail und jedem anderen Textfeld tippst." } },
+          { "@type": "Question", "name": "Wie füge ich eine gespeicherte Antwort in Gmail ein?", "acceptedAnswer": { "@type": "Answer", "text": "Installiere ReplyKit, speichere deine Antwort als Textbaustein, tippe dann // im Gmail-Nachrichtentext und wähle sie aus. Sie wird an deiner Cursorposition eingefügt." } },
+          { "@type": "Question", "name": "Ist ReplyKit kostenlos?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, kostenlos für bis zu 10 Textbausteine. Pro schaltet unbegrenzte Textbausteine und Synchronisierung zwischen deinen Geräten frei." } },
+          { "@type": "Question", "name": "Sind meine gespeicherten Antworten privat?", "acceptedAnswer": { "@type": "Answer", "text": "Im kostenlosen Plan werden Textbausteine lokal in deinem Browser ohne Konto gespeichert. Nichts wird hochgeladen oder getrackt." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 23px; margin: 36px 0 12px; }
+      p, li { font-size: 17px; }
+      ol.steps li { margin-bottom: 12px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Anleitungen › Gespeicherte Antworten in Gmail</div>
+
+      <h1>Gespeicherte Antworten in Gmail einfügen (und überall)</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Aktualisiert im Juli 2026</p>
+      <p class="lede">Gmail hat eingebaute Vorlagen, aber sie sind umständlich zu erreichen und funktionieren nur in Gmail. Hier ist ein schnellerer Weg, gespeicherte Antworten in Gmail — und in jedem anderen Textfeld — einzufügen, indem du <code>//</code> tippst.</p>
+
+      <h2>Der schnelle Weg mit ReplyKit</h2>
+      <ol class="steps">
+        <li><strong>Erweiterung installieren.</strong> Füge <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit</a> kostenlos zu Chrome hinzu.</li>
+        <li><strong>Antwort speichern.</strong> Öffne das Popup, gib deiner gespeicherten Antwort einen Titel (z. B. „Bestellung versandt") und füge den Text ein.</li>
+        <li><strong>Einfügen.</strong> Tippe im Gmail-Nachrichtentext <code>//</code> (oder drücke <code>Strg/Cmd+Umschalt+Leertaste</code>), dann wähle den Textbaustein. Er wird genau an deiner Cursorposition eingefügt.</li>
+      </ol>
+      <p>Keine Menüs, kein Wühlen in Einstellungen — derselbe <code>//</code>-Trigger funktioniert auch in Helpdesks, Marktplätzen, sozialen Netzwerken, CRMs und Formularen, nicht nur in Gmail.</p>
+
+      <div class="ctabox">
+        <p><strong>Hör auf, dieselben E-Mails neu zu schreiben.</strong> Richte deine gespeicherten Antworten in einer Minute ein.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit zu Chrome hinzufügen — kostenlos</a>
+      </div>
+
+      <h2>Gmail-Vorlagen vs. ein Textbaustein-Tool</h2>
+      <p>Die „Vorlagen" von Gmail (früher gespeicherte Antworten) sind in Ordnung, wenn du komplett in Gmail lebst und nur ein paar brauchst. Aber sie erfordern das Aktivieren einer Einstellung, sind mehrere Klicks tief in der Antwort-Toolbar, und folgen dir nicht in andere Tools. Eine Textbaustein-Erweiterung gibt dir eine einheitliche Abkürzung überall, wo du tippst, mit Sofortsuche über alle deine Antworten.</p>
+
+      <h2>So aktivierst du Gmails eingebaute Vorlagen</h2>
+      <p>Wenn du zuerst die native Gmail-Funktion ausprobieren willst, hier die Einrichtung:</p>
+      <ol class="steps">
+        <li>Öffne Gmail und klicke auf das <strong>Zahnrad-Symbol → Alle Einstellungen ansehen</strong>.</li>
+        <li>Gehe zum Tab <strong>Erweitert</strong>, aktiviere <strong>Vorlagen</strong>, und speichere die Änderungen.</li>
+        <li>Verfasse eine Nachricht, schreibe deinen Text, dann nutze das <strong>Drei-Punkte-Menü → Vorlagen → Entwurf als Vorlage speichern</strong>.</li>
+        <li>Um sie später wiederzuverwenden, öffne dasselbe <strong>Vorlagen</strong>-Menü und wähle sie aus.</li>
+      </ol>
+      <p>Es funktioniert, aber jede Einfügung ist mehrere Klicks tief in der Toolbar, lebt nur innerhalb von Gmail, und es gibt keine Sofortsuche. Das ist die Lücke, die eine Textbaustein-Abkürzung füllt.</p>
+
+      <h2>Gespeicherte Antworten, die man zuerst speichern sollte</h2>
+      <p>Wenn du den ganzen Tag E-Mails bearbeitest, zahlen sich diese Vorlagen sofort aus:</p>
+      <ul>
+        <li><strong>Erste Antwort</strong> — „Danke, dass du dich gemeldet hast — ich schaue mir das an und melde mich bald bei dir."</li>
+        <li><strong>Bestell- oder Statusaktualisierung</strong> — mit Platzhaltern für Bestellnummer und Datum.</li>
+        <li><strong>Nachfassung</strong> — eine sanfte Erinnerung, wenn du keine Antwort erhalten hast.</li>
+        <li><strong>Terminbestätigung</strong> — Datum, Uhrzeit und dein Kalenderlink.</li>
+        <li><strong>Ein höfliches Nein</strong> — eine Anfrage warmherzig ablehnen, ohne die Beziehung zu belasten.</li>
+      </ul>
+
+      <h2>Beschleunige mit einer Tastenkombination</h2>
+      <p>Möchtest du <code>//</code> nicht tippen? Drücke <code>Strg/Cmd+Umschalt+Leertaste</code>, um denselben Selektor zu öffnen, oder weise einem Textbaustein einen kurzen Trigger wie <code>;hi</code> zu, damit er sich erweitert, sobald du ihn tippst. In einem vollen Posteingang verwandelt das eine Einfügung mit mehreren Klicks in einen einzigen Reflex — siehe <a href="text-shortcuts-abbreviations.html">Textkürzel und Abkürzungen</a>.</p>
+
+      <h2>Funktioniert es über Gmail hinaus?</h2>
+      <p>Ja. Derselbe <code>//</code>-Trigger funktioniert in Outlook im Web, Helpdesks wie Zendesk und Intercom, Marktplätzen, sozialen Posteingängen, CRMs und gewöhnlichen Formularen. Anders als Gmails Vorlagen folgen dir deine Antworten überall, wo du tippst, sodass du eine einzige Bibliothek behältst, statt Vorlagen in jedem Tool neu zu erstellen. Für Editoren, die automatisches Einfügen blockieren, erlaubt dir der Kopieren-Button manuelles Einfügen.</p>
+
+      <h2>Häufige Fehler, die man vermeiden sollte</h2>
+      <p>Vorlagen sparen Zeit, aber ein paar Gewohnheiten verhindern, dass sie nach hinten losgehen:</p>
+      <ul>
+        <li><strong>Eine unveränderte Vorlage senden.</strong> Die Details in Klammern — Name, Bestellnummer, das konkrete Problem — sind es, was sie wie eine echte Antwort wirken lässt. Fülle sie immer aus.</li>
+        <li><strong>Zu viele anhäufen.</strong> Fünfzig fast identische Vorlagen sind langsamer als ein Dutzend guter, weil du Zeit mit Suchen verschwendest. Halte die Auswahl schlank.</li>
+        <li><strong>Begrüßung und Grußformel vergessen.</strong> Speichere sie separat, damit du herzlich eröffnen und konsistent abschließen kannst, ohne sie in jeden Textbaustein einzubacken.</li>
+        <li><strong>Sie nie aktualisieren.</strong> Richtlinien, Preise und Links ändern sich — überprüfe deine gespeicherten Antworten monatlich, damit du nie etwas Veraltetes einfügst.</li>
+      </ul>
+      <p>Mach das richtig, und deine Antworten wirken persönlich und aktuell: schnell zu senden, aber nie offensichtlich kopiert und eingefügt.</p>
+
+      <h2>Tipps für großartige gespeicherte Antworten</h2>
+      <ul>
+        <li>Halte eine kurze, freundliche <strong>Begrüßung</strong> und <strong>Grußformel</strong> als separate Textbausteine, die du kombinieren kannst.</li>
+        <li>Schreibe neutrale Vorlagen, die du nach dem Einfügen leicht personalisieren kannst (ein Name, eine Bestellnummer).</li>
+        <li>Gruppiere nach Aufgabe: Support-FAQs, Versandaktualisierungen, Nachfassungen, Rückerstattungen.</li>
+        <li>Überprüfe sie monatlich — entferne, was du nie nutzt, füge die Sätze hinzu, die du immer wieder von Hand tippst.</li>
+      </ul>
+
+      <h2>Funktioniert es im Gmail-Textkörper?</h2>
+      <p>Ja — ReplyKit fügt direkt in den Gmail-Verfassen-Textkörper ein. Für einige isolierte Editoren, die automatisches Einfügen blockieren, gibt es einen <strong>Kopieren</strong>-Button zum manuellen Einfügen. Deine Textbausteine bleiben privat: im kostenlosen Plan werden sie lokal in deinem Browser gespeichert; siehe die <a href="../privacy.html">Datenschutzerklärung</a>.</p>
+
+      <p>Richte heute ein paar gespeicherte Antworten ein und du wirst den Unterschied schon in deiner nächsten Posteingang-Sitzung spüren: weniger Neutippen, schnellere Antworten und eine konsistente Stimme in jeder Nachricht, die du sendest — in Gmail und überall sonst.</p>
+
+      <h2>Verwandte Anleitungen</h2>
+      <ul>
+        <li><a href="customer-support-reply-templates.html">11 Antwortvorlagen für den Kundensupport</a> — kopierbereit.</li>
+        <li><a href="text-snippet-variables-placeholders.html">Variablen und Platzhalter</a> — erstelle Vorlagen, die sich selbst ausfüllen.</li>
+        <li><a href="live-chat-canned-responses.html">20 Antworten für Live-Chat</a> — schnelle Antworten für den Support.</li>
+        <li><a href="free-text-expander-alternative.html">Eine kostenlose Alternative zu Textbausteinprogrammen</a>.</li>
+      </ul>
+      <h2>Häufig gestellte Fragen</h2>
+      <p><strong>Hat Gmail integrierte gespeicherte Antworten?</strong><br />
+      Ja — die Vorlagen von Gmail (früher gespeicherte Antworten) findest du unter Einstellungen → Erweitert, aber sie funktionieren nur innerhalb von Gmail und brauchen mehrere Klicks. ReplyKit lässt dich Antworten einfügen, indem du <code>//</code> in Gmail und jedem anderen Textfeld tippst.</p>
+      <p><strong>Wie füge ich eine gespeicherte Antwort in Gmail ein?</strong><br />
+      Installiere ReplyKit, speichere deine Antwort als Textbaustein, tippe dann <code>//</code> im Gmail-Nachrichtentext und wähle sie aus — sie wird an deiner Cursorposition eingefügt.</p>
+      <p><strong>Ist ReplyKit kostenlos?</strong><br />
+      Ja, kostenlos für bis zu 10 Textbausteine. Pro schaltet unbegrenzte Textbausteine und Synchronisierung zwischen deinen Geräten frei.</p>
+      <p><strong>Sind meine gespeicherten Antworten privat?</strong><br />
+      Im kostenlosen Plan werden Textbausteine lokal in deinem Browser ohne Konto gespeichert. Nichts wird hochgeladen oder getrackt.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Startseite</a> · <a href="../../privacy.html">Datenschutz</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Erweiterung holen</a>
+    </footer>
+  </body>
+</html>
