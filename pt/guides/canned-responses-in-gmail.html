@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Respostas salvas no Gmail (e em qualquer lugar) — ReplyKit</title>
+    <meta
+      name="description"
+      content="Insira respostas salvas no Gmail e em qualquer campo de texto digitando //. Salve seus modelos uma vez com o ReplyKit — grátis, sem conta."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/pt/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="pt" href="https://replykit.pureprompting.com/pt/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Como inserir respostas salvas no Gmail (e em qualquer lugar)" />
+    <meta property="og:description" content="Salve modelos de resposta uma vez e insira-os em qualquer lugar digitando //. Extensão gratuita e privada do Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/pt/guides/canned-responses-in-gmail.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Como inserir respostas salvas no Gmail (e em qualquer lugar)" />
+    <meta name="twitter:description" content="Salve modelos de resposta uma vez e insira-os em qualquer lugar digitando //. Extensão gratuita e privada do Chrome." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Como inserir respostas salvas no Gmail com o ReplyKit",
+        "description": "Salve modelos de resposta e insira-os no Gmail ou em qualquer campo de texto digitando //.",
+        "step": [
+          { "@type": "HowToStep", "name": "Instale o ReplyKit", "text": "Adicione a extensão gratuita ReplyKit ao Chrome." },
+          { "@type": "HowToStep", "name": "Salve um modelo", "text": "Abra o popup e salve sua resposta mais usada como um modelo." },
+          { "@type": "HowToStep", "name": "Insira-o", "text": "No Gmail, digite // no corpo da mensagem e escolha seu modelo para inseri-lo no cursor." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guias", "item": "https://replykit.pureprompting.com/pt/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Respostas salvas no Gmail" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "O Gmail tem respostas salvas integradas?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Os Modelos do Gmail (antigos Respostas prontas) ficam em Configurações → Avançado, mas só funcionam dentro do Gmail e exigem vários cliques. O ReplyKit permite inserir respostas digitando // no Gmail e em qualquer outro campo de texto." } },
+          { "@type": "Question", "name": "Como insiro uma resposta salva no Gmail?", "acceptedAnswer": { "@type": "Answer", "text": "Instale o ReplyKit, salve sua resposta como um modelo, depois digite // no corpo da mensagem do Gmail e escolha-a. Ela é inserida no seu cursor." } },
+          { "@type": "Question", "name": "O ReplyKit é gratuito?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, gratuito até 10 modelos. O Pro desbloqueia modelos ilimitados e sincronização entre seus dispositivos." } },
+          { "@type": "Question", "name": "Minhas respostas salvas são privadas?", "acceptedAnswer": { "@type": "Answer", "text": "No plano gratuito, os modelos são salvos localmente no seu navegador sem conta. Nada é enviado ou rastreado." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 23px; margin: 36px 0 12px; }
+      p, li { font-size: 17px; }
+      ol.steps li { margin-bottom: 12px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guias › Respostas salvas no Gmail</div>
+
+      <h1>Como inserir respostas salvas no Gmail (e em qualquer lugar)</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Atualizado em julho de 2026</p>
+      <p class="lede">O Gmail tem modelos integrados, mas são lentos para acessar e só funcionam no Gmail. Aqui está uma forma mais rápida de inserir respostas salvas no Gmail — e em qualquer outro campo de texto que você use — digitando <code>//</code>.</p>
+
+      <h2>O jeito rápido com o ReplyKit</h2>
+      <ol class="steps">
+        <li><strong>Instale a extensão.</strong> Adicione o <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit</a> gratuitamente ao Chrome.</li>
+        <li><strong>Salve sua resposta.</strong> Abra o popup, dê um título à sua resposta salva (ex: "Pedido enviado") e cole o texto.</li>
+        <li><strong>Insira-a.</strong> No corpo da mensagem do Gmail, digite <code>//</code> (ou pressione <code>Ctrl/Cmd+Shift+Espaço</code>), depois escolha o modelo. Ele é inserido bem no seu cursor.</li>
+      </ol>
+      <p>Sem menus, sem precisar procurar nas configurações — o mesmo atalho <code>//</code> funciona também em centrais de ajuda, marketplaces, redes sociais, CRMs e formulários, não só no Gmail.</p>
+
+      <div class="ctabox">
+        <p><strong>Pare de reescrever os mesmos e-mails.</strong> Configure suas respostas salvas em um minuto.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Adicionar ReplyKit ao Chrome — grátis</a>
+      </div>
+
+      <h2>Modelos do Gmail vs. uma ferramenta de modelos</h2>
+      <p>Os "Modelos" do Gmail (antigos Respostas prontas) funcionam bem se você vive inteiramente dentro do Gmail e só precisa de alguns poucos. Mas exigem ativar uma configuração, ficam a vários cliques na barra de resposta, e não te acompanham em outras ferramentas. Uma extensão de modelos te dá um atalho consistente em qualquer lugar que você digite, com busca instantânea em todas as suas respostas.</p>
+
+      <h2>Como ativar os modelos integrados do Gmail</h2>
+      <p>Se você quiser experimentar primeiro o recurso nativo do Gmail, aqui está a configuração:</p>
+      <ol class="steps">
+        <li>Abra o Gmail e clique no <strong>ícone de engrenagem → Ver todas as configurações</strong>.</li>
+        <li>Vá até a aba <strong>Avançado</strong>, ative <strong>Modelos</strong>, depois salve as alterações.</li>
+        <li>Redija uma mensagem, escreva seu texto, depois use o <strong>menu de três pontos → Modelos → Salvar rascunho como modelo</strong>.</li>
+        <li>Para reutilizá-lo depois, abra o mesmo menu <strong>Modelos</strong> e selecione-o.</li>
+      </ol>
+      <p>Funciona, mas cada inserção fica a vários cliques na barra de ferramentas, vive só dentro do Gmail, e não há busca instantânea. É essa a lacuna que um atalho de modelos preenche.</p>
+
+      <h2>Respostas salvas para salvar primeiro</h2>
+      <p>Se você lida com e-mail o dia todo, estes modelos se pagam imediatamente:</p>
+      <ul>
+        <li><strong>Primeira resposta</strong> — "Obrigado por entrar em contato — estou verificando isso e retorno em breve."</li>
+        <li><strong>Atualização de pedido ou status</strong> — com campos dinâmicos para o número do pedido e a data.</li>
+        <li><strong>Follow-up</strong> — um lembrete gentil quando você não teve resposta.</li>
+        <li><strong>Confirmação de reunião</strong> — data, hora e o link do seu calendário.</li>
+        <li><strong>Um não educado</strong> — recusar um pedido com gentileza sem prejudicar a relação.</li>
+      </ul>
+
+      <h2>Acelere com um atalho de teclado</h2>
+      <p>Prefere não digitar <code>//</code>? Pressione <code>Ctrl/Cmd+Shift+Espaço</code> para abrir o mesmo seletor, ou atribua um atalho curto como <code>;oi</code> a um modelo para que se expanda no momento em que você o digitar. Em uma caixa de entrada cheia, isso transforma uma inserção de vários cliques em um único reflexo — veja <a href="text-shortcuts-abbreviations.html">atalhos e abreviações de texto</a>.</p>
+
+      <h2>Funciona além do Gmail?</h2>
+      <p>Sim. O mesmo atalho <code>//</code> funciona no Outlook na web, centrais de ajuda como Zendesk e Intercom, marketplaces, caixas de entrada sociais, CRMs e formulários comuns. Diferente dos modelos do Gmail, suas respostas te acompanham em qualquer lugar que você digite, então você mantém uma única biblioteca em vez de recriar modelos em cada ferramenta. Para editores que bloqueiam a inserção automática, o botão Copiar permite colar manualmente.</p>
+
+      <h2>Erros comuns a evitar</h2>
+      <p>Modelos economizam tempo, mas alguns hábitos evitam que se voltem contra você:</p>
+      <ul>
+        <li><strong>Enviar um modelo sem alterar.</strong> As partes entre colchetes — nome, número do pedido, o problema específico — são o que faz parecer uma resposta de verdade. Sempre preencha-as.</li>
+        <li><strong>Acumular demais.</strong> Cinquenta modelos quase idênticos são mais lentos que uma dúzia boa, porque você perde tempo procurando. Mantenha o conjunto enxuto.</li>
+        <li><strong>Esquecer a saudação e a despedida.</strong> Guarde-as separadamente para poder abrir com calor e encerrar de forma consistente sem embuti-las em cada modelo.</li>
+        <li><strong>Nunca atualizá-los.</strong> Políticas, preços e links mudam — revise suas respostas salvas mensalmente para nunca colar algo desatualizado.</li>
+      </ul>
+      <p>Acerte isso e suas respostas parecerão pessoais e atuais: rápidas de enviar, mas nunca obviamente copiadas e coladas.</p>
+
+      <h2>Dicas para ótimas respostas salvas</h2>
+      <ul>
+        <li>Mantenha uma <strong>saudação</strong> e uma <strong>despedida</strong> curtas e amigáveis como modelos separados que você pode combinar.</li>
+        <li>Escreva modelos neutros que você possa personalizar levemente após inserir (um nome, um número de pedido).</li>
+        <li>Agrupe por tarefa: FAQs de suporte, atualizações de envio, follow-ups, reembolsos.</li>
+        <li>Revise-os mensalmente — remova o que você nunca usa, adicione as frases que continua reescrevendo.</li>
+      </ul>
+
+      <h2>Funciona no corpo do Gmail?</h2>
+      <p>Sim — o ReplyKit insere diretamente no corpo de redação do Gmail. Para alguns editores isolados que bloqueiam a inserção automática, há um botão <strong>Copiar</strong> para colar manualmente. Seus modelos permanecem privados: no plano gratuito, são salvos localmente no seu navegador; veja a <a href="../privacy.html">política de privacidade</a>.</p>
+
+      <p>Configure algumas respostas salvas hoje e você vai sentir a diferença já na próxima sessão da caixa de entrada: menos reescrita, respostas mais rápidas, e uma voz consistente em cada mensagem que você envia — no Gmail e em qualquer outro lugar.</p>
+
+      <h2>Guias relacionados</h2>
+      <ul>
+        <li><a href="customer-support-reply-templates.html">11 modelos de resposta para atendimento ao cliente</a> — respostas prontas para copiar.</li>
+        <li><a href="text-snippet-variables-placeholders.html">Variáveis e campos dinâmicos</a> — crie modelos que se preenchem sozinhos.</li>
+        <li><a href="live-chat-canned-responses.html">20 exemplos de respostas para chat ao vivo</a> — respostas rápidas para suporte.</li>
+        <li><a href="free-text-expander-alternative.html">Uma alternativa gratuita aos expansores de texto</a>.</li>
+      </ul>
+      <h2>Perguntas frequentes</h2>
+      <p><strong>O Gmail tem respostas salvas integradas?</strong><br />
+      Sim — os Modelos do Gmail (antigos Respostas prontas) ficam em Configurações → Avançado, mas só funcionam dentro do Gmail e exigem vários cliques. O ReplyKit permite inserir respostas digitando <code>//</code> no Gmail e em qualquer outro campo de texto.</p>
+      <p><strong>Como insiro uma resposta salva no Gmail?</strong><br />
+      Instale o ReplyKit, salve sua resposta como um modelo, depois digite <code>//</code> no corpo da mensagem do Gmail e escolha-a — ela é inserida no seu cursor.</p>
+      <p><strong>O ReplyKit é gratuito?</strong><br />
+      Sim, gratuito até 10 modelos. O Pro desbloqueia modelos ilimitados e sincronização entre seus dispositivos.</p>
+      <p><strong>Minhas respostas salvas são privadas?</strong><br />
+      No plano gratuito, os modelos são salvos localmente no seu navegador sem conta. Nada é enviado ou rastreado.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Início</a> · <a href="../../privacy.html">Privacidade</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obter a extensão</a>
+    </footer>
+  </body>
+</html>
