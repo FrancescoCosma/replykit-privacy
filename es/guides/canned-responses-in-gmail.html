@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Respuestas guardadas en Gmail (y donde sea) — ReplyKit</title>
+    <meta
+      name="description"
+      content="Inserta respuestas guardadas en Gmail y en cualquier campo de texto escribiendo //. Guarda tus plantillas una vez con ReplyKit — gratis, sin cuenta."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/es/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Cómo insertar respuestas guardadas en Gmail (y donde sea)" />
+    <meta property="og:description" content="Guarda plantillas de respuesta una vez e insértalas donde sea escribiendo //. Extensión de Chrome gratuita y privada." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/es/guides/canned-responses-in-gmail.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cómo insertar respuestas guardadas en Gmail (y donde sea)" />
+    <meta name="twitter:description" content="Guarda plantillas de respuesta una vez e insértalas donde sea escribiendo //. Extensión de Chrome gratuita y privada." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Cómo insertar respuestas guardadas en Gmail con ReplyKit",
+        "description": "Guarda plantillas de respuesta e insértalas en Gmail o en cualquier campo de texto escribiendo //.",
+        "step": [
+          { "@type": "HowToStep", "name": "Instala ReplyKit", "text": "Añade la extensión gratuita ReplyKit a Chrome." },
+          { "@type": "HowToStep", "name": "Guarda un fragmento", "text": "Abre el popup y guarda tu respuesta más usada como fragmento." },
+          { "@type": "HowToStep", "name": "Insértalo", "text": "En Gmail, escribe // en el cuerpo del mensaje y elige tu fragmento para insertarlo en el cursor." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://replykit.pureprompting.com/es/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Respuestas guardadas en Gmail" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Gmail tiene respuestas guardadas integradas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las Plantillas de Gmail (antes Respuestas guardadas) están en Configuración → Avanzado, pero solo funcionan dentro de Gmail y requieren varios clics. ReplyKit te permite insertar respuestas escribiendo // en Gmail y en cualquier otro campo de texto." } },
+          { "@type": "Question", "name": "¿Cómo inserto una respuesta guardada en Gmail?", "acceptedAnswer": { "@type": "Answer", "text": "Instala ReplyKit, guarda tu respuesta como fragmento, luego escribe // en el cuerpo del mensaje de Gmail y elígela. Se inserta en tu cursor." } },
+          { "@type": "Question", "name": "¿ReplyKit es gratis?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, gratis hasta 10 fragmentos. Pro desbloquea fragmentos ilimitados y sincronización entre tus dispositivos." } },
+          { "@type": "Question", "name": "¿Mis respuestas guardadas son privadas?", "acceptedAnswer": { "@type": "Answer", "text": "En el plan gratuito los fragmentos se guardan localmente en tu navegador sin cuenta. Nada se sube ni se rastrea." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 23px; margin: 36px 0 12px; }
+      p, li { font-size: 17px; }
+      ol.steps li { margin-bottom: 12px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guías › Respuestas guardadas en Gmail</div>
+
+      <h1>Cómo insertar respuestas guardadas en Gmail (y donde sea)</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Actualizado en julio de 2026</p>
+      <p class="lede">Gmail tiene plantillas integradas, pero son lentas de alcanzar y solo funcionan en Gmail. Aquí hay una forma más rápida de insertar respuestas guardadas en Gmail — y en cualquier otro campo de texto que uses — escribiendo <code>//</code>.</p>
+
+      <h2>La forma rápida con ReplyKit</h2>
+      <ol class="steps">
+        <li><strong>Instala la extensión.</strong> Añade <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit</a> gratis a Chrome.</li>
+        <li><strong>Guarda tu respuesta.</strong> Abre el popup, dale un título a tu respuesta guardada (p. ej. "Pedido enviado") y pega el texto.</li>
+        <li><strong>Insértala.</strong> En el cuerpo del mensaje de Gmail, escribe <code>//</code> (o pulsa <code>Ctrl/Cmd+Shift+Espacio</code>), luego elige el fragmento. Se inserta justo en tu cursor.</li>
+      </ol>
+      <p>Sin menús, sin buscar en la configuración — el mismo disparador <code>//</code> funciona también en mesas de ayuda, marketplaces, redes sociales, CRM y formularios, no solo en Gmail.</p>
+
+      <div class="ctabox">
+        <p><strong>Deja de reescribir los mismos correos.</strong> Configura tus respuestas guardadas en un minuto.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Añadir ReplyKit a Chrome — gratis</a>
+      </div>
+
+      <h2>Plantillas de Gmail vs una herramienta de fragmentos</h2>
+      <p>Las "Plantillas" de Gmail (antes Respuestas guardadas) están bien si vives completamente dentro de Gmail y solo necesitas unas pocas. Pero requieren activar una opción, están a varios clics en la barra de respuesta, y no te siguen a otras herramientas. Una extensión de fragmentos te da un mismo atajo en todas partes donde escribes, con búsqueda instantánea en todas tus respuestas.</p>
+
+      <h2>Cómo activar las plantillas integradas de Gmail</h2>
+      <p>Si quieres probar primero la función nativa de Gmail, así se configura:</p>
+      <ol class="steps">
+        <li>Abre Gmail y haz clic en el <strong>icono de engranaje → Ver toda la configuración</strong>.</li>
+        <li>Ve a la pestaña <strong>Avanzado</strong>, activa <strong>Plantillas</strong>, y guarda los cambios.</li>
+        <li>Redacta un mensaje, escribe tu texto, luego usa el <strong>menú de tres puntos → Plantillas → Guardar borrador como plantilla</strong>.</li>
+        <li>Para reutilizarla más tarde, abre el mismo menú <strong>Plantillas</strong> y elígela.</li>
+      </ol>
+      <p>Funciona, pero cada inserción está a varios clics en la barra, solo vive dentro de Gmail, y no hay búsqueda instantánea. Ese es el hueco que llena un atajo de fragmentos.</p>
+
+      <h2>Respuestas guardadas que guardar primero</h2>
+      <p>Si gestionas correo todo el día, estas plantillas se rentabilizan de inmediato:</p>
+      <ul>
+        <li><strong>Primera respuesta</strong> — "Gracias por escribirnos — lo estoy revisando y te contacto en breve."</li>
+        <li><strong>Actualización de pedido o estado</strong> — con marcadores para el número de pedido y la fecha.</li>
+        <li><strong>Seguimiento</strong> — un recordatorio suave cuando no has tenido respuesta.</li>
+        <li><strong>Confirmación de reunión</strong> — fecha, hora y tu enlace de calendario.</li>
+        <li><strong>Un no cortés</strong> — rechazar una solicitud con amabilidad sin dañar la relación.</li>
+      </ul>
+
+      <h2>Acelera con un atajo de teclado</h2>
+      <p>¿Prefieres no escribir <code>//</code>? Pulsa <code>Ctrl/Cmd+Shift+Espacio</code> para abrir el mismo selector, o asigna un disparador corto como <code>;hola</code> a un fragmento para que se expanda en el momento en que lo escribas. En una bandeja de entrada ocupada, eso convierte una inserción de varios clics en un solo reflejo — mira <a href="text-shortcuts-abbreviations.html">atajos y abreviaturas de texto</a>.</p>
+
+      <h2>¿Funciona más allá de Gmail?</h2>
+      <p>Sí. El mismo disparador <code>//</code> funciona en Outlook web, mesas de ayuda como Zendesk e Intercom, marketplaces, bandejas sociales, CRM y formularios comunes. A diferencia de las plantillas de Gmail, tus respuestas te siguen a todas partes donde escribes, así que mantienes una única biblioteca en vez de recrear plantillas en cada herramienta. Para editores que bloquean la inserción automática, el botón Copiar te permite pegar a mano.</p>
+
+      <h2>Errores comunes que evitar</h2>
+      <p>Las plantillas ahorran tiempo, pero algunos hábitos evitan que se vuelvan en tu contra:</p>
+      <ul>
+        <li><strong>Enviar una plantilla sin tocar.</strong> Los detalles entre corchetes —nombre, número de pedido, el problema específico— son lo que hace que se lea como una respuesta real. Complétalos siempre.</li>
+        <li><strong>Acumular demasiadas.</strong> Cincuenta plantillas casi idénticas son más lentas que una docena buenas, porque pierdes tiempo buscando. Mantén el conjunto reducido.</li>
+        <li><strong>Olvidar el saludo y la despedida.</strong> Guárdalos por separado para poder abrir con calidez y cerrar de forma consistente sin incrustarlos en cada fragmento.</li>
+        <li><strong>No actualizarlas nunca.</strong> Las políticas, precios y enlaces cambian — revisa tus respuestas guardadas cada mes para no pegar nunca algo desactualizado.</li>
+      </ul>
+      <p>Haz esto bien y tus respuestas se sentirán personales y actuales: rápidas de enviar, pero nunca obviamente copiadas y pegadas.</p>
+
+      <h2>Consejos para buenas respuestas guardadas</h2>
+      <ul>
+        <li>Mantén un <strong>saludo</strong> y una <strong>despedida</strong> breves y cordiales como fragmentos separados que puedas combinar.</li>
+        <li>Escribe plantillas neutras que puedas personalizar ligeramente tras insertarlas (un nombre, un número de pedido).</li>
+        <li>Agrúpalas por tarea: preguntas de soporte, actualizaciones de envío, seguimientos, reembolsos.</li>
+        <li>Revísalas cada mes — elimina lo que nunca uses, añade las frases que sigues escribiendo a mano.</li>
+      </ul>
+
+      <h2>¿Funciona en el cuerpo de Gmail?</h2>
+      <p>Sí — ReplyKit se inserta directamente en el cuerpo de redacción de Gmail. Para algunos editores aislados que bloquean la inserción automática, hay un botón <strong>Copiar</strong> para pegar a mano. Tus fragmentos siguen siendo privados: en el plan gratuito se guardan localmente en tu navegador; consulta la <a href="../privacy.html">política de privacidad</a>.</p>
+
+      <p>Configura hoy unas cuantas respuestas guardadas y notarás la diferencia en tu próxima sesión de correo: menos reescritura, respuestas más rápidas, y una voz consistente en cada mensaje que envíes — en Gmail y en todas partes.</p>
+
+      <h2>Guías relacionadas</h2>
+      <ul>
+        <li><a href="customer-support-reply-templates.html">11 plantillas de respuesta para soporte al cliente</a> — respuestas listas para copiar.</li>
+        <li><a href="text-snippet-variables-placeholders.html">Variables y marcadores</a> — crea plantillas que se rellenan solas.</li>
+        <li><a href="live-chat-canned-responses.html">20 ejemplos de respuestas para chat en vivo</a> — respuestas rápidas para soporte.</li>
+        <li><a href="free-text-expander-alternative.html">Una alternativa gratuita a los expansores de texto</a>.</li>
+      </ul>
+      <h2>Preguntas frecuentes</h2>
+      <p><strong>¿Gmail tiene respuestas guardadas integradas?</strong><br />
+      Sí — las Plantillas de Gmail (antes Respuestas guardadas) están en Configuración → Avanzado, pero solo funcionan dentro de Gmail y requieren varios clics. ReplyKit te permite insertar respuestas escribiendo <code>//</code> en Gmail y en cualquier otro campo de texto.</p>
+      <p><strong>¿Cómo inserto una respuesta guardada en Gmail?</strong><br />
+      Instala ReplyKit, guarda tu respuesta como fragmento, luego escribe <code>//</code> en el cuerpo del mensaje de Gmail y elígela — se inserta en tu cursor.</p>
+      <p><strong>¿ReplyKit es gratis?</strong><br />
+      Sí, gratis hasta 10 fragmentos. Pro desbloquea fragmentos ilimitados y sincronización entre tus dispositivos.</p>
+      <p><strong>¿Mis respuestas guardadas son privadas?</strong><br />
+      En el plan gratuito los fragmentos se guardan localmente en tu navegador sin cuenta. Nada se sube ni se rastrea.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Inicio</a> · <a href="../../privacy.html">Privacidad</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obtener la extensión</a>
+    </footer>
+  </body>
+</html>
