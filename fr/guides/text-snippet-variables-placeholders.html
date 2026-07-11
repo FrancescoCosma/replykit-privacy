@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Variables et espaces réservés dans les extraits — ReplyKit</title>
+    <meta
+      name="description"
+      content="Utilisez des espaces réservés dynamiques dans vos extraits : {date} et {time} se remplissent seuls, {name} vous le demande. Créez des modèles qui se personnalisent."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/fr/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Variables et espaces réservés : des modèles qui se remplissent seuls" />
+    <meta property="og:description" content="Espaces réservés dynamiques pour vos extraits : {date}/{time} se remplissent seuls, {name} vous le demande. Modèles qui se personnalisent." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/fr/guides/text-snippet-variables-placeholders.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Variables et espaces réservés dans les extraits" />
+    <meta name="twitter:description" content="Modèles dynamiques qui se remplissent seuls : {date}/{time} automatique, {name} vous le demande. Gratuit avec ReplyKit." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Comment utiliser les variables et espaces réservés dans les extraits de texte",
+        "description": "Ajoutez des espaces réservés dynamiques aux extraits réutilisables pour qu'ils se personnalisent seuls à l'insertion.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "step": [
+          { "@type": "HowToStep", "name": "Ajoutez un espace réservé", "text": "Écrivez un extrait avec des jetons entre accolades, ex. Bonjour {name}, votre commande part le {date}." },
+          { "@type": "HowToStep", "name": "Insérez-le", "text": "Tapez // dans n'importe quel champ de texte et choisissez l'extrait." },
+          { "@type": "HowToStep", "name": "Remplissage automatique et manuel", "text": "{date} et {time} se remplissent seuls ; {name} vous demande de saisir la valeur avant l'insertion." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://replykit.pureprompting.com/fr/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Variables et espaces réservés dans les extraits" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Que sont les variables ou espaces réservés dans les extraits ?", "acceptedAnswer": { "@type": "Answer", "text": "Des champs dynamiques dans un extrait, comme {date} ou {name}, qui se remplissent seuls ou vous demandent une valeur quand vous insérez l'extrait." } },
+          { "@type": "Question", "name": "Quels espaces réservés se remplissent automatiquement ?", "acceptedAnswer": { "@type": "Answer", "text": "{date}, {time} et {datetime} se remplissent seuls. Tout autre champ, comme {name}, vous le demande pendant l'insertion." } },
+          { "@type": "Question", "name": "Puis-je créer mes propres champs personnalisés ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Écrivez n'importe quel {mot} dans un extrait et ReplyKit vous demandera de le remplir à l'insertion." } },
+          { "@type": "Question", "name": "Le presse-papiers est-il pris en charge comme espace réservé ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. {clipboard} n'est pas pris en charge volontairement, pour que ReplyKit n'ait jamais besoin de la permission de lecture du presse-papiers." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guides › Variables et espaces réservés dans les extraits</div>
+
+      <h1>Variables et espaces réservés : des modèles qui se remplissent seuls</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Mis à jour en juillet 2026</p>
+      <p class="lede">Un bon modèle fait gagner du temps. Un modèle qui se personnalise seul en fait gagner plus. Avec les espaces réservés, un extrait s'adapte à chaque message — la date se remplit toute seule, et le nom est la seule chose que vous tapez.</p>
+
+      <p>Le problème des réponses enregistrées classiques, c'est la modification. Vous collez « Bonjour [nom], votre commande part le [date] » puis vous cherchez les crochets pour les corriger à la main. Les espaces réservés suppriment cette étape : vous marquez une fois les parties qui changent, et ReplyKit les remplit quand vous insérez l'extrait.</p>
+
+      <h2>Les deux types d'espaces réservés</h2>
+      <p>Enveloppez un jeton entre accolades n'importe où dans votre extrait, comme <code>{name}</code>. Il y a deux comportements :</p>
+      <table>
+        <tr><th>Espace réservé</th><th>Ce qui se passe à l'insertion</th></tr>
+        <tr><td><code>{date}</code></td><td>Se remplit seul avec la date du jour</td></tr>
+        <tr><td><code>{time}</code></td><td>Se remplit seul avec l'heure actuelle</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Se remplit avec date et heure ensemble</td></tr>
+        <tr><td><code>{name}</code>, <code>{order}</code>, <code>{n'importe-quoi}</code></td><td>Vous demande de saisir la valeur avant l'insertion</td></tr>
+      </table>
+      <p><code>{date}</code>, <code>{time}</code> et <code>{datetime}</code> sont automatiques — vous ne les tapez jamais. Tout autre jeton devient un champ à remplir : quand vous insérez l'extrait, ReplyKit vous demande chacun, puis dépose le texte fini à votre curseur.</p>
+
+      <h2>Comment les utiliser (en 3 étapes)</h2>
+      <ol>
+        <li>Enregistrez un extrait avec des espaces réservés, ex. <code>Bonjour {name}, votre commande part le {date}. Merci de votre patience !</code></li>
+        <li>Dans n'importe quel champ de texte, tapez <code>//</code> et choisissez l'extrait.</li>
+        <li>ReplyKit remplit <code>{date}</code> automatiquement et vous demande <code>{name}</code>. Tapez « Marie », et vous obtenez : <em>Bonjour Marie, votre commande part le 07/07/2026. Merci de votre patience !</em></li>
+      </ol>
+
+      <h2>Modèles à rendre dynamiques</h2>
+      <h2>Mise à jour de commande</h2>
+      <div class="tpl">Bonjour {name}, bonne nouvelle — votre commande {order} est partie aujourd'hui, {date}. Vous pouvez la suivre ici : {tracking}.</div>
+
+      <h2>Confirmation de rendez-vous</h2>
+      <div class="tpl">Bonjour {name}, je confirme notre appel du {date} à {time}. À bientôt !</div>
+
+      <h2>Relance de support</h2>
+      <div class="tpl">Bonjour {name}, juste une relance sur le ticket {ticket}. Tout fonctionne maintenant, ou je continue à creuser ?</div>
+
+      <div class="ctabox">
+        <p><strong>Créez des modèles qui se remplissent seuls.</strong> Ajoutez des espaces réservés à n'importe quel extrait et insérez-le partout en tapant //.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Ajouter ReplyKit à Chrome — gratuit</a>
+      </div>
+
+      <h2>Conseils</h2>
+      <ul>
+        <li>Réutilisez le même nom de jeton pour le remplir une fois — chaque <code>{name}</code> dans un extrait reçoit la valeur que vous tapez.</li>
+        <li>Gardez les noms de jetons courts et évidents (<code>{name}</code>, <code>{date}</code>, <code>{link}</code>) pour vous souvenir de quoi taper.</li>
+        <li>Combinez avec un raccourci court : tapez <code>;exp</code> pour développer instantanément votre modèle de mise à jour de commande.</li>
+        <li>Utilisez <code>{date}</code> pour tout ce qui est daté — journaux, horodatages, lignes « à ce jour » — et ne le mettez plus jamais à jour à la main.</li>
+      </ul>
+
+      <p>Connexes : <a href="text-shortcuts-abbreviations.html">Écrivez plus vite avec les raccourcis et abréviations de texte</a> · <a href="customer-support-reply-templates.html">11 modèles de réponse pour le support client</a> · <a href="free-text-expander-alternative.html">Une alternative gratuite aux expandeurs de texte</a></p>
+      <h2>Questions fréquentes</h2>
+      <p><strong>Que sont les variables ou espaces réservés dans les extraits ?</strong><br />
+      Des champs dynamiques dans un extrait, comme <code>{date}</code> ou <code>{name}</code>, qui se remplissent seuls ou vous demandent une valeur quand vous insérez l'extrait.</p>
+      <p><strong>Quels espaces réservés se remplissent automatiquement ?</strong><br />
+      <code>{date}</code>, <code>{time}</code> et <code>{datetime}</code> se remplissent seuls. Tout autre champ, comme <code>{name}</code>, vous le demande pendant l'insertion.</p>
+      <p><strong>Puis-je créer mes propres champs personnalisés ?</strong><br />
+      Oui. Écrivez n'importe quel <code>{mot}</code> dans un extrait et ReplyKit vous demandera de le remplir à l'insertion.</p>
+      <p><strong>Le presse-papiers est-il pris en charge comme espace réservé ?</strong><br />
+      Non. <code>{clipboard}</code> n'est pas pris en charge volontairement, pour que ReplyKit n'ait jamais besoin de la permission de lecture du presse-papiers.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Accueil</a> · <a href="../../privacy.html">Confidentialité</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obtenir l'extension</a>
+    </footer>
+  </body>
+</html>

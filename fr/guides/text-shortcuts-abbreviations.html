@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Raccourcis et abréviations pour écrire plus vite</title>
+    <meta
+      name="description"
+      content="Transformez des déclencheurs courts comme ;bjr en messages complets. Un expandeur d'abréviations gratuit pour Chrome : définissez un raccourci, tapez-le, l'extrait apparaît."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/fr/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Écrivez plus vite avec les raccourcis et abréviations" />
+    <meta property="og:description" content="Transformez des déclencheurs courts comme ;bjr en messages complets. Un expandeur d'abréviations gratuit pour Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/fr/guides/text-shortcuts-abbreviations.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Écrivez plus vite avec les raccourcis et abréviations" />
+    <meta name="twitter:description" content="Transformez des déclencheurs courts comme ;bjr en messages complets. Expandeur d'abréviations gratuit pour Chrome." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Comment créer des raccourcis et abréviations de texte",
+        "description": "Définissez des déclencheurs courts qui se développent en extraits complets pendant que vous tapez, partout dans Chrome.",
+        "step": [
+          { "@type": "HowToStep", "name": "Créez un extrait", "text": "Enregistrez le texte que vous envoyez souvent, ex. une salutation ou une adresse." },
+          { "@type": "HowToStep", "name": "Assignez un raccourci", "text": "Donnez-lui un déclencheur court comme ;bjr ou ;adr." },
+          { "@type": "HowToStep", "name": "Tapez-le partout", "text": "Dans n'importe quel champ de texte, tapez le déclencheur et il se développe en l'extrait complet." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://replykit.pureprompting.com/fr/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Raccourcis et abréviations de texte" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Qu'est-ce qu'un raccourci ou une abréviation de texte ?", "acceptedAnswer": { "@type": "Answer", "text": "Un déclencheur court — comme ;bjr — qui se développe automatiquement en un extrait enregistré plus long pendant que vous tapez, pour que quelques caractères deviennent un message complet." } },
+          { "@type": "Question", "name": "Comment créer un raccourci dans ReplyKit ?", "acceptedAnswer": { "@type": "Answer", "text": "Ajoutez ou modifiez un extrait et remplissez son champ de raccourci (ex. ;bjr). Puis tapez ce raccourci dans n'importe quel champ de texte et il se développe instantanément." } },
+          { "@type": "Question", "name": "Les raccourcis se développent-ils par accident ?", "acceptedAnswer": { "@type": "Answer", "text": "Les raccourcis alphanumériques nécessitent une limite de mot pour se déclencher, et ceux qui commencent par un symbole (comme ;) évitent de heurter la saisie normale." } },
+          { "@type": "Question", "name": "Les raccourcis fonctionnent-ils partout ?", "acceptedAnswer": { "@type": "Answer", "text": "Ils fonctionnent dans n'importe quel champ de texte web standard — Gmail, centres d'aide, formulaires et plus. Pour les éditeurs isolés, il y a un bouton Copier." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guides › Raccourcis et abréviations de texte</div>
+
+      <h1>Écrivez plus vite avec les raccourcis et abréviations</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Mis à jour en juillet 2026</p>
+      <p class="lede">Le texte le plus rapide à taper est celui que vous ne tapez pas. Assignez un déclencheur court comme <code>;bjr</code> à un message complet, et quelques touches deviennent une réponse complète — dans Gmail, votre centre d'aide, un CRM, ou n'importe quel formulaire.</p>
+
+      <p>Un expandeur de texte (ou expandeur d'abréviations) observe ce que vous tapez et remplace des déclencheurs courts par du texte plus long. C'est la différence entre taper une réponse de 200 caractères et taper <code>;mrc</code>. ReplyKit fait cela gratuitement, dans n'importe quel champ de texte standard, sans compte.</p>
+
+      <h2>Raccourcis vs le sélecteur //</h2>
+      <p>ReplyKit vous donne deux façons d'insérer un extrait — utilisez celle qui est la plus rapide sur le moment :</p>
+      <ul>
+        <li><strong>Le sélecteur <code>//</code></strong> — vous tapez <code>//</code>, cherchez par nom, choisissez. Idéal quand vous ne vous souvenez pas du déclencheur exact.</li>
+        <li><strong>Les raccourcis</strong> — vous tapez le déclencheur (ex. <code>;bjr</code>) et il se développe instantanément, sans menu. Idéal pour la poignée d'extraits que vous utilisez toute la journée.</li>
+      </ul>
+
+      <h2>Comment en configurer un (en 3 étapes)</h2>
+      <ol>
+        <li>Ouvrez le popup de ReplyKit et enregistrez (ou modifiez) un extrait.</li>
+        <li>Dans le champ <strong>raccourci</strong>, donnez-lui un déclencheur — quelque chose de rapide et mémorable comme <code>;bjr</code>, <code>;sig</code>, ou <code>;adr</code>.</li>
+        <li>Dans n'importe quel champ de texte, tapez le déclencheur. Il se développe en l'extrait complet juste où se trouve votre curseur.</li>
+      </ol>
+
+      <h2>Choisir de bons déclencheurs</h2>
+      <ul>
+        <li><strong>Utilisez un symbole préfixe</strong> comme <code>;</code> ou <code>/</code> pour que les déclencheurs ne se déclenchent jamais par erreur à l'intérieur d'un mot normal.</li>
+        <li><strong>Gardez-les courts et mnémoniques</strong> : <code>;sig</code> pour signature, <code>;mrc</code> pour merci, <code>;tt</code> pour « télétravail aujourd'hui ».</li>
+        <li><strong>Restez cohérent</strong> — choisissez un préfixe et utilisez-le pour tout, pour que vos doigts apprennent le schéma.</li>
+      </ul>
+
+      <h2>Raccourcis utiles pour commencer</h2>
+      <table>
+        <tr><th>Déclencheur</th><th>Se développe en</th></tr>
+        <tr><td><code>;bjr</code></td><td>Bonjour ! Merci de nous avoir contactés — ravi de vous aider.</td></tr>
+        <tr><td><code>;mrc</code></td><td>Merci beaucoup, vraiment apprécié !</td></tr>
+        <tr><td><code>;sig</code></td><td>Votre signature e-mail complète</td></tr>
+        <tr><td><code>;adr</code></td><td>Votre adresse professionnelle</td></tr>
+        <tr><td><code>;cal</code></td><td>Voici mon lien de calendrier pour réserver un créneau : …</td></tr>
+      </table>
+
+      <h2>Où les raccourcis de texte font gagner le plus de temps</h2>
+      <p>Quiconque tape des messages répétitifs en bénéficie, mais certains rôles voient les plus grands gains :</p>
+      <ul>
+        <li><strong>Support client</strong> — une salutation, une attente « je regarde ça » et une ligne de clôture couvrent une grande part des tickets. Trois déclencheurs remplacent des centaines de touches par jour.</li>
+        <li><strong>Ventes et prospection</strong> — votre lien de calendrier, une relance et une ligne de tarification sont toujours à quelques caractères.</li>
+        <li><strong>Recrutement</strong> — planification d'entretiens, « merci d'avoir postulé », et notes de refus qui restent humaines.</li>
+        <li><strong>Développeurs et opérations</strong> — texte standard comme descriptions de PR, mises à jour de standup, ou une réponse standard d'incident.</li>
+      </ul>
+      <p>Le schéma est toujours le même : listez les dix phrases que vous retapez le plus cette semaine, donnez à chacune un déclencheur, et laissez la mémoire musculaire faire le reste.</p>
+
+      <h2>Raccourcis vs correction automatique et remplacement de texte du système</h2>
+      <p>Le remplacement de texte de votre téléphone ou la correction automatique de votre système d'exploitation peuvent développer quelques abréviations, mais ils sont limités : ils sont maladroits à gérer sur un ordinateur portable, ne s'alignent pas avec votre travail dans le navigateur, et abîment souvent des réponses longues multi-lignes. Un outil dédié de navigateur garde les extraits organisés avec noms, dossiers et raccourcis, développe des messages multi-paragraphes proprement, et se comporte de la même façon dans chaque application web que vous utilisez — de Gmail à votre centre d'aide en passant par un CRM.</p>
+
+      <h2>Créez un pense-bête de raccourcis</h2>
+      <p>Au début, gardez une courte liste de vos déclencheurs visible pendant une semaine — un post-it ou un extrait épinglé fonctionne bien. Après quelques jours, les utiles restent et vous pouvez élaguer le reste. Regroupez les déclencheurs liés avec un préfixe partagé (<code>;s-</code> pour les salutations, <code>;r-</code> pour les relances) pour qu'ils soient faciles à retenir, et révisez la liste chaque mois : supprimez ce que vous ne déclenchez jamais et ajoutez les phrases que vous continuez à taper à la main. Une douzaine de déclencheurs bien choisis vaut mieux que cinquante dont vous ne vous souvenez pas.</p>
+
+      <h2>Les raccourcis ralentissent-ils votre frappe ?</h2>
+      <p>Non — l'expansion se produit à l'instant où vous complétez un déclencheur, et ReplyKit n'agit que sur le petit ensemble de raccourcis que vous avez définis, donc la frappe normale reste intacte. Comme les déclencheurs se déclenchent sur une limite de mot (ou commencent par un symbole), les mots du quotidien ne se développent jamais par erreur. Et si un extrait ne semble pas adapté au moment, vous pouvez toujours recourir au sélecteur <code>//</code> — les deux méthodes partagent la même bibliothèque.</p>
+      <p>La plupart des gens trouvent un rythme confortable dans la première semaine — quelques déclencheurs deviennent automatiques, et la dixième réponse identique de la matinée cesse simplement d'être quelque chose auquel vous pensez.</p>
+
+      <div class="ctabox">
+        <p><strong>Transformez quelques touches en une réponse complète.</strong> Définissez un raccourci et tapez-le partout.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Ajouter ReplyKit à Chrome — gratuit</a>
+      </div>
+
+      <h2>Rendez-les encore plus intelligents</h2>
+      <p>Combinez un raccourci avec des espaces réservés pour que le texte développé se personnalise seul : un déclencheur <code>;exp</code> peut se développer en <em>« Bonjour {name}, votre commande a été expédiée le {date}. »</em> — remplissant la date automatiquement et vous demandant le nom. Voir <a href="text-snippet-variables-placeholders.html">variables et espaces réservés dans les extraits</a>. Associer un déclencheur mémorable à un modèle qui se remplit seul, c'est là où quelques touches font le plus grand travail.</p>
+
+      <p>Connexes : <a href="text-snippet-variables-placeholders.html">Variables et espaces réservés</a> · <a href="canned-responses-in-gmail.html">Réponses enregistrées dans Gmail</a> · <a href="free-text-expander-alternative.html">Une alternative gratuite aux expandeurs de texte</a></p>
+      <h2>Questions fréquentes</h2>
+      <p><strong>Qu'est-ce qu'un raccourci ou une abréviation de texte ?</strong><br />
+      Un déclencheur court — comme <code>;bjr</code> — qui se développe automatiquement en un extrait enregistré plus long pendant que vous tapez, pour que quelques caractères deviennent un message complet.</p>
+      <p><strong>Comment créer un raccourci dans ReplyKit ?</strong><br />
+      Ajoutez ou modifiez un extrait et remplissez son champ de raccourci (ex. <code>;bjr</code>). Puis tapez ce raccourci dans n'importe quel champ de texte et il se développe instantanément.</p>
+      <p><strong>Les raccourcis se développent-ils par accident ?</strong><br />
+      Les raccourcis alphanumériques nécessitent une limite de mot pour se déclencher, et ceux qui commencent par un symbole (comme <code>;</code>) évitent de heurter la saisie normale.</p>
+      <p><strong>Les raccourcis fonctionnent-ils partout ?</strong><br />
+      Ils fonctionnent dans n'importe quel champ de texte web standard — Gmail, centres d'aide, formulaires et plus. Pour les éditeurs isolés, il y a un bouton Copier.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Accueil</a> · <a href="../../privacy.html">Confidentialité</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obtenir l'extension</a>
+    </footer>
+  </body>
+</html>
