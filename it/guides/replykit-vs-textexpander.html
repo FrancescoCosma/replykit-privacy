@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>ReplyKit vs TextExpander: quale scegliere?</title>
+    <meta
+      name="description"
+      content="ReplyKit vs TextExpander a confronto: prezzo, configurazione, privacy e funzioni — per scegliere il text expander giusto per il tuo flusso di lavoro."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/it/guides/replykit-vs-textexpander.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/replykit-vs-textexpander.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/replykit-vs-textexpander.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/replykit-vs-textexpander.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="ReplyKit vs TextExpander: quale scegliere?" />
+    <meta property="og:description" content="Un confronto diretto tra ReplyKit e TextExpander: prezzo, configurazione, privacy e per chi è pensato ciascuno." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/it/guides/replykit-vs-textexpander.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ReplyKit vs TextExpander: quale scegliere?" />
+    <meta name="twitter:description" content="Prezzo, configurazione, privacy e funzioni a confronto — scegli il text expander giusto per te." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "ReplyKit vs TextExpander: quale scegliere?",
+        "description": "Un confronto diretto tra ReplyKit e TextExpander: prezzo, configurazione, privacy e per chi è pensato ciascuno.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "author": { "@type": "Person", "name": "Francesco Cosma" },
+        "publisher": { "@type": "Organization", "name": "ReplyKit" },
+        "mainEntityOfPage": "https://replykit.pureprompting.com/it/guides/replykit-vs-textexpander.html",
+        "datePublished": "2026-07-05"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guide", "item": "https://replykit.pureprompting.com/it/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "ReplyKit vs TextExpander" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "ReplyKit può sostituire TextExpander?", "acceptedAnswer": { "@type": "Answer", "text": "Per la digitazione nel browser sì — ReplyKit copre lo stesso lavoro di base (salvare testo, inserirlo con un trigger) gratis. Se ti serve l'espansione a livello di sistema nelle app desktop native, TextExpander copre ancora di più." } },
+          { "@type": "Question", "name": "ReplyKit ha un costo?", "acceptedAnswer": { "@type": "Answer", "text": "ReplyKit è gratuito fino a 10 snippet, senza account richiesto. Pro rimuove il limite e aggiunge la sincronizzazione tra dispositivi con un piccolo costo mensile, annuale o una tantum." } },
+          { "@type": "Question", "name": "Posso importare i miei snippet di TextExpander in ReplyKit?", "acceptedAnswer": { "@type": "Answer", "text": "Non c'è un importer automatico oggi; spostare a mano i tuoi 5-10 snippet più usati richiede pochi minuti. ReplyKit supporta anche export/import JSON per fare backup o spostare i tuoi snippet tra browser." } },
+          { "@type": "Question", "name": "Quale dei due è più privato?", "acceptedAnswer": { "@type": "Answer", "text": "Il piano gratuito di ReplyKit salva tutto localmente nel browser senza account e senza analytics. TextExpander richiede un account e sincronizza di default tramite il proprio cloud." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 32px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 23px; margin: 36px 0 12px; }
+      p, li { font-size: 17px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 16px; }
+      th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; }
+      th { background: var(--soft); }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guide › ReplyKit vs TextExpander</div>
+
+      <h1>ReplyKit vs TextExpander: quale scegliere?</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Aggiornato a luglio 2026</p>
+      <p class="lede">Entrambi ti evitano di riscrivere sempre le stesse cose. La scelta giusta dipende da dove digiti di più, quanti snippet ti servono, e se vuoi un'opzione gratuita.</p>
+
+      <p>TextExpander esiste da molto tempo e fa tantissimo: espansione a livello di sistema tra app desktop, form da compilare, librerie di snippet condivise per il team. Tutto questo ha un prezzo: un abbonamento e una configurazione non banale. <strong>ReplyKit</strong> è più recente e volutamente più ristretto: è un'estensione Chrome focalizzata su un solo compito — salvare uno snippet, inserirlo ovunque sul web digitando <code>//</code> — ed è gratis per iniziare.</p>
+
+      <h2>A colpo d'occhio</h2>
+      <table>
+        <tr><th></th><th>ReplyKit</th><th>TextExpander</th></tr>
+        <tr><td>Prezzo</td><td>Gratis (10 snippet) · Pro da 3,99€/mese</td><td>Solo abbonamento, nessun piano gratuito permanente</td></tr>
+        <tr><td>Dove funziona</td><td>Qualsiasi campo di testo Chrome (solo web)</td><td>A livello di sistema: app desktop + browser</td></tr>
+        <tr><td>Account richiesto</td><td>No, nel piano gratuito</td><td>Sì</td></tr>
+        <tr><td>Tempo di configurazione</td><td>Meno di un minuto</td><td>Più lungo — installazione desktop + account + configurazione sync</td></tr>
+        <tr><td>Snippet condivisi in team</td><td>Non ancora</td><td>Sì, sui piani team</td></tr>
+        <tr><td>Campi dinamici</td><td>{date}, {time} si compilano da soli; {name} chiede all'inserimento</td><td>Fill-in, date e logica dei form più avanzata</td></tr>
+        <tr><td>Dove sono salvati i dati (piano gratuito)</td><td>Localmente nel browser, nessun account</td><td>Sincronizzati sul cloud di TextExpander</td></tr>
+      </table>
+
+      <h2>Dove vince TextExpander</h2>
+      <p>Se la tua digitazione ripetitiva avviene fuori dal browser — in app desktop native, editor di codice o qualsiasi app sul tuo computer — l'espansione a livello di sistema di TextExpander è qualcosa che un'estensione del browser semplicemente non può eguagliare. Anche i team che hanno bisogno di una libreria di snippet condivisa e gestita centralmente su molte persone sono serviti meglio dai piani team e dalla logica fill-in avanzata di TextExpander.</p>
+
+      <h2>Dove vince ReplyKit</h2>
+      <p>Se la tua digitazione ripetitiva avviene nel browser — Gmail, help desk, marketplace, CRM, social, form — ReplyKit fa lo stesso lavoro di base senza abbonamento, installazione desktop o account richiesto. Digiti <code>//</code>, cerchi, inserisci. Dieci snippet sono gratis per sempre, e c'è un export/import JSON se vuoi fare backup o spostarli tra macchine da solo.</p>
+
+      <h2>Prezzo su un anno</h2>
+      <p>Il piano individuale di TextExpander è un abbonamento ricorrente senza piano gratuito — paghi dal primo giorno, che tu usi 3 snippet o 300. Il piano gratuito di ReplyKit copre fino a 10 snippet a tempo indeterminato; se ti servono di più, Pro costa 3,99€/mese, 29€/anno, oppure un'opzione lifetime una tantum di 59€. Per chi lavora interamente nel browser, è un impegno molto più contenuto da provare prima di pagare qualcosa.</p>
+
+      <h2>Passare da TextExpander a ReplyKit</h2>
+      <p>Non c'è ancora un importer con un clic, ma nella pratica il passaggio è rapido: installa ReplyKit, ricrea a mano i tuoi 5-10 snippet più usati (pochi minuti) e assegna un trigger breve a quelli che usi di continuo. Da lì in poi, usa l'export/import di ReplyKit per tenere un backup o spostare gli snippet su un altro browser.</p>
+
+      <div class="ctabox">
+        <p><strong>Prova ReplyKit gratis</strong> — salva i tuoi primi snippet in meno di un minuto.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Aggiungi a Chrome — è gratis</a>
+      </div>
+
+      <h2>Guide correlate</h2>
+      <ul>
+        <li><a href="free-text-expander-alternative.html">Un'alternativa gratuita ai text expander per Chrome</a> — il quadro completo per uno strumento leggero.</li>
+        <li><a href="replykit-vs-text-blaze.html">ReplyKit vs Text Blaze</a> — come si confronta con un altro strumento nato per il browser.</li>
+        <li><a href="text-shortcuts-abbreviations.html">Scorciatoie e abbreviazioni</a> — espandi trigger brevi come <code>;ciao</code> all'istante.</li>
+        <li><a href="text-snippet-variables-placeholders.html">Variabili e segnaposto</a> — template che si compilano da soli.</li>
+      </ul>
+
+      <h2>Domande frequenti</h2>
+      <p><strong>ReplyKit può sostituire TextExpander?</strong><br />
+      Per la digitazione nel browser sì — ReplyKit copre lo stesso lavoro di base (salvare testo, inserirlo con un trigger) gratis. Se ti serve l'espansione a livello di sistema nelle app desktop native, TextExpander copre ancora di più.</p>
+      <p><strong>ReplyKit ha un costo?</strong><br />
+      ReplyKit è gratuito fino a 10 snippet, senza account richiesto. Pro rimuove il limite e aggiunge la sincronizzazione tra dispositivi con un piccolo costo mensile, annuale o una tantum.</p>
+      <p><strong>Posso importare i miei snippet di TextExpander in ReplyKit?</strong><br />
+      Non c'è un importer automatico oggi; spostare a mano i tuoi 5-10 snippet più usati richiede pochi minuti. ReplyKit supporta anche export/import JSON per fare backup o spostare i tuoi snippet tra browser.</p>
+      <p><strong>Quale dei due è più privato?</strong><br />
+      Il piano gratuito di ReplyKit salva tutto localmente nel browser senza account e senza analytics. TextExpander richiede un account e sincronizza di default tramite il proprio cloud.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Home</a> · <a href="../../privacy.html">Privacy</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Ottieni l'estensione</a>
+    </footer>
+  </body>
+</html>
