@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Une alternative gratuite aux correcteurs de texte</title>
+    <meta
+      name="description"
+      content="Vous cherchez un expandeur de texte gratuit ? ReplyKit est une extension Chrome légère qui enregistre des extraits et insère des réponses sauvegardées en tapant //."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/fr/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/free-text-expander-alternative.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/free-text-expander-alternative.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Une alternative gratuite aux expandeurs de texte pour Chrome" />
+    <meta property="og:description" content="Enregistrez des extraits de texte et insérez-les où vous voulez en tapant //. Un expandeur de texte gratuit, privé et léger pour Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/fr/guides/free-text-expander-alternative.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Une alternative gratuite aux expandeurs de texte pour Chrome" />
+    <meta name="twitter:description" content="Un expandeur de texte gratuit, privé et léger pour Chrome. Tapez // pour insérer vos réponses enregistrées." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Une alternative gratuite aux expandeurs de texte pour Chrome (2026)",
+        "description": "Comment ReplyKit fonctionne comme expandeur de texte gratuit et léger pour Chrome : enregistrez des extraits et insérez-les où vous voulez en tapant //.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "author": { "@type": "Person", "name": "Francesco Cosma" },
+        "publisher": { "@type": "Organization", "name": "ReplyKit" },
+        "mainEntityOfPage": "https://replykit.pureprompting.com/fr/guides/free-text-expander-alternative.html",
+        "datePublished": "2026-06-22"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://replykit.pureprompting.com/fr/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Alternative gratuite aux expandeurs de texte" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Qu'est-ce qu'un expandeur de texte ?", "acceptedAnswer": { "@type": "Answer", "text": "Un expandeur de texte enregistre du texte réutilisable — salutations, réponses aux questions fréquentes, signatures — et l'insère dans n'importe quel champ avec un déclencheur court, pour arrêter de retaper toujours la même chose." } },
+          { "@type": "Question", "name": "Existe-t-il un expandeur de texte gratuit pour Chrome ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. ReplyKit est gratuit jusqu'à 10 extraits, sans compte nécessaire. Pro débloque des extraits illimités et la synchronisation." } },
+          { "@type": "Question", "name": "En quoi ReplyKit diffère-t-il de TextExpander ?", "acceptedAnswer": { "@type": "Answer", "text": "ReplyKit est léger et pensé pour le navigateur : pas d'installation de bureau, pas de compte sur le plan gratuit, centré sur l'insertion rapide avec // dans n'importe quel champ de texte web." } },
+          { "@type": "Question", "name": "Fonctionne-t-il en dehors du navigateur ?", "acceptedAnswer": { "@type": "Answer", "text": "ReplyKit est une extension Chrome, donc il fonctionne dans n'importe quel champ de texte web standard. Pour les apps de bureau, il faudrait un expandeur au niveau du système." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 23px; margin: 36px 0 12px; }
+      p, li { font-size: 17px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 16px; }
+      th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; }
+      th { background: var(--soft); }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guides › Alternative gratuite aux expandeurs de texte</div>
+
+      <h1>Une alternative gratuite aux expandeurs de texte pour Chrome</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Mis à jour en juillet 2026</p>
+      <p class="lede">Si vous continuez à retaper les mêmes réponses, un expandeur de texte vous fait gagner du temps réel — mais la plupart sont payants ou lourds. ReplyKit est une alternative gratuite et légère : vous enregistrez un extrait une fois, puis vous l'insérez où vous voulez en tapant <code>//</code>.</p>
+
+      <p>Les expandeurs de texte vous permettent d'enregistrer du texte réutilisable (salutations, réponses aux questions fréquentes, relances, signatures) et de l'insérer dans n'importe quel champ avec un déclencheur court. Les outils classiques — TextExpander, aText et similaires — sont puissants mais viennent souvent avec un abonnement, une installation de bureau ou une courbe d'apprentissage. Si vous voulez juste des réponses rapides dans votre navigateur, cela peut être excessif.</p>
+
+      <p><strong>ReplyKit</strong> se concentre sur une seule chose, bien faite : des extraits de texte rapides, là où vous tapez, sans rien à apprendre.</p>
+
+      <h2>Comment ça marche</h2>
+      <ul>
+        <li>Enregistrez vos réponses les plus utilisées comme <strong>extraits</strong> (un titre et le texte).</li>
+        <li>Dans n'importe quel champ de texte, tapez <code>//</code> (ou utilisez un raccourci clavier).</li>
+        <li>Choisissez l'extrait dans la recherche instantanée — il s'insère où se trouve votre curseur.</li>
+        <li>Ou cliquez sur <strong>Copier</strong> pour coller manuellement dans les éditeurs qui bloquent l'insertion automatique.</li>
+      </ul>
+      <p>Fonctionne dans Gmail, les centres d'aide, les marketplaces, les réseaux sociaux, les CRM et les formulaires courants — partout où il y a un champ de texte standard.</p>
+
+      <h2>Pourquoi choisir un outil léger</h2>
+      <table>
+        <tr><th>Ce que vous cherchez</th><th>ReplyKit</th></tr>
+        <tr><td>Prix</td><td>Gratuit jusqu'à 10 extraits ; Pro débloque l'illimité + sync</td></tr>
+        <tr><td>Configuration</td><td>Installez l'extension — pas de compte sur le plan gratuit</td></tr>
+        <tr><td>Confidentialité</td><td>Les extraits restent sur votre appareil en plan gratuit ; ni traceurs ni publicités</td></tr>
+        <tr><td>Où ça fonctionne</td><td>Directement dans Chrome, dans n'importe quel champ de texte</td></tr>
+      </table>
+
+      <h2>Quand un outil léger suffit</h2>
+      <p>Les expandeurs complets brillent si vous avez besoin de formulaires avec logique conditionnelle, de bibliothèques partagées en équipe, ou d'expansion au niveau système entre applications de bureau natives. La plupart des gens n'en ont pas besoin. Si votre saisie répétitive se passe dans le navigateur — e-mail, outils de support, marketplaces, réseaux, formulaires — une extension légère couvre le besoin sans abonnement ni configuration. Vous pouvez toujours passer à un outil plus lourd plus tard ; commencer simple signifie que vous construisez réellement l'habitude au lieu d'abandonner une configuration compliquée.</p>
+
+      <h2>Les extraits à enregistrer en premier</h2>
+      <p>Le moyen le plus rapide de sentir le gain de temps est de capturer les quelques choses que vous retapez déjà chaque jour :</p>
+      <ul>
+        <li>Votre salutation et votre formule de politesse, comme des extraits séparés à combiner.</li>
+        <li>Les réponses à vos trois questions les plus fréquentes.</li>
+        <li>Le lien vers votre agenda ou votre réservation.</li>
+        <li>Une réponse polie « je regarde ça et je reviens vers vous » pour gagner du temps.</li>
+        <li>Du texte standard que vous collez souvent — une adresse, des informations de paiement, une clause standard.</li>
+      </ul>
+      <p>Cinq extraits suffisent pour remarquer la différence dès le premier après-midi.</p>
+
+      <h2>Combien de temps un expandeur de texte fait-il gagner ?</h2>
+      <p>Cela s'accumule plus vite qu'il n'y paraît. Si vous retapez dix réponses courtes par jour à environ quinze secondes chacune, cela fait deux minutes et demie par jour — plus de dix heures par an sur des phrases que vous pourriez insérer en une touche. Pour ceux qui travaillent dans le support ou la vente en gérant des dizaines de messages, le gain se multiplie. Et ce n'est pas qu'une question de vitesse : ne pas retaper le même message garde votre ton cohérent et libère votre attention pour ce qui demande vraiment de réfléchir.</p>
+
+      <h2>Passer d'un autre expandeur de texte</h2>
+      <p>La transition est indolore : rien à importer ni à configurer. Installez ReplyKit, recréez à la main vos 5 à 10 extraits les plus utilisés (quelques minutes), et assignez un déclencheur court à ceux que vous utilisez constamment. Les extraits sont enregistrés localement en plan gratuit, donc pas de compte à configurer et rien ne quitte votre navigateur. Si vous passez ensuite à Pro, ils se synchronisent entre vos appareils via la synchronisation intégrée du navigateur.</p>
+
+      <h2>Ce que vous obtenez gratuitement</h2>
+      <p>Le plan gratuit couvre jusqu'à dix extraits enregistrés localement — suffisant pour les réponses que la plupart des gens réutilisent au quotidien, sans compte et sans limite de temps. Si vous en avez besoin de plus, Pro supprime la limite et ajoute la synchronisation entre vos appareils, pour que la même bibliothèque vous suive entre le travail et la maison. Pas de compte à rebours d'essai ni d'insistance sur les fonctionnalités entre-temps : le plan gratuit est vraiment utilisable seul, pas un aperçu.</p>
+
+      <div class="ctabox">
+        <p><strong>Essayez ReplyKit gratuitement</strong> — enregistrez vos premiers extraits en moins d'une minute.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Ajouter à Chrome — c'est gratuit</a>
+      </div>
+
+      <h2>Pour qui c'est fait</h2>
+      <p>Les agents de support qui répondent aux questions fréquentes, les freelances qui envoient propositions et relances, les vendeurs en ligne qui répondent sur les commandes et livraisons, les recruteurs et commerciaux en prospection — quiconque tape les mêmes choses chaque jour. Si c'est vous, un expandeur de texte simple se rentabilise en minutes économisées dès la première semaine.</p>
+
+      <h2>Privé par conception</h2>
+      <p>En plan gratuit, vos extraits sont enregistrés localement dans votre navigateur — pas de compte, pas d'envoi, pas de traçage. Avec Pro, ils se synchronisent aussi entre vos appareils via la synchronisation intégrée du navigateur, jamais via nos propres serveurs. Consultez la <a href="../privacy.html">politique de confidentialité</a> pour plus de détails.</p>
+
+      <h2>Guides connexes</h2>
+      <ul>
+        <li><a href="replykit-vs-textexpander.html">ReplyKit vs TextExpander</a> — une comparaison directe.</li>
+        <li><a href="replykit-vs-text-blaze.html">ReplyKit vs Text Blaze</a> — extraits simples vs automatisation avancée.</li>
+        <li><a href="text-shortcuts-abbreviations.html">Raccourcis et abréviations de texte</a> — développez des déclencheurs courts comme <code>;bjr</code> instantanément.</li>
+        <li><a href="text-snippet-variables-placeholders.html">Variables et espaces réservés</a> — des modèles qui se remplissent tout seuls.</li>
+        <li><a href="canned-responses-in-gmail.html">Réponses enregistrées dans Gmail</a> — insérez-les en tapant //.</li>
+        <li><a href="customer-support-reply-templates.html">11 modèles de réponse pour le support client</a> — prêts à copier.</li>
+      </ul>
+      <h2>Questions fréquentes</h2>
+      <p><strong>Qu'est-ce qu'un expandeur de texte ?</strong><br />
+      Un expandeur de texte enregistre du texte réutilisable — salutations, réponses aux questions fréquentes, signatures — et l'insère dans n'importe quel champ avec un déclencheur court, pour arrêter de retaper toujours la même chose.</p>
+      <p><strong>Existe-t-il un expandeur de texte gratuit pour Chrome ?</strong><br />
+      Oui. ReplyKit est gratuit jusqu'à 10 extraits, sans compte nécessaire. Pro débloque des extraits illimités et la synchronisation.</p>
+      <p><strong>En quoi ReplyKit diffère-t-il des expandeurs plus lourds ?</strong><br />
+      Il est léger et pensé pour le navigateur : pas d'installation de bureau, pas de compte sur le plan gratuit, centré sur l'insertion rapide avec <code>//</code> dans n'importe quel champ de texte web.</p>
+      <p><strong>Fonctionne-t-il en dehors du navigateur ?</strong><br />
+      ReplyKit est une extension Chrome, donc il fonctionne dans n'importe quel champ de texte web standard. Pour les apps de bureau, il faudrait un expandeur au niveau du système.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Accueil</a> · <a href="../../privacy.html">Confidentialité</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obtenir l'extension</a>
+    </footer>
+  </body>
+</html>
