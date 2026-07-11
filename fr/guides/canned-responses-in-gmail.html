@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Réponses enregistrées dans Gmail (et partout) — ReplyKit</title>
+    <meta
+      name="description"
+      content="Insérez des réponses enregistrées dans Gmail et n'importe quel champ de texte en tapant //. Enregistrez vos modèles une fois avec ReplyKit — gratuit, sans compte."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/fr/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Comment insérer des réponses enregistrées dans Gmail (et partout)" />
+    <meta property="og:description" content="Enregistrez des modèles de réponse une fois et insérez-les partout en tapant //. Extension Chrome gratuite et privée." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/fr/guides/canned-responses-in-gmail.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Comment insérer des réponses enregistrées dans Gmail (et partout)" />
+    <meta name="twitter:description" content="Enregistrez des modèles de réponse une fois et insérez-les partout en tapant //. Extension Chrome gratuite et privée." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Comment insérer des réponses enregistrées dans Gmail avec ReplyKit",
+        "description": "Enregistrez des modèles de réponse et insérez-les dans Gmail ou n'importe quel champ de texte en tapant //.",
+        "step": [
+          { "@type": "HowToStep", "name": "Installez ReplyKit", "text": "Ajoutez l'extension gratuite ReplyKit à Chrome." },
+          { "@type": "HowToStep", "name": "Enregistrez un extrait", "text": "Ouvrez le popup et enregistrez votre réponse la plus utilisée comme extrait." },
+          { "@type": "HowToStep", "name": "Insérez-le", "text": "Dans Gmail, tapez // dans le corps du message et choisissez votre extrait pour l'insérer au curseur." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://replykit.pureprompting.com/fr/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Réponses enregistrées dans Gmail" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Gmail a-t-il des réponses enregistrées intégrées ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Les Modèles de Gmail (anciennement Réponses enregistrées) se trouvent dans Paramètres → Avancé, mais ils ne fonctionnent que dans Gmail et nécessitent plusieurs clics. ReplyKit vous permet d'insérer des réponses en tapant // dans Gmail et n'importe quel autre champ de texte." } },
+          { "@type": "Question", "name": "Comment insérer une réponse enregistrée dans Gmail ?", "acceptedAnswer": { "@type": "Answer", "text": "Installez ReplyKit, enregistrez votre réponse comme extrait, puis tapez // dans le corps du message Gmail et choisissez-la. Elle s'insère à votre curseur." } },
+          { "@type": "Question", "name": "ReplyKit est-il gratuit ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, gratuit jusqu'à 10 extraits. Pro débloque des extraits illimités et la synchronisation entre vos appareils." } },
+          { "@type": "Question", "name": "Mes réponses enregistrées sont-elles privées ?", "acceptedAnswer": { "@type": "Answer", "text": "En plan gratuit, les extraits sont enregistrés localement dans votre navigateur sans compte. Rien n'est envoyé ni tracé." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 23px; margin: 36px 0 12px; }
+      p, li { font-size: 17px; }
+      ol.steps li { margin-bottom: 12px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guides › Réponses enregistrées dans Gmail</div>
+
+      <h1>Comment insérer des réponses enregistrées dans Gmail (et partout)</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Mis à jour en juillet 2026</p>
+      <p class="lede">Gmail a des modèles intégrés, mais ils sont lents à atteindre et ne fonctionnent que dans Gmail. Voici un moyen plus rapide d'insérer des réponses enregistrées dans Gmail — et dans tout autre champ de texte que vous utilisez — en tapant <code>//</code>.</p>
+
+      <h2>La méthode rapide avec ReplyKit</h2>
+      <ol class="steps">
+        <li><strong>Installez l'extension.</strong> Ajoutez <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit</a> gratuitement à Chrome.</li>
+        <li><strong>Enregistrez votre réponse.</strong> Ouvrez le popup, donnez un titre à votre réponse enregistrée (ex. « Commande expédiée ») et collez le texte.</li>
+        <li><strong>Insérez-la.</strong> Dans le corps du message Gmail, tapez <code>//</code> (ou appuyez sur <code>Ctrl/Cmd+Shift+Espace</code>), puis choisissez l'extrait. Il s'insère juste à votre curseur.</li>
+      </ol>
+      <p>Pas de menus, pas besoin de fouiller dans les paramètres — le même déclencheur <code>//</code> fonctionne aussi dans les centres d'aide, marketplaces, réseaux sociaux, CRM et formulaires, pas seulement Gmail.</p>
+
+      <div class="ctabox">
+        <p><strong>Arrêtez de retaper les mêmes e-mails.</strong> Configurez vos réponses enregistrées en une minute.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Ajouter ReplyKit à Chrome — gratuit</a>
+      </div>
+
+      <h2>Modèles Gmail vs un outil d'extraits</h2>
+      <p>Les « Modèles » de Gmail (anciennement Réponses enregistrées) conviennent si vous vivez entièrement dans Gmail et n'en avez besoin que de quelques-uns. Mais ils nécessitent d'activer un paramètre, sont à plusieurs clics dans la barre de réponse, et ne vous suivent pas dans d'autres outils. Une extension d'extraits vous donne un raccourci cohérent partout où vous tapez, avec recherche instantanée sur toutes vos réponses.</p>
+
+      <h2>Comment activer les modèles intégrés de Gmail</h2>
+      <p>Si vous voulez d'abord essayer la fonctionnalité native de Gmail, voici la configuration :</p>
+      <ol class="steps">
+        <li>Ouvrez Gmail et cliquez sur l'<strong>icône d'engrenage → Voir tous les paramètres</strong>.</li>
+        <li>Allez dans l'onglet <strong>Avancé</strong>, activez <strong>Modèles</strong>, puis enregistrez les modifications.</li>
+        <li>Rédigez un message, écrivez votre texte, puis utilisez le <strong>menu à trois points → Modèles → Enregistrer le brouillon comme modèle</strong>.</li>
+        <li>Pour le réutiliser plus tard, ouvrez le même menu <strong>Modèles</strong> et sélectionnez-le.</li>
+      </ol>
+      <p>Ça fonctionne, mais chaque insertion est à plusieurs clics dans la barre d'outils, ne vit que dans Gmail, et il n'y a pas de recherche instantanée. C'est le vide que comble un raccourci d'extraits.</p>
+
+      <h2>Réponses enregistrées à sauvegarder en premier</h2>
+      <p>Si vous gérez du courrier toute la journée, ces modèles se rentabilisent immédiatement :</p>
+      <ul>
+        <li><strong>Première réponse</strong> — « Merci de nous avoir contactés — je regarde ça et reviens vers vous bientôt. »</li>
+        <li><strong>Mise à jour de commande ou de statut</strong> — avec des espaces réservés pour le numéro de commande et la date.</li>
+        <li><strong>Relance</strong> — un rappel doux quand vous n'avez pas eu de réponse.</li>
+        <li><strong>Confirmation de rendez-vous</strong> — date, heure et votre lien de calendrier.</li>
+        <li><strong>Un non poli</strong> — refuser une demande chaleureusement sans nuire à la relation.</li>
+      </ul>
+
+      <h2>Accélérez avec un raccourci clavier</h2>
+      <p>Vous préférez ne pas taper <code>//</code> ? Appuyez sur <code>Ctrl/Cmd+Shift+Espace</code> pour ouvrir le même sélecteur, ou assignez un déclencheur court comme <code>;bjr</code> à un extrait pour qu'il s'étende dès que vous le tapez. Dans une boîte de réception chargée, cela transforme une insertion à plusieurs clics en un seul réflexe — voir <a href="text-shortcuts-abbreviations.html">raccourcis et abréviations de texte</a>.</p>
+
+      <h2>Fonctionne-t-il au-delà de Gmail ?</h2>
+      <p>Oui. Le même déclencheur <code>//</code> fonctionne dans Outlook sur le web, les centres d'aide comme Zendesk et Intercom, les marketplaces, les boîtes de réception sociales, les CRM et les formulaires courants. Contrairement aux modèles Gmail, vos réponses vous suivent partout où vous tapez, donc vous gardez une seule bibliothèque au lieu de recréer des modèles dans chaque outil. Pour les éditeurs qui bloquent l'insertion automatique, le bouton Copier vous permet de coller manuellement.</p>
+
+      <h2>Erreurs courantes à éviter</h2>
+      <p>Les modèles font gagner du temps, mais quelques habitudes évitent qu'ils se retournent contre vous :</p>
+      <ul>
+        <li><strong>Envoyer un modèle non modifié.</strong> Les détails entre crochets — nom, numéro de commande, le problème spécifique — sont ce qui fait que ça se lit comme une vraie réponse. Remplissez-les toujours.</li>
+        <li><strong>En accumuler trop.</strong> Cinquante modèles quasi identiques sont plus lents qu'une douzaine de bons, car vous perdez du temps à chercher. Gardez l'ensemble restreint.</li>
+        <li><strong>Oublier la salutation et la formule de politesse.</strong> Enregistrez-les séparément pour pouvoir ouvrir chaleureusement et clore de façon cohérente sans les incorporer dans chaque extrait.</li>
+        <li><strong>Ne jamais les mettre à jour.</strong> Les politiques, prix et liens changent — révisez vos réponses enregistrées chaque mois pour ne jamais coller quelque chose de périmé.</li>
+      </ul>
+      <p>Faites bien cela et vos réponses paraîtront personnelles et actuelles : rapides à envoyer, mais jamais visiblement copiées-collées.</p>
+
+      <h2>Conseils pour d'excellentes réponses enregistrées</h2>
+      <ul>
+        <li>Gardez une <strong>salutation</strong> et une <strong>formule de politesse</strong> courtes et amicales comme extraits séparés à combiner.</li>
+        <li>Écrivez des modèles neutres que vous pouvez personnaliser légèrement après insertion (un nom, un numéro de commande).</li>
+        <li>Regroupez par tâche : FAQ de support, mises à jour d'expédition, relances, remboursements.</li>
+        <li>Révisez-les chaque mois — supprimez ce que vous n'utilisez jamais, ajoutez les phrases que vous continuez à retaper.</li>
+      </ul>
+
+      <h2>Fonctionne-t-il dans le corps de Gmail ?</h2>
+      <p>Oui — ReplyKit s'insère directement dans le corps de rédaction Gmail. Pour quelques éditeurs isolés qui bloquent l'insertion automatique, il y a un bouton <strong>Copier</strong> pour coller manuellement. Vos extraits restent privés : en plan gratuit, ils sont enregistrés localement dans votre navigateur ; voir la <a href="../privacy.html">politique de confidentialité</a>.</p>
+
+      <p>Configurez quelques réponses enregistrées aujourd'hui et vous sentirez la différence dès votre prochaine session de courrier : moins de retaping, des réponses plus rapides, et une voix cohérente dans chaque message que vous envoyez — dans Gmail et partout ailleurs.</p>
+
+      <h2>Guides connexes</h2>
+      <ul>
+        <li><a href="customer-support-reply-templates.html">11 modèles de réponse pour le support client</a> — réponses prêtes à copier.</li>
+        <li><a href="text-snippet-variables-placeholders.html">Variables et espaces réservés</a> — créez des modèles qui se remplissent seuls.</li>
+        <li><a href="live-chat-canned-responses.html">20 exemples de réponses pour chat en direct</a> — réponses rapides pour le support.</li>
+        <li><a href="free-text-expander-alternative.html">Une alternative gratuite aux expandeurs de texte</a>.</li>
+      </ul>
+      <h2>Questions fréquentes</h2>
+      <p><strong>Gmail a-t-il des réponses enregistrées intégrées ?</strong><br />
+      Oui — les Modèles de Gmail (anciennement Réponses enregistrées) se trouvent dans Paramètres → Avancé, mais ils ne fonctionnent que dans Gmail et nécessitent plusieurs clics. ReplyKit vous permet d'insérer des réponses en tapant <code>//</code> dans Gmail et n'importe quel autre champ de texte.</p>
+      <p><strong>Comment insérer une réponse enregistrée dans Gmail ?</strong><br />
+      Installez ReplyKit, enregistrez votre réponse comme extrait, puis tapez <code>//</code> dans le corps du message Gmail et choisissez-la — elle s'insère à votre curseur.</p>
+      <p><strong>ReplyKit est-il gratuit ?</strong><br />
+      Oui, gratuit jusqu'à 10 extraits. Pro débloque des extraits illimités et la synchronisation entre vos appareils.</p>
+      <p><strong>Mes réponses enregistrées sont-elles privées ?</strong><br />
+      En plan gratuit, les extraits sont enregistrés localement dans votre navigateur sans compte. Rien n'est envoyé ni tracé.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Accueil</a> · <a href="../../privacy.html">Confidentialité</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obtenir l'extension</a>
+    </footer>
+  </body>
+</html>
