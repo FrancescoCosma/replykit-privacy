@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Risposte pronte in Gmail (e ovunque) — ReplyKit</title>
+    <meta
+      name="description"
+      content="Inserisci risposte pronte in Gmail e in qualsiasi campo di testo digitando //. Salva i template una volta con ReplyKit — gratis, nessun account."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/it/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/canned-responses-in-gmail.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/canned-responses-in-gmail.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Come inserire risposte pronte in Gmail (e ovunque)" />
+    <meta property="og:description" content="Salva i template di risposta una volta e inseriscili ovunque digitando //. Estensione Chrome gratuita e privata." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/it/guides/canned-responses-in-gmail.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Come inserire risposte pronte in Gmail (e ovunque)" />
+    <meta name="twitter:description" content="Salva i template di risposta una volta e inseriscili ovunque digitando //. Estensione Chrome gratuita e privata." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Come inserire risposte pronte in Gmail con ReplyKit",
+        "description": "Salva i template di risposta e inseriscili in Gmail o in qualsiasi campo di testo digitando //.",
+        "step": [
+          { "@type": "HowToStep", "name": "Installa ReplyKit", "text": "Aggiungi l'estensione gratuita ReplyKit a Chrome." },
+          { "@type": "HowToStep", "name": "Salva uno snippet", "text": "Apri il popup e salva la tua risposta più usata come snippet." },
+          { "@type": "HowToStep", "name": "Inseriscilo", "text": "In Gmail, digita // nel corpo del messaggio e scegli lo snippet per inserirlo al cursore." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guide", "item": "https://replykit.pureprompting.com/it/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Risposte pronte in Gmail" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Gmail ha le risposte pronte integrate?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. I Modelli di Gmail (ex Risposte pronte) si trovano in Impostazioni → Avanzate, ma funzionano solo dentro Gmail e richiedono diversi clic. ReplyKit ti permette di inserire risposte digitando // in Gmail e in qualsiasi altro campo di testo." } },
+          { "@type": "Question", "name": "Come inserisco una risposta pronta in Gmail?", "acceptedAnswer": { "@type": "Answer", "text": "Installa ReplyKit, salva la tua risposta come snippet, poi digita // nel corpo del messaggio Gmail e scegliła. Viene inserita al cursore." } },
+          { "@type": "Question", "name": "ReplyKit è gratis?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, gratis fino a 10 snippet. Pro sblocca snippet illimitati e la sincronizzazione tra i tuoi dispositivi." } },
+          { "@type": "Question", "name": "Le mie risposte pronte sono private?", "acceptedAnswer": { "@type": "Answer", "text": "Nel piano gratuito gli snippet sono salvati localmente nel browser senza account. Nulla viene caricato o tracciato." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 23px; margin: 36px 0 12px; }
+      p, li { font-size: 17px; }
+      ol.steps li { margin-bottom: 12px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guide › Risposte pronte in Gmail</div>
+
+      <h1>Come inserire risposte pronte in Gmail (e ovunque)</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Aggiornato a luglio 2026</p>
+      <p class="lede">Gmail ha i template integrati, ma sono lenti da raggiungere e funzionano solo in Gmail. Ecco un modo più veloce per inserire risposte pronte in Gmail — e in ogni altro campo di testo che usi — digitando <code>//</code>.</p>
+
+      <h2>Il modo veloce con ReplyKit</h2>
+      <ol class="steps">
+        <li><strong>Installa l'estensione.</strong> Aggiungi <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit</a> gratis a Chrome.</li>
+        <li><strong>Salva la tua risposta.</strong> Apri il popup, dai un titolo alla risposta pronta (es. "Ordine spedito") e incolla il testo.</li>
+        <li><strong>Inseriscila.</strong> Nel corpo del messaggio Gmail, digita <code>//</code> (o premi <code>Ctrl/Cmd+Shift+Spazio</code>), poi scegli lo snippet. Viene inserito proprio al cursore.</li>
+      </ol>
+      <p>Niente menu, niente scavare nelle impostazioni — lo stesso trigger <code>//</code> funziona anche in help desk, marketplace, social network, CRM e form, non solo in Gmail.</p>
+
+      <div class="ctabox">
+        <p><strong>Smetti di riscrivere sempre le stesse email.</strong> Configura le tue risposte pronte in un minuto.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Aggiungi ReplyKit a Chrome — gratis</a>
+      </div>
+
+      <h2>Modelli di Gmail vs uno strumento di snippet</h2>
+      <p>I "Modelli" di Gmail (ex Risposte pronte) vanno bene se vivi interamente dentro Gmail e te ne servono solo alcuni. Ma richiedono di attivare un'impostazione, sono a diversi clic di profondità nella toolbar di risposta, e non ti seguono negli altri strumenti. Un'estensione di snippet ti dà una scorciatoia coerente ovunque digiti, con ricerca istantanea su tutte le tue risposte.</p>
+
+      <h2>Come attivare i modelli integrati di Gmail</h2>
+      <p>Se vuoi provare prima la funzione nativa di Gmail, ecco la configurazione:</p>
+      <ol class="steps">
+        <li>Apri Gmail e clicca sull'<strong>icona a ingranaggio → Vedi tutte le impostazioni</strong>.</li>
+        <li>Vai alla scheda <strong>Avanzate</strong>, attiva <strong>Modelli</strong>, poi salva le modifiche.</li>
+        <li>Componi un messaggio, scrivi il testo, poi usa il <strong>menu a tre punti → Modelli → Salva bozza come modello</strong>.</li>
+        <li>Per riusarlo in seguito, apri lo stesso menu <strong>Modelli</strong> e selezionalo.</li>
+      </ol>
+      <p>Funziona, ma ogni inserimento richiede diversi clic nella toolbar, vive solo dentro Gmail, e non c'è ricerca istantanea. È il vuoto che colma una scorciatoia da snippet.</p>
+
+      <h2>Risposte pronte da salvare per prime</h2>
+      <p>Se gestisci email tutto il giorno, questi template si ripagano subito:</p>
+      <ul>
+        <li><strong>Prima risposta</strong> — "Grazie per averci scritto — ci sto lavorando e ti aggiorno a breve."</li>
+        <li><strong>Aggiornamento ordine o stato</strong> — con segnaposto per numero d'ordine e data.</li>
+        <li><strong>Follow-up</strong> — un gentile sollecito quando non hai ricevuto risposta.</li>
+        <li><strong>Conferma appuntamento</strong> — data, ora e il tuo link al calendario.</li>
+        <li><strong>Un no cortese</strong> — declinare una richiesta con garbo senza rovinare il rapporto.</li>
+      </ul>
+
+      <h2>Velocizza con una scorciatoia da tastiera</h2>
+      <p>Preferisci non digitare <code>//</code>? Premi <code>Ctrl/Cmd+Shift+Spazio</code> per aprire lo stesso selettore, oppure assegna un trigger breve come <code>;ciao</code> a uno snippet così si espande nel momento in cui lo digiti. In una casella affollata trasforma un inserimento a più clic in un singolo riflesso — vedi <a href="text-shortcuts-abbreviations.html">scorciatoie e abbreviazioni</a>.</p>
+
+      <h2>Funziona oltre Gmail?</h2>
+      <p>Sì. Lo stesso trigger <code>//</code> funziona in Outlook sul web, help desk come Zendesk e Intercom, marketplace, caselle social, CRM e form comuni. A differenza dei modelli di Gmail, le tue risposte ti seguono ovunque digiti, quindi mantieni un'unica libreria invece di ricreare template in ogni strumento. Per gli editor che bloccano l'inserimento automatico, il pulsante Copia ti permette di incollare a mano.</p>
+
+      <h2>Errori comuni da evitare</h2>
+      <p>I template fanno risparmiare tempo, ma alcune abitudini evitano che si ritorcano contro:</p>
+      <ul>
+        <li><strong>Inviare un template intatto.</strong> I dettagli tra parentesi — nome, numero d'ordine, il problema specifico — sono ciò che lo fa sembrare una risposta vera. Compilali sempre.</li>
+        <li><strong>Accumularne troppi.</strong> Cinquanta template quasi identici sono più lenti di una dozzina buoni, perché sprechi tempo a cercare. Tieni la selezione ristretta.</li>
+        <li><strong>Dimenticare saluto e firma.</strong> Salvali separatamente così puoi aprire con calore e chiudere in modo coerente senza incorporarli in ogni snippet.</li>
+        <li><strong>Non aggiornarli mai.</strong> Politiche, prezzi e link cambiano — rivedi le tue risposte pronte ogni mese così non incolli mai qualcosa di superato.</li>
+      </ul>
+      <p>Fai bene queste cose e le tue risposte sembreranno personali e aggiornate: veloci da inviare, ma mai palesemente copia-incollate.</p>
+
+      <h2>Suggerimenti per risposte pronte efficaci</h2>
+      <ul>
+        <li>Tieni un <strong>saluto</strong> e una <strong>firma</strong> brevi e cordiali come snippet separati da combinare.</li>
+        <li>Scrivi template neutri che puoi personalizzare leggermente dopo l'inserimento (un nome, un numero d'ordine).</li>
+        <li>Raggruppa per compito: FAQ di supporto, aggiornamenti di spedizione, follow-up, rimborsi.</li>
+        <li>Rivedili ogni mese — elimina quelli che non usi mai, aggiungi le frasi che continui a riscrivere.</li>
+      </ul>
+
+      <h2>Funziona nel corpo di Gmail?</h2>
+      <p>Sì — ReplyKit si inserisce direttamente nel corpo del messaggio Gmail. Per alcuni editor isolati che bloccano l'inserimento automatico, c'è un pulsante <strong>Copia</strong> per incollare a mano. I tuoi snippet restano privati: nel piano gratuito sono salvati localmente nel browser; vedi la <a href="../privacy.html">privacy policy</a>.</p>
+
+      <p>Configura oggi qualche risposta pronta e sentirai la differenza già alla prossima sessione nella casella: meno riscrittura, risposte più veloci, e una voce coerente in ogni messaggio che invii — in Gmail e ovunque altro.</p>
+
+      <h2>Guide correlate</h2>
+      <ul>
+        <li><a href="customer-support-reply-templates.html">11 template di risposta per il supporto clienti</a> — risposte pronte da copiare.</li>
+        <li><a href="text-snippet-variables-placeholders.html">Variabili e segnaposto</a> — crea template che si compilano da soli.</li>
+        <li><a href="live-chat-canned-responses.html">20 risposte pronte per la live chat</a> — risposte veloci per il supporto chat.</li>
+        <li><a href="free-text-expander-alternative.html">Un'alternativa gratuita ai text expander per Chrome</a>.</li>
+      </ul>
+      <h2>Domande frequenti</h2>
+      <p><strong>Gmail ha le risposte pronte integrate?</strong><br />
+      Sì — i Modelli di Gmail (ex Risposte pronte) si trovano in Impostazioni → Avanzate, ma funzionano solo dentro Gmail e richiedono diversi clic. ReplyKit ti permette di inserire risposte digitando <code>//</code> in Gmail e in qualsiasi altro campo di testo.</p>
+      <p><strong>Come inserisco una risposta pronta in Gmail?</strong><br />
+      Installa ReplyKit, salva la tua risposta come snippet, poi digita <code>//</code> nel corpo del messaggio Gmail e scegliła — viene inserita al cursore.</p>
+      <p><strong>ReplyKit è gratis?</strong><br />
+      Sì, gratis fino a 10 snippet. Pro sblocca snippet illimitati e la sincronizzazione tra i tuoi dispositivi.</p>
+      <p><strong>Le mie risposte pronte sono private?</strong><br />
+      Nel piano gratuito gli snippet sono salvati localmente nel browser senza account. Nulla viene caricato o tracciato.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Home</a> · <a href="../../privacy.html">Privacy</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Ottieni l'estensione</a>
+    </footer>
+  </body>
+</html>
