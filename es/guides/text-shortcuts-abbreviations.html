@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Atajos y abreviaturas para escribir más rápido</title>
+    <meta
+      name="description"
+      content="Convierte disparadores cortos como ;hola en mensajes completos. Un expansor de abreviaturas gratis para Chrome: define un atajo, escríbelo, aparece el fragmento."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/es/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Escribe más rápido con atajos y abreviaturas" />
+    <meta property="og:description" content="Convierte disparadores cortos como ;hola en mensajes completos. Un expansor de abreviaturas gratis para Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/es/guides/text-shortcuts-abbreviations.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Escribe más rápido con atajos y abreviaturas" />
+    <meta name="twitter:description" content="Convierte disparadores cortos como ;hola en mensajes completos. Expansor de abreviaturas gratis para Chrome." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Cómo crear atajos y abreviaturas de texto",
+        "description": "Define disparadores cortos que se expanden en fragmentos completos mientras escribes, en cualquier parte de Chrome.",
+        "step": [
+          { "@type": "HowToStep", "name": "Crea un fragmento", "text": "Guarda el texto que envías a menudo, p. ej. un saludo o una dirección." },
+          { "@type": "HowToStep", "name": "Asigna un atajo", "text": "Dale un disparador corto como ;hola o ;dir." },
+          { "@type": "HowToStep", "name": "Escríbelo donde sea", "text": "En cualquier campo de texto, escribe el disparador y se expande en el fragmento completo." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://replykit.pureprompting.com/es/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Atajos y abreviaturas de texto" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Qué es un atajo o abreviatura de texto?", "acceptedAnswer": { "@type": "Answer", "text": "Un disparador corto — como ;hola — que se expande automáticamente en un fragmento guardado más largo mientras escribes, para que unos pocos caracteres se conviertan en un mensaje completo." } },
+          { "@type": "Question", "name": "¿Cómo creo un atajo en ReplyKit?", "acceptedAnswer": { "@type": "Answer", "text": "Añade o edita un fragmento y rellena su campo de atajo (p. ej. ;hola). Luego escribe ese atajo en cualquier campo de texto y se expande al instante." } },
+          { "@type": "Question", "name": "¿Los atajos se expanden por accidente?", "acceptedAnswer": { "@type": "Answer", "text": "Los atajos alfanuméricos requieren un límite de palabra para activarse, y los que empiezan con un símbolo (como ;) evitan chocar con la escritura normal." } },
+          { "@type": "Question", "name": "¿Los atajos funcionan en todas partes?", "acceptedAnswer": { "@type": "Answer", "text": "Funcionan en cualquier campo de texto web estándar — Gmail, mesas de ayuda, formularios y más. Para editores aislados hay un botón Copiar." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guías › Atajos y abreviaturas de texto</div>
+
+      <h1>Escribe más rápido con atajos y abreviaturas</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Actualizado en julio de 2026</p>
+      <p class="lede">El texto más rápido de escribir es el que no escribes. Asigna un disparador corto como <code>;hola</code> a un mensaje completo, y un par de teclas se convierten en una respuesta completa — en Gmail, tu mesa de ayuda, un CRM, o cualquier formulario.</p>
+
+      <p>Un expansor de texto (o expansor de abreviaturas) observa lo que escribes y cambia disparadores cortos por texto más largo. Es la diferencia entre escribir una respuesta de 200 caracteres y escribir <code>;grc</code>. ReplyKit hace esto gratis, en cualquier campo de texto estándar, sin cuenta.</p>
+
+      <h2>Atajos vs el selector //</h2>
+      <p>ReplyKit te da dos formas de insertar un fragmento — usa la que sea más rápida en el momento:</p>
+      <ul>
+        <li><strong>El selector <code>//</code></strong> — escribes <code>//</code>, buscas por nombre, eliges. Genial cuando no recuerdas el disparador exacto.</li>
+        <li><strong>Los atajos</strong> — escribes el disparador (p. ej. <code>;hola</code>) y se expande al instante, sin menú. Genial para el puñado de fragmentos que usas todo el día.</li>
+      </ul>
+
+      <h2>Cómo configurar uno (en 3 pasos)</h2>
+      <ol>
+        <li>Abre el popup de ReplyKit y guarda (o edita) un fragmento.</li>
+        <li>En el campo <strong>atajo</strong>, dale un disparador — algo rápido y memorable como <code>;hola</code>, <code>;firma</code>, o <code>;dir</code>.</li>
+        <li>En cualquier campo de texto, escribe el disparador. Se expande en el fragmento completo justo donde tienes el cursor.</li>
+      </ol>
+
+      <h2>Elegir buenos disparadores</h2>
+      <ul>
+        <li><strong>Usa un símbolo de prefijo</strong> como <code>;</code> o <code>/</code> para que los disparadores nunca se activen por error dentro de una palabra normal.</li>
+        <li><strong>Mantenlos cortos y mnemotécnicos</strong>: <code>;firma</code> para la firma, <code>;grc</code> para gracias, <code>;casa</code> para "hoy trabajo desde casa".</li>
+        <li><strong>Sé consistente</strong> — elige un prefijo y úsalo para todo, así tus dedos aprenden el patrón.</li>
+      </ul>
+
+      <h2>Atajos útiles para empezar</h2>
+      <table>
+        <tr><th>Disparador</th><th>Se expande en</th></tr>
+        <tr><td><code>;hola</code></td><td>¡Hola! Gracias por escribirnos — encantado/a de ayudarte.</td></tr>
+        <tr><td><code>;grc</code></td><td>Muchas gracias, ¡lo agradezco de verdad!</td></tr>
+        <tr><td><code>;firma</code></td><td>Tu firma de correo completa</td></tr>
+        <tr><td><code>;dir</code></td><td>La dirección de tu negocio</td></tr>
+        <tr><td><code>;cal</code></td><td>Aquí está mi enlace de calendario para reservar un horario: …</td></tr>
+      </table>
+
+      <h2>Dónde los atajos de texto ahorran más tiempo</h2>
+      <p>Cualquiera que escriba mensajes repetitivos se beneficia, pero algunos roles ven las mayores ganancias:</p>
+      <ul>
+        <li><strong>Soporte al cliente</strong> — un saludo, una espera "lo estoy revisando" y una línea de cierre cubren una gran parte de los tickets. Tres disparadores sustituyen cientos de teclas al día.</li>
+        <li><strong>Ventas y prospección</strong> — tu enlace de calendario, un recordatorio de seguimiento y una línea de precios siempre están a un par de caracteres.</li>
+        <li><strong>Reclutamiento</strong> — programación de entrevistas, "gracias por postularte", y notas de rechazo que siguen sonando humanas.</li>
+        <li><strong>Desarrolladores y operaciones</strong> — texto estándar como descripciones de PR, actualizaciones de standup, o una respuesta estándar de incidentes.</li>
+      </ul>
+      <p>El patrón es siempre el mismo: haz una lista de las diez frases que más reescribes esta semana, dale a cada una un disparador, y deja que la memoria muscular se encargue del resto.</p>
+
+      <h2>Atajos vs autocorrección y reemplazo de texto del sistema</h2>
+      <p>El reemplazo de texto de tu teléfono o la autocorrección de tu sistema operativo pueden expandir algunas abreviaturas, pero son limitados: son incómodos de gestionar en un portátil, no encajan con tu trabajo en el navegador, y a menudo estropean respuestas largas de varias líneas. Una herramienta dedicada de navegador mantiene los fragmentos organizados con nombres, carpetas y atajos, expande mensajes de varios párrafos de forma limpia, y se comporta igual en cada app web que uses — desde Gmail hasta tu mesa de ayuda o un CRM.</p>
+
+      <h2>Crea una chuleta de atajos</h2>
+      <p>Cuando empieces, mantén una lista corta de tus disparadores visible durante una semana — una nota adhesiva o un fragmento fijado funciona bien. Después de unos días, los útiles se quedan y puedes eliminar el resto. Agrupa disparadores relacionados con un prefijo compartido (<code>;s-</code> para saludos, <code>;f-</code> para seguimientos) para que sean fáciles de recordar, y revisa la lista cada mes: elimina lo que nunca uses y añade las frases que sigues escribiendo a mano. Una docena de disparadores bien elegidos supera a cincuenta que no recuerdas.</p>
+
+      <h2>¿Los atajos ralentizan tu escritura?</h2>
+      <p>No — la expansión ocurre en el instante en que completas un disparador, y ReplyKit solo actúa sobre el pequeño conjunto de atajos que has definido, así que la escritura normal queda intacta. Como los disparadores se activan en un límite de palabra (o empiezan con un símbolo), las palabras cotidianas nunca se expanden por error. Y si un fragmento no parece adecuado en el momento, siempre puedes recurrir al selector <code>//</code> — los dos métodos comparten la misma biblioteca.</p>
+      <p>La mayoría de la gente encuentra un ritmo cómodo en la primera semana — algunos disparadores se vuelven automáticos, y la décima respuesta idéntica de la mañana simplemente deja de ser algo en lo que piensas.</p>
+
+      <div class="ctabox">
+        <p><strong>Convierte un par de teclas en una respuesta completa.</strong> Define un atajo y escríbelo donde sea.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Añadir ReplyKit a Chrome — gratis</a>
+      </div>
+
+      <h2>Hazlos aún más inteligentes</h2>
+      <p>Combina un atajo con marcadores para que el texto expandido se personalice solo: un disparador <code>;env</code> puede expandirse en <em>"Hola {name}, tu pedido se envió el {date}."</em> — rellenando la fecha automáticamente y preguntándote el nombre. Mira <a href="text-snippet-variables-placeholders.html">variables y marcadores en fragmentos</a>. Combinar un disparador memorable con una plantilla que se rellena sola es donde un par de teclas hacen el trabajo más grande de todos.</p>
+
+      <p>Relacionado: <a href="text-snippet-variables-placeholders.html">Variables y marcadores</a> · <a href="canned-responses-in-gmail.html">Respuestas guardadas en Gmail</a> · <a href="free-text-expander-alternative.html">Una alternativa gratuita a los expansores de texto</a></p>
+      <h2>Preguntas frecuentes</h2>
+      <p><strong>¿Qué es un atajo o abreviatura de texto?</strong><br />
+      Un disparador corto — como <code>;hola</code> — que se expande automáticamente en un fragmento guardado más largo mientras escribes, para que unos pocos caracteres se conviertan en un mensaje completo.</p>
+      <p><strong>¿Cómo creo un atajo en ReplyKit?</strong><br />
+      Añade o edita un fragmento y rellena su campo de atajo (p. ej. <code>;hola</code>). Luego escribe ese atajo en cualquier campo de texto y se expande al instante.</p>
+      <p><strong>¿Los atajos se expanden por accidente?</strong><br />
+      Los atajos alfanuméricos requieren un límite de palabra para activarse, y los que empiezan con un símbolo (como <code>;</code>) evitan chocar con la escritura normal.</p>
+      <p><strong>¿Los atajos funcionan en todas partes?</strong><br />
+      Funcionan en cualquier campo de texto web estándar — Gmail, mesas de ayuda, formularios y más. Para editores aislados hay un botón Copiar.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Inicio</a> · <a href="../../privacy.html">Privacidad</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obtener la extensión</a>
+    </footer>
+  </body>
+</html>

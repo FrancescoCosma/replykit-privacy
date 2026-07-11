@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Variables y marcadores en los fragmentos — ReplyKit</title>
+    <meta
+      name="description"
+      content="Usa marcadores dinámicos en tus fragmentos: {date} y {time} se rellenan solos, {name} te lo pregunta. Crea plantillas que se personalizan solas."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/es/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Variables y marcadores en fragmentos: plantillas que se rellenan solas" />
+    <meta property="og:description" content="Marcadores dinámicos para tus fragmentos: {date}/{time} se rellenan solos, {name} te lo pregunta. Plantillas que se personalizan solas." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/es/guides/text-snippet-variables-placeholders.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Variables y marcadores en fragmentos" />
+    <meta name="twitter:description" content="Plantillas dinámicas que se rellenan solas: {date}/{time} automático, {name} te lo pregunta. Gratis con ReplyKit." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Cómo usar variables y marcadores en fragmentos de texto",
+        "description": "Añade marcadores dinámicos a fragmentos reutilizables para que se personalicen solos al insertarlos.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "step": [
+          { "@type": "HowToStep", "name": "Añade un marcador", "text": "Escribe un fragmento con tokens entre llaves, p. ej. Hola {name}, tu pedido se envía el {date}." },
+          { "@type": "HowToStep", "name": "Insértalo", "text": "Escribe // en cualquier campo de texto y elige el fragmento." },
+          { "@type": "HowToStep", "name": "Relleno automático y manual", "text": "{date} y {time} se rellenan solos; {name} te pide que escribas el valor antes de insertar." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://replykit.pureprompting.com/es/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Variables y marcadores en fragmentos" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Qué son las variables o marcadores en los fragmentos?", "acceptedAnswer": { "@type": "Answer", "text": "Campos dinámicos dentro de un fragmento, como {date} o {name}, que se rellenan solos o te preguntan un valor cuando insertas el fragmento." } },
+          { "@type": "Question", "name": "¿Qué marcadores se rellenan automáticamente?", "acceptedAnswer": { "@type": "Answer", "text": "{date}, {time} y {datetime} se rellenan solos. Cualquier otro campo, como {name}, te pregunta mientras insertas." } },
+          { "@type": "Question", "name": "¿Puedo crear mis propios campos personalizados?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Escribe cualquier {palabra} en un fragmento y ReplyKit te pedirá que la rellenes al insertarlo." } },
+          { "@type": "Question", "name": "¿El portapapeles está soportado como marcador?", "acceptedAnswer": { "@type": "Answer", "text": "No. {clipboard} no está soportado a propósito, así ReplyKit nunca necesita el permiso de lectura del portapapeles." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guías › Variables y marcadores en fragmentos</div>
+
+      <h1>Variables y marcadores en fragmentos: plantillas que se rellenan solas</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Actualizado en julio de 2026</p>
+      <p class="lede">Una buena plantilla ahorra tiempo. Una plantilla que se personaliza sola ahorra más. Con marcadores, un fragmento se adapta a cada mensaje — la fecha se rellena sola, y el nombre es lo único que escribes.</p>
+
+      <p>El problema de las respuestas guardadas simples es la edición. Pegas "Hola [nombre], tu pedido se envía el [fecha]" y luego buscas los corchetes para corregirlos a mano. Los marcadores eliminan ese paso: marcas las partes que cambian una vez, y ReplyKit las rellena cuando insertas el fragmento.</p>
+
+      <h2>Los dos tipos de marcadores</h2>
+      <p>Envuelve un token entre llaves en cualquier parte de tu fragmento, como <code>{name}</code>. Hay dos comportamientos:</p>
+      <table>
+        <tr><th>Marcador</th><th>Qué pasa al insertar</th></tr>
+        <tr><td><code>{date}</code></td><td>Se rellena solo con la fecha de hoy</td></tr>
+        <tr><td><code>{time}</code></td><td>Se rellena solo con la hora actual</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Se rellena con fecha y hora juntas</td></tr>
+        <tr><td><code>{name}</code>, <code>{order}</code>, <code>{lo-que-sea}</code></td><td>Te pide que escribas el valor antes de insertar</td></tr>
+      </table>
+      <p><code>{date}</code>, <code>{time}</code> y <code>{datetime}</code> son automáticos — nunca los escribes. Cualquier otro token se convierte en un campo a rellenar: cuando insertas el fragmento, ReplyKit te pregunta por cada uno, y luego deja el texto terminado en tu cursor.</p>
+
+      <h2>Cómo usarlos (en 3 pasos)</h2>
+      <ol>
+        <li>Guarda un fragmento con marcadores, p. ej. <code>Hola {name}, tu pedido se envía el {date}. ¡Gracias por tu paciencia!</code></li>
+        <li>En cualquier campo de texto, escribe <code>//</code> y elige el fragmento.</li>
+        <li>ReplyKit rellena <code>{date}</code> automáticamente y te pregunta por <code>{name}</code>. Escribe "María", y obtienes: <em>Hola María, tu pedido se envía el 07/07/2026. ¡Gracias por tu paciencia!</em></li>
+      </ol>
+
+      <h2>Plantillas que vale la pena hacer dinámicas</h2>
+      <h2>Actualización de pedido</h2>
+      <div class="tpl">Hola {name}, buenas noticias — tu pedido {order} se envió hoy, {date}. Puedes rastrearlo aquí: {tracking}.</div>
+
+      <h2>Confirmación de reunión</h2>
+      <div class="tpl">Hola {name}, confirmando nuestra llamada del {date} a las {time}. ¡Hablamos pronto!</div>
+
+      <h2>Seguimiento de soporte</h2>
+      <div class="tpl">Hola {name}, solo un seguimiento del ticket {ticket}. ¿Ya funciona todo, o sigo revisando?</div>
+
+      <div class="ctabox">
+        <p><strong>Crea plantillas que se rellenan solas.</strong> Añade marcadores a cualquier fragmento e insértalo donde sea escribiendo //.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Añadir ReplyKit a Chrome — gratis</a>
+      </div>
+
+      <h2>Consejos</h2>
+      <ul>
+        <li>Reutiliza el mismo nombre de token para rellenarlo una vez — cada <code>{name}</code> en un fragmento recibe el valor que escribas.</li>
+        <li>Mantén los nombres de token cortos y obvios (<code>{name}</code>, <code>{date}</code>, <code>{link}</code>) para recordar qué escribir.</li>
+        <li>Combínalo con un atajo corto: escribe <code>;env</code> para expandir al instante tu plantilla de actualización de pedido.</li>
+        <li>Usa <code>{date}</code> para todo lo que lleve fecha — registros, marcas de tiempo, líneas "a día de hoy" — y no lo actualices nunca más a mano.</li>
+      </ul>
+
+      <p>Relacionado: <a href="text-shortcuts-abbreviations.html">Escribe más rápido con atajos y abreviaturas</a> · <a href="customer-support-reply-templates.html">11 plantillas de respuesta para soporte al cliente</a> · <a href="free-text-expander-alternative.html">Una alternativa gratuita a los expansores de texto</a></p>
+      <h2>Preguntas frecuentes</h2>
+      <p><strong>¿Qué son las variables o marcadores en los fragmentos?</strong><br />
+      Campos dinámicos dentro de un fragmento, como <code>{date}</code> o <code>{name}</code>, que se rellenan solos o te preguntan un valor cuando insertas el fragmento.</p>
+      <p><strong>¿Qué marcadores se rellenan automáticamente?</strong><br />
+      <code>{date}</code>, <code>{time}</code> y <code>{datetime}</code> se rellenan solos. Cualquier otro campo, como <code>{name}</code>, te pregunta mientras insertas.</p>
+      <p><strong>¿Puedo crear mis propios campos personalizados?</strong><br />
+      Sí. Escribe cualquier <code>{palabra}</code> en un fragmento y ReplyKit te pedirá que la rellenes al insertarlo.</p>
+      <p><strong>¿El portapapeles está soportado como marcador?</strong><br />
+      No. <code>{clipboard}</code> no está soportado a propósito, así ReplyKit nunca necesita el permiso de lectura del portapapeles.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Inicio</a> · <a href="../../privacy.html">Privacidad</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obtener la extensión</a>
+    </footer>
+  </body>
+</html>
