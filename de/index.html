@@ -77,187 +77,285 @@
     </script>
 
     <style>
-      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #6b7280; --bg: #fff; --card: #fff; --line: #ebedf0; }
+      :root {
+        color-scheme: light dark;
+        --bg: #14171c; --surface: #1b1f26; --surface-2: #21262f;
+        --ink: #eef1f6; --muted: #8b93a3; --line: #2a2f38;
+        --accent: #5b9bff; --accent-ink: #0a1a33; --cursor: #ffb454; --good: #6fcf97;
+        --radius: 6px; --radius-lg: 12px;
+        --mono: ui-monospace, "JetBrains Mono", "Fira Code", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+        --serif: Charter, "Iowan Old Style", "Georgia Pro", Georgia, "Times New Roman", serif;
+      }
+      :root[data-theme="light"] {
+        --bg: #f7f6f2; --surface: #ffffff; --surface-2: #f0efe9; --ink: #191c22;
+        --muted: #5b6472; --line: #e4e2db; --accent: #2b6eff; --accent-ink: #ffffff;
+        --cursor: #b5680f; --good: #2f8a57;
+      }
+      @media (prefers-color-scheme: light) {
+        :root:not([data-theme="dark"]) {
+          --bg: #f7f6f2; --surface: #ffffff; --surface-2: #f0efe9; --ink: #191c22;
+          --muted: #5b6472; --line: #e4e2db; --accent: #2b6eff; --accent-ink: #ffffff;
+          --cursor: #b5680f; --good: #2f8a57;
+        }
+      }
       * { box-sizing: border-box; }
-      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.65; color: var(--ink); background: var(--bg); }
-      a { color: var(--blue); }
-      .hero { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; padding: 80px 24px; text-align: center; }
-      .bubble { display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 70px; background: #fff; color: var(--blue); border-radius: 20px; font-size: 36px; font-weight: 800; margin-bottom: 24px; }
-      .hero h1 { font-size: 42px; line-height: 1.15; margin: 0 0 16px; }
-      .hero p { font-size: 20px; max-width: 600px; margin: 0 auto 28px; opacity: .96; }
-      .cta { display: inline-block; background: #fff; color: var(--blue); font-weight: 700; font-size: 17px; padding: 14px 28px; border-radius: 12px; text-decoration: none; }
-      .cta:hover { opacity: .92; }
-      .sub { display: block; margin-top: 12px; font-size: 13px; opacity: .85; }
-      .hero-shot { max-width: 560px; margin: 40px auto 0; }
-      .hero-shot img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
-      .wrap { max-width: 880px; margin: 0 auto; padding: 56px 24px; }
-      h2 { font-size: 28px; margin: 0 0 24px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-      .card { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--card); }
-      .card img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 12px; }
-      .card h3 { margin: 0 0 8px; font-size: 17px; }
-      .card p { margin: 0; color: var(--muted); font-size: 15px; }
-      .shot { max-width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); display: block; margin: 0 auto; }
-      ol.steps { counter-reset: step; list-style: none; padding: 0; }
-      ol.steps li { position: relative; padding: 0 0 18px 48px; }
-      ol.steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
-      code { background: #f1f3f5; padding: 2px 7px; border-radius: 5px; font-size: .9em; }
-      .faq { margin-top: 12px; }
-      .faq h3 { font-size: 17px; margin: 22px 0 6px; }
-      .faq p { margin: 0; color: var(--muted); }
-      .center { text-align: center; }
-      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
-      @media (prefers-color-scheme: dark) {
-        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --card: #1f1f22; --line: #2c2c30; }
-        code { background: #2a2a2d; }
-        .cta { background: #fff; color: var(--blue); }
+      html, body { margin: 0; padding: 0; }
+      body { background: var(--bg); color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+      a { color: inherit; }
+      code, .mono { font-family: var(--mono); }
+      .eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; color: var(--accent); display: block; margin: 0 0 14px; }
+      .eyebrow::before { content: "// "; color: var(--muted); }
+      h1, h2, h3 { font-family: var(--mono); text-wrap: balance; font-weight: 700; letter-spacing: -.01em; margin: 0; }
+
+      .shell { max-width: 1180px; margin: 28px auto; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); box-shadow: 0 40px 100px -40px rgba(0,0,0,.5); }
+      .titlebar { display: flex; align-items: center; gap: 14px; padding: 13px 20px; background: var(--surface-2); border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+      .tabname { color: var(--ink); font-weight: 700; }
+      .tabname .dim { color: var(--muted); font-weight: 400; }
+      .titlebar .right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+      .titlebar nav { display: flex; gap: 16px; }
+      .titlebar nav a { text-decoration: none; color: var(--muted); }
+      .titlebar nav a:hover { color: var(--ink); }
+      .titlebar .langs { display: flex; gap: 6px; }
+      .titlebar .langs a, .titlebar .langs span { padding: 2px 5px; border-radius: 4px; text-decoration: none; }
+      .titlebar .langs span { color: var(--ink); background: var(--line); }
+      .titlebar .langs a { color: var(--muted); }
+      .titlebar .langs a:hover { color: var(--ink); }
+
+      .btn { font-family: var(--mono); font-size: 13.5px; font-weight: 700; letter-spacing: .01em; padding: 11px 18px; border-radius: var(--radius); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent; cursor: pointer; }
+      .btn-primary { background: var(--accent); color: var(--accent-ink); }
+      .btn-primary:hover { filter: brightness(1.08); }
+      .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
+      .btn-ghost:hover { border-color: var(--muted); }
+      .btn:focus-visible { outline: 2px solid var(--cursor); outline-offset: 2px; }
+
+      section { padding: 76px 56px; }
+      section + section { border-top: 1px solid var(--line); }
+
+      .hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; padding: 72px 56px; }
+      .hero h1 { font-size: 44px; line-height: 1.12; margin-bottom: 20px; }
+      .hero h1 .slashes { color: var(--accent); }
+      .hero p.lede { font-family: var(--serif); font-size: 18.5px; color: var(--muted); max-width: 46ch; margin: 0 0 28px; }
+      .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+      .hero .trust { font-family: var(--mono); font-size: 12.5px; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap; }
+      .hero .trust b { color: var(--good); }
+
+      .frame { border-radius: var(--radius-lg); border: 1px solid var(--line); overflow: hidden; background: var(--surface-2); box-shadow: 0 30px 70px -30px rgba(0,0,0,.55); position: relative; }
+      .frame::before { content: ""; position: absolute; inset: -40px -40px auto auto; width: 220px; height: 220px; background: radial-gradient(circle, color-mix(in srgb, var(--cursor) 35%, transparent), transparent 70%); z-index: 0; pointer-events: none; }
+      .frame .fbar { display:flex; align-items:center; padding:9px 14px; background: var(--surface); border-bottom:1px solid var(--line); position:relative; z-index:1; font-family: var(--mono); font-size:11.5px; color: var(--muted); }
+      .frame img { display: block; width: 100%; height: auto; position: relative; z-index: 1; }
+
+      .stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding: 28px 56px; font-family: var(--mono); font-size: 13px; color: var(--muted); background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .stats b { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+      .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); margin-top: 8px; }
+      .feature-row { padding: 22px 0; border-bottom: 1px solid var(--line); }
+      .feature-list .feature-row:nth-child(odd) { padding-right: 28px; border-right: 1px solid var(--line); }
+      .feature-list .feature-row:nth-child(even) { padding-left: 28px; }
+      .feature-row .tag { font-family: var(--mono); font-size: 13px; color: var(--accent); display:block; margin-bottom: 6px; }
+      .feature-row .tag::before { content: "// "; color: var(--muted); }
+      .feature-row p { margin: 0; color: var(--muted); font-size: 15.5px; }
+      .feature-row code { background: var(--surface-2); padding: 1px 6px; border-radius: 4px; color: var(--ink); font-size: .92em; }
+
+      .hiw, .deepdive { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
+      .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+      .steps li { position: relative; padding: 0 0 26px 44px; }
+      .steps li:last-child { padding-bottom: 0; }
+      .steps li::before { counter-increment: step; content: counter(step); font-family: var(--mono); font-weight: 700; position: absolute; left: 0; top: 0; width: 28px; height: 28px; border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+      .steps li p { margin: 0; color: var(--muted); }
+      .steps li code { color: var(--ink); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
+      .deepdive .snippet-box { font-family: var(--mono); font-size: 13.5px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; color: var(--muted); margin: 18px 0; }
+      .deepdive .snippet-box .k { color: var(--cursor); }
+
+      .file-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+      .file-row { display: block; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+      .file-list .file-row:nth-child(odd) { padding-right: 28px; border-right: 1px solid var(--line); }
+      .file-list .file-row:nth-child(even) { padding-left: 28px; }
+      .file-row .fname { font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+      .file-row .fname::before { content: ""; width: 7px; height: 7px; border-radius: 1px; background: var(--accent); flex: none; }
+      .file-row h3 { font-size: 15.5px; margin: 0 0 4px; }
+      .file-row p { margin: 0; color: var(--muted); font-size: 14px; }
+      .file-row:hover .fname, .file-row:hover h3 { color: var(--accent); }
+
+      .faq-item { border-bottom: 1px solid var(--line); padding: 18px 0; }
+      .faq-item summary { cursor: pointer; font-family: var(--mono); font-weight: 700; font-size: 15px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after { content: "+"; color: var(--accent); font-weight: 400; }
+      .faq-item[open] summary::after { content: "–"; }
+      .faq-item p { color: var(--muted); margin: 12px 0 0; max-width: 62ch; }
+      .faq-cta { margin-top: 32px; }
+
+      footer.term { background: var(--surface-2); padding: 30px 56px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+      footer.term .prompt { color: var(--good); }
+      footer.term a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--line); }
+      footer.term a:hover { color: var(--accent); border-color: var(--accent); }
+      footer.term .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center; }
+      footer.term .ph { margin-bottom: 18px; }
+
+      @media (max-width: 860px) {
+        section { padding: 52px 24px; }
+        .hero { grid-template-columns: 1fr; padding: 44px 24px; }
+        .hiw, .deepdive { grid-template-columns: 1fr; }
+        .feature-list, .file-list { grid-template-columns: 1fr; }
+        .feature-list .feature-row:nth-child(odd), .file-list .file-row:nth-child(odd) { padding-right: 0; border-right: none; }
+        .feature-list .feature-row:nth-child(even), .file-list .file-row:nth-child(even) { padding-left: 0; }
+        .titlebar nav { display: none; }
+        .stats { gap: 20px 32px; }
       }
     </style>
   </head>
   <body>
-    <div style="background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px;text-align:center;font-size:13px;color:var(--muted)">
-      Diese Seite auf:
-      <a href="../" style="margin:0 6px">EN</a>
-      <a href="../it/" style="margin:0 6px">IT</a>
-      <a href="../es/" style="margin:0 6px">ES</a>
-      <a href="../fr/" style="margin:0 6px">FR</a>
-      <span style="margin:0 6px;font-weight:700;color:var(--ink)">DE</span>
-      <a href="../pt/" style="margin:0 6px">PT</a>
-    </div>
-    <header class="hero">
-      <div class="bubble">//</div>
-      <h1>Textbausteine & gespeicherte Antworten, überall wo du tippst</h1>
-      <p>Speichere deine meistgenutzten Antworten einmal und füge sie in jedes Textfeld ein, indem du <code style="background:rgba(255,255,255,.2);color:#fff">//</code> tippst. Kostenlos, privat, leichtgewichtig.</p>
-      <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Zu Chrome hinzufügen — kostenlos</a>
-      <span class="sub">Kein Konto · Textbausteine lokal gespeichert · Funktioniert in Gmail und mehr</span>
-      <div class="hero-shot">
-        <img src="/assets/demo.gif" alt="Tippen von // in einem Textfeld fügt sofort einen gespeicherten Textbaustein ein" width="600" height="400" loading="eager" fetchpriority="high" decoding="async" />
+    <div class="shell">
+      <div class="titlebar">
+        <div class="tabname">reply<span class="dim">kit</span> — neue_nachricht.txt</div>
+        <div class="right">
+          <nav>
+            <a href="#features">funktionen</a>
+            <a href="#who">für wen</a>
+            <a href="#guides">anleitungen</a>
+            <a href="#faq">faq</a>
+          </nav>
+          <div class="langs">
+            <a href="../">EN</a><a href="../it/">IT</a><a href="../es/">ES</a><a href="../fr/">FR</a><span>DE</span><a href="../pt/">PT</a>
+          </div>
+        </div>
       </div>
-    </header>
 
-    <main>
-      <section class="wrap">
-        <h2>Warum ReplyKit</h2>
-        <div class="grid">
-          <div class="card"><h3>Ein Tastendruck</h3><p>Tippe <code>//</code> (oder eine Abkürzung) und wähle einen Textbaustein. Er wird genau an deiner Cursorposition eingefügt.</p></div>
-          <div class="card"><h3>Funktioniert überall</h3><p>Gmail, Helpdesks, Marktplätze, Social Media, CRMs und Formulare — jedes Standard-Textfeld.</p></div>
-          <div class="card"><h3>Privat per Design</h3><p>Textbausteine bleiben in deinem Browser. Nichts wird hochgeladen, verfolgt oder geteilt. Kein Konto.</p></div>
-          <div class="card"><h3>Leichtgewichtig</h3><p>Ein schneller, tastaturorientierter Selektor mit sofortiger Suche. Kein Ballast, keine Verlangsamung.</p></div>
-          <div class="card"><img src="/assets/screenshot-copy.png" alt="Ein-Klick-Kopieren-Button neben einem gespeicherten Textbaustein im ReplyKit-Popup" width="1280" height="800" loading="lazy" decoding="async" /><h3>Kopieren als Rückfall</h3><p>Für Editoren, die automatisches Einfügen blockieren, kopiert ein Klick den Textbaustein zum manuellen Einfügen.</p></div>
-          <div class="card"><h3>Kostenloser Einstieg</h3><p>Bis zu 10 Textbausteine kostenlos. Pro schaltet unbegrenzte frei — eine faire, einfache Alternative zu Textbausteinprogrammen.</p></div>
-          <div class="card"><img src="/assets/screenshot-shortcuts.png" alt="Textkürzel wie ;hi und Ordner, die Textbausteine in ReplyKit organisieren" width="1280" height="800" loading="lazy" decoding="async" /><h3>Abkürzungen</h3><p>Tippe einen kurzen Trigger wie <code>;hi</code> und er erweitert sich sofort zu deinem Textbaustein.</p></div>
-          <div class="card"><img src="/assets/screenshot-variables.png" alt="Dynamischer Platzhalter {name} wird vor dem Einfügen eines Textbausteins ausgefüllt" width="1280" height="800" loading="lazy" decoding="async" /><h3>Dynamische Platzhalter</h3><p><code>{date}</code> und <code>{time}</code> füllen sich selbst aus; <code>{name}</code> fragt dich beim Einfügen.</p></div>
-          <div class="card"><h3>Ordner</h3><p>Organisiere deine Textbausteine in Gruppen und filtere sie mit einem Klick.</p></div>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">kostenlose chrome-erweiterung</span>
+          <h1>Einmal speichern.<br>Tippe <span class="slashes">//</span> zum Zurückholen</h1>
+          <p class="lede">Speichere deine meistgenutzten Antworten einmal und füge sie in jedes Textfeld ein, indem du <code>//</code> tippst. Kostenlos, privat, leichtgewichtig — kein Konto, nichts wird hochgeladen.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Zu Chrome hinzufügen — kostenlos</a>
+            <a class="btn btn-ghost" href="#how">In Gmail ansehen ↓</a>
+          </div>
+          <div class="trust"><span><b>10</b> Textbausteine gratis</span><span><b>0</b> Konten</span><span><b>6</b> Sprachen</span></div>
+        </div>
+        <div class="frame">
+          <div class="fbar">web.whatsapp.com / gmail.com / überall</div>
+          <img src="/assets/demo.gif" alt="Tippen von // in einem Textfeld fügt sofort einen gespeicherten Textbaustein ein" width="600" height="400" loading="eager" fetchpriority="high" decoding="async" />
         </div>
       </section>
 
-      <section class="wrap">
-        <h2>Für wen es gedacht ist</h2>
-        <div class="grid">
-          <div class="card"><h3>Kundensupport</h3><p>Beantworte FAQs und Tickets in Sekunden mit gespeicherten Antworten.</p></div>
-          <div class="card"><h3>Freelancer & Agenturen</h3><p>Angebote, Onboarding und Nachfassungen ohne erneutes Tippen.</p></div>
-          <div class="card"><h3>Online-Verkäufer</h3><p>Antworten zu Bestellungen, Versand und Bewertungen auf jedem Marktplatz.</p></div>
-          <div class="card"><h3>Recruiter & Vertrieb</h3><p>Kontaktaufnahme und Vorlagen-Nachrichten, die persönlich bleiben.</p></div>
+      <div class="stats">
+        <span>installierbar für <b>Chrome</b></span>
+        <span>funktioniert in <b>Gmail</b>, Helpdesks, CRMs, Formularen</span>
+        <span>Textbausteine <b>lokal</b> gespeichert — chrome.storage</span>
+        <span>vorgestellt auf <b>Product Hunt</b></span>
+      </div>
+
+      <section id="features">
+        <span class="eyebrow">warum replykit</span>
+        <h2 style="font-size:30px;max-width:24ch">Ein Trigger von der Länge eines Kommentars, für eine Antwort von der Länge eines Absatzes</h2>
+        <div class="feature-list">
+          <div class="feature-row"><span class="tag">one_keystroke</span><p>Tippe <code>//</code> (oder eine Abkürzung) und wähle einen Textbaustein. Er wird genau an deiner Cursorposition eingefügt.</p></div>
+          <div class="feature-row"><span class="tag">works_everywhere</span><p>Gmail, Helpdesks, Marktplätze, Social Media, CRMs und Formulare — jedes Standard-Textfeld.</p></div>
+          <div class="feature-row"><span class="tag">private_by_design</span><p>Textbausteine bleiben in deinem Browser. Nichts wird hochgeladen, verfolgt oder geteilt. Kein Konto.</p></div>
+          <div class="feature-row"><span class="tag">abbreviations</span><p>Tippe einen kurzen Trigger wie <code>;hi</code> und er erweitert sich sofort zu deinem Textbaustein.</p></div>
+          <div class="feature-row"><span class="tag">dynamic_placeholders</span><p><code>{date}</code> und <code>{time}</code> füllen sich selbst aus; <code>{name}</code> fragt dich beim Einfügen.</p></div>
+          <div class="feature-row"><span class="tag">copy_fallback</span><p>Für Editoren, die automatisches Einfügen blockieren, kopiert ein Klick den Textbaustein zum manuellen Einfügen.</p></div>
+          <div class="feature-row"><span class="tag">folders</span><p>Organisiere deine Textbausteine in Gruppen und filtere sie mit einem Klick.</p></div>
+          <div class="feature-row"><span class="tag">free_to_start</span><p>Bis zu 10 Textbausteine kostenlos. Pro schaltet unbegrenzte frei — eine faire, einfache Alternative zu Textbausteinprogrammen.</p></div>
         </div>
       </section>
 
-      <section class="wrap">
-        <h2>So funktioniert's</h2>
-        <div class="grid" style="align-items:center">
+      <section id="who">
+        <span class="eyebrow">für wen es gedacht ist</span>
+        <h2 style="font-size:30px">Für alle, die dieselbe Antwort zweimal tippen</h2>
+        <div class="feature-list">
+          <div class="feature-row"><span class="tag">kundensupport</span><p>Beantworte FAQs und Tickets in Sekunden mit gespeicherten Antworten.</p></div>
+          <div class="feature-row"><span class="tag">freelancer_agenturen</span><p>Angebote, Onboarding und Nachfassungen ohne erneutes Tippen.</p></div>
+          <div class="feature-row"><span class="tag">online_verkaeufer</span><p>Antworten zu Bestellungen, Versand und Bewertungen auf jedem Marktplatz.</p></div>
+          <div class="feature-row"><span class="tag">recruiter_vertrieb</span><p>Kontaktaufnahme und Vorlagen-Nachrichten, die persönlich bleiben.</p></div>
+        </div>
+      </section>
+
+      <section id="how">
+        <span class="eyebrow">so funktioniert's</span>
+        <h2 style="font-size:30px;margin-bottom:32px">Drei Schritte, kein Onboarding nötig</h2>
+        <div class="hiw">
           <ol class="steps">
-            <li>Speichere einen Textbaustein aus dem Toolbar-Popup — eine Begrüßung, FAQ-Antwort, Nachfassung.</li>
-            <li>Tippe in jedem Textfeld <code>//</code> oder drücke <code>Ctrl/Cmd+Shift+Space</code>.</li>
-            <li>Wähle einen Textbaustein aus der Sofortsuche — er wird an deiner Cursorposition eingefügt. Oder drücke Kopieren.</li>
+            <li><p>Speichere einen Textbaustein aus dem Toolbar-Popup — eine Begrüßung, FAQ-Antwort, Nachfassung.</p></li>
+            <li><p>Tippe in jedem Textfeld <code>//</code> oder drücke <code>Ctrl/Cmd+Shift+Space</code>.</p></li>
+            <li><p>Wähle einen Textbaustein aus der Sofortsuche — er wird an deiner Cursorposition eingefügt. Oder drücke Kopieren.</p></li>
           </ol>
-          <img class="shot" src="/assets/screenshot-gmail.png" alt="Tippen von // in einer Gmail-E-Mail zeigt sofort die Textbaustein-Auswahl" width="1280" height="800" loading="lazy" decoding="async" />
+          <div class="frame">
+            <div class="fbar">Gmail — Verfassen</div>
+            <img src="/assets/screenshot-gmail.png" alt="Tippen von // in einer Gmail-E-Mail zeigt sofort die Textbaustein-Auswahl" width="1280" height="800" loading="lazy" decoding="async" />
+          </div>
         </div>
       </section>
 
-      <section class="wrap">
-        <h2>Häufig gestellte Fragen</h2>
-        <div class="faq">
-          <h3>Ist ReplyKit kostenlos?</h3>
-          <p>Ja — kostenlos für bis zu 10 Textbausteine. Pro schaltet unbegrenzte Textbausteine und mehr frei.</p>
-          <h3>Sind meine Daten sicher?</h3>
-          <p>Keine Werbung, kein Tracking. Im kostenlosen Plan werden deine Textbausteine lokal über <code>chrome.storage.local</code> gespeichert; mit Pro synchronisieren sie sich zwischen deinen Geräten über die integrierte Synchronisierung deines Browsers (niemals über unsere Server). Siehe die <a href="../privacy.html">Datenschutzerklärung</a>.</p>
-          <h3>Funktioniert es in Gmail?</h3>
-          <p>Ja. Es funktioniert in Gmail und jedem Standard-Textfeld. Für isolierte Editoren nutze den Kopieren-Button.</p>
-          <h3>Ist es ein Textbausteinprogramm?</h3>
-          <p>Stell es dir als leichtgewichtiges, privates Textbaustein-Tool vor — eine einfachere, kostenlose Alternative zu schwereren Textbausteinprogrammen.</p>
-        </div>
-        <p class="center" style="margin-top:32px"><a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc" style="background:var(--blue);color:#fff">ReplyKit zu Chrome hinzufügen</a></p>
-      </section>
-
-      <section class="wrap">
-        <h2>Anleitungen</h2>
-        <div class="grid">
-          <a class="card" href="guides/free-text-expander-alternative.html" style="text-decoration:none">
-            <h3>Eine kostenlose Alternative zu Textbausteinprogrammen</h3>
-            <p>Warum ein leichtes Textbaustein-Tool ein schwerfälliges Programm schlägt.</p>
-          </a>
-          <a class="card" href="guides/replykit-vs-textexpander.html" style="text-decoration:none">
-            <h3>ReplyKit vs TextExpander</h3>
-            <p>Preis, Einrichtung, Datenschutz und Funktionen im Vergleich.</p>
-          </a>
-          <a class="card" href="guides/replykit-vs-text-blaze.html" style="text-decoration:none">
-            <h3>ReplyKit vs Text Blaze</h3>
-            <p>Einfache Textbausteine vs. fortgeschrittene Automatisierung — was zu dir passt.</p>
-          </a>
-          <a class="card" href="guides/canned-responses-in-gmail.html" style="text-decoration:none">
-            <h3>Gespeicherte Antworten in Gmail</h3>
-            <p>Füge Antwortvorlagen in Gmail und überall ein, indem du // tippst.</p>
-          </a>
-          <a class="card" href="guides/customer-support-reply-templates.html" style="text-decoration:none">
-            <h3>Antwortvorlagen für den Kundensupport</h3>
-            <p>11 fertige Antworten für Support-Teams.</p>
-          </a>
-          <a class="card" href="guides/etsy-message-templates-for-sellers.html" style="text-decoration:none">
-            <h3>Etsy-Nachrichtenvorlagen für Verkäufer</h3>
-            <p>10 Nachrichten für Etsy-Käufer, einsatzbereit.</p>
-          </a>
-          <a class="card" href="guides/freelance-email-templates.html" style="text-decoration:none">
-            <h3>E-Mail-Vorlagen für Freelancer und Kunden</h3>
-            <p>12 E-Mails: Anfragen, Angebote, Rechnungen, Nachfassungen.</p>
-          </a>
-          <a class="card" href="guides/text-snippet-variables-placeholders.html" style="text-decoration:none">
-            <h3>Variablen und Platzhalter</h3>
-            <p>Dynamische Vorlagen, die sich selbst ausfüllen: {date}, {name} und mehr.</p>
-          </a>
-          <a class="card" href="guides/text-shortcuts-abbreviations.html" style="text-decoration:none">
-            <h3>Textkürzel und Abkürzungen</h3>
-            <p>Verwandle kurze Trigger wie ;hi sofort in vollständige Nachrichten.</p>
-          </a>
-          <a class="card" href="guides/live-chat-canned-responses.html" style="text-decoration:none">
-            <h3>Antwortbeispiele für den Live-Chat</h3>
-            <p>20 schnelle Antworten: Begrüßungen, Wartezeiten, Rückerstattungen, Abschlüsse.</p>
-          </a>
-          <a class="card" href="guides/shopify-customer-service-templates.html" style="text-decoration:none">
-            <h3>Kundenservice-Vorlagen für Shopify</h3>
-            <p>12 Antworten: Bestellungen, Versand, Rücksendungen, Rückerstattungen, Bewertungen.</p>
-          </a>
-          <a class="card" href="guides/customer-service-apology-email-templates.html" style="text-decoration:none">
-            <h3>Entschuldigungs-E-Mail-Vorlagen für den Kundenservice</h3>
-            <p>10 ehrliche Entschuldigungen: Verzögerungen, Abrechnungsfehler, Defekte, Ausfälle.</p>
-          </a>
-          <a class="card" href="guides/cold-email-templates-for-sales.html" style="text-decoration:none">
-            <h3>Kaltakquise-E-Mail-Vorlagen für den Vertrieb</h3>
-            <p>12 Erstkontakte, Nachfassungen und Abschluss-E-Mails, die Antworten bekommen.</p>
-          </a>
-          <a class="card" href="guides/whatsapp-business-quick-reply-templates.html" style="text-decoration:none">
-            <h3>Schnellantwort-Vorlagen für WhatsApp Business</h3>
-            <p>Begrüßungen, Bestellaktualisierungen, Zahlungen und Nachfassungen für WhatsApp Web.</p>
-          </a>
+      <section>
+        <div class="deepdive">
+          <div>
+            <span class="eyebrow">dynamische platzhalter</span>
+            <h2 style="font-size:28px;margin-bottom:14px">Vorlagen, die sich selbst ausfüllen</h2>
+            <p style="color:var(--muted);max-width:42ch">Markiere einmal die Teile, die sich ändern. <code>{date}</code> und <code>{time}</code> füllen sich selbst aus; alles andere, wie <code>{name}</code>, fragt dich direkt vor dem Einfügen.</p>
+            <div class="snippet-box"><span class="k">Textbaustein:</span> "Hallo {name}, deine Bestellung wird am {date} versandt."</div>
+          </div>
+          <div class="frame">
+            <div class="fbar">Felder ausfüllen</div>
+            <img src="/assets/screenshot-variables.png" alt="Dynamischer Platzhalter {name} wird vor dem Einfügen eines Textbausteins ausgefüllt" width="1280" height="800" loading="lazy" decoding="async" />
+          </div>
         </div>
       </section>
-    </main>
 
-    <footer id="support">
-      <div style="margin-bottom:20px">
+      <section id="guides">
+        <span class="eyebrow">guides</span>
+        <h2 style="font-size:30px;margin-bottom:6px">guides<span style="color:var(--muted)">/</span></h2>
+        <p class="mono" style="color:var(--muted);font-size:13px;margin:0 0 28px">14 Dateien · fertige Vorlagen &amp; Anleitungen</p>
+        <div class="file-list">
+          <a class="file-row" href="guides/free-text-expander-alternative.html"><span class="fname">free-text-expander-alternative.html</span><h3>Eine kostenlose Alternative zu Textbausteinprogrammen</h3><p>Warum ein leichtes Textbaustein-Tool ein schwerfälliges Programm schlägt.</p></a>
+          <a class="file-row" href="guides/replykit-vs-textexpander.html"><span class="fname">replykit-vs-textexpander.html</span><h3>ReplyKit vs TextExpander</h3><p>Preis, Einrichtung, Datenschutz und Funktionen im Vergleich.</p></a>
+          <a class="file-row" href="guides/replykit-vs-text-blaze.html"><span class="fname">replykit-vs-text-blaze.html</span><h3>ReplyKit vs Text Blaze</h3><p>Einfache Textbausteine vs. fortgeschrittene Automatisierung — was zu dir passt.</p></a>
+          <a class="file-row" href="guides/canned-responses-in-gmail.html"><span class="fname">canned-responses-in-gmail.html</span><h3>Gespeicherte Antworten in Gmail</h3><p>Füge Antwortvorlagen in Gmail und überall ein, indem du // tippst.</p></a>
+          <a class="file-row" href="guides/customer-support-reply-templates.html"><span class="fname">customer-support-reply-templates.html</span><h3>Antwortvorlagen für den Kundensupport</h3><p>11 fertige Antworten für Support-Teams.</p></a>
+          <a class="file-row" href="guides/etsy-message-templates-for-sellers.html"><span class="fname">etsy-message-templates-for-sellers.html</span><h3>Etsy-Nachrichtenvorlagen für Verkäufer</h3><p>10 Nachrichten für Etsy-Käufer, einsatzbereit.</p></a>
+          <a class="file-row" href="guides/freelance-email-templates.html"><span class="fname">freelance-email-templates.html</span><h3>E-Mail-Vorlagen für Freelancer und Kunden</h3><p>12 E-Mails: Anfragen, Angebote, Rechnungen, Nachfassungen.</p></a>
+          <a class="file-row" href="guides/text-snippet-variables-placeholders.html"><span class="fname">text-snippet-variables-placeholders.html</span><h3>Variablen und Platzhalter</h3><p>Dynamische Vorlagen, die sich selbst ausfüllen: {date}, {name} und mehr.</p></a>
+          <a class="file-row" href="guides/text-shortcuts-abbreviations.html"><span class="fname">text-shortcuts-abbreviations.html</span><h3>Textkürzel und Abkürzungen</h3><p>Verwandle kurze Trigger wie ;hi sofort in vollständige Nachrichten.</p></a>
+          <a class="file-row" href="guides/live-chat-canned-responses.html"><span class="fname">live-chat-canned-responses.html</span><h3>Antwortbeispiele für den Live-Chat</h3><p>20 schnelle Antworten: Begrüßungen, Wartezeiten, Rückerstattungen, Abschlüsse.</p></a>
+          <a class="file-row" href="guides/shopify-customer-service-templates.html"><span class="fname">shopify-customer-service-templates.html</span><h3>Kundenservice-Vorlagen für Shopify</h3><p>12 Antworten: Bestellungen, Versand, Rücksendungen, Rückerstattungen, Bewertungen.</p></a>
+          <a class="file-row" href="guides/customer-service-apology-email-templates.html"><span class="fname">customer-service-apology-email-templates.html</span><h3>Entschuldigungs-E-Mail-Vorlagen für den Kundenservice</h3><p>10 ehrliche Entschuldigungen: Verzögerungen, Abrechnungsfehler, Defekte, Ausfälle.</p></a>
+          <a class="file-row" href="guides/cold-email-templates-for-sales.html"><span class="fname">cold-email-templates-for-sales.html</span><h3>Kaltakquise-E-Mail-Vorlagen für den Vertrieb</h3><p>12 Erstkontakte, Nachfassungen und Abschluss-E-Mails, die Antworten bekommen.</p></a>
+          <a class="file-row" href="guides/whatsapp-business-quick-reply-templates.html"><span class="fname">whatsapp-business-quick-reply-templates.html</span><h3>Schnellantwort-Vorlagen für WhatsApp Business</h3><p>Begrüßungen, Bestellaktualisierungen, Zahlungen und Nachfassungen für WhatsApp Web.</p></a>
+        </div>
+      </section>
+
+      <section id="faq">
+        <span class="eyebrow">faq</span>
+        <h2 style="font-size:30px;margin-bottom:24px">Häufig gestellte Fragen</h2>
+        <div>
+          <details class="faq-item" open>
+            <summary>Ist ReplyKit kostenlos?</summary>
+            <p>Ja — kostenlos für bis zu 10 Textbausteine. Pro schaltet unbegrenzte Textbausteine und mehr frei.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Sind meine Daten sicher?</summary>
+            <p>Keine Werbung, kein Tracking. Im kostenlosen Plan werden deine Textbausteine lokal über <code>chrome.storage.local</code> gespeichert; mit Pro synchronisieren sie sich zwischen deinen Geräten über die integrierte Synchronisierung deines Browsers (niemals über unsere Server). Siehe die <a href="../privacy.html">Datenschutzerklärung</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Funktioniert es in Gmail?</summary>
+            <p>Ja. Es funktioniert in Gmail und jedem Standard-Textfeld. Für isolierte Editoren nutze den Kopieren-Button.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Ist es ein Textbausteinprogramm?</summary>
+            <p>Stell es dir als leichtgewichtiges, privates Textbaustein-Tool vor — eine einfachere, kostenlose Alternative zu schwereren Textbausteinprogrammen.</p>
+          </details>
+        </div>
+        <p class="faq-cta"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">ReplyKit zu Chrome hinzufügen</a></p>
+      </section>
+    </div>
+
+    <footer class="term">
+      <div class="ph">
         <a href="https://www.producthunt.com/products/replykit-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-replykit-2" target="_blank" rel="noopener noreferrer"><img alt="ReplyKit - Save replies once, insert them anywhere with &quot;//&quot; | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1179367&amp;theme=light&amp;t=1782238685570" style="width:250px;height:54px" /></a>
       </div>
-      Brauchst du Hilfe oder hast einen Funktionswunsch? Schreib an
-      <a href="mailto:replykit.app@proton.me">replykit.app@proton.me</a><br />
-      ReplyKit · <a href="guides/">Anleitungen</a> · <a href="../privacy.html">Datenschutz</a>
+      <div class="row">
+        <div><span class="prompt">$</span> brauchst du Hilfe oder hast einen Funktionswunsch? <a href="mailto:replykit.app@proton.me">schreib uns</a> · <a href="guides/">anleitungen</a> · <a href="../privacy.html">datenschutz</a></div>
+        <div><a href="../">en</a> · <a href="../it/">it</a> · <a href="../es/">es</a> · <a href="../fr/">fr</a> · de · <a href="../pt/">pt</a></div>
+      </div>
     </footer>
   </body>
 </html>

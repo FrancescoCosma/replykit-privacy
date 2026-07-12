@@ -77,187 +77,285 @@
     </script>
 
     <style>
-      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #6b7280; --bg: #fff; --card: #fff; --line: #ebedf0; }
+      :root {
+        color-scheme: light dark;
+        --bg: #14171c; --surface: #1b1f26; --surface-2: #21262f;
+        --ink: #eef1f6; --muted: #8b93a3; --line: #2a2f38;
+        --accent: #5b9bff; --accent-ink: #0a1a33; --cursor: #ffb454; --good: #6fcf97;
+        --radius: 6px; --radius-lg: 12px;
+        --mono: ui-monospace, "JetBrains Mono", "Fira Code", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+        --serif: Charter, "Iowan Old Style", "Georgia Pro", Georgia, "Times New Roman", serif;
+      }
+      :root[data-theme="light"] {
+        --bg: #f7f6f2; --surface: #ffffff; --surface-2: #f0efe9; --ink: #191c22;
+        --muted: #5b6472; --line: #e4e2db; --accent: #2b6eff; --accent-ink: #ffffff;
+        --cursor: #b5680f; --good: #2f8a57;
+      }
+      @media (prefers-color-scheme: light) {
+        :root:not([data-theme="dark"]) {
+          --bg: #f7f6f2; --surface: #ffffff; --surface-2: #f0efe9; --ink: #191c22;
+          --muted: #5b6472; --line: #e4e2db; --accent: #2b6eff; --accent-ink: #ffffff;
+          --cursor: #b5680f; --good: #2f8a57;
+        }
+      }
       * { box-sizing: border-box; }
-      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.65; color: var(--ink); background: var(--bg); }
-      a { color: var(--blue); }
-      .hero { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; padding: 80px 24px; text-align: center; }
-      .bubble { display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 70px; background: #fff; color: var(--blue); border-radius: 20px; font-size: 36px; font-weight: 800; margin-bottom: 24px; }
-      .hero h1 { font-size: 42px; line-height: 1.15; margin: 0 0 16px; }
-      .hero p { font-size: 20px; max-width: 600px; margin: 0 auto 28px; opacity: .96; }
-      .cta { display: inline-block; background: #fff; color: var(--blue); font-weight: 700; font-size: 17px; padding: 14px 28px; border-radius: 12px; text-decoration: none; }
-      .cta:hover { opacity: .92; }
-      .sub { display: block; margin-top: 12px; font-size: 13px; opacity: .85; }
-      .hero-shot { max-width: 560px; margin: 40px auto 0; }
-      .hero-shot img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
-      .wrap { max-width: 880px; margin: 0 auto; padding: 56px 24px; }
-      h2 { font-size: 28px; margin: 0 0 24px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-      .card { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--card); }
-      .card img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); margin-bottom: 12px; }
-      .card h3 { margin: 0 0 8px; font-size: 17px; }
-      .card p { margin: 0; color: var(--muted); font-size: 15px; }
-      .shot { max-width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); display: block; margin: 0 auto; }
-      ol.steps { counter-reset: step; list-style: none; padding: 0; }
-      ol.steps li { position: relative; padding: 0 0 18px 48px; }
-      ol.steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
-      code { background: #f1f3f5; padding: 2px 7px; border-radius: 5px; font-size: .9em; }
-      .faq { margin-top: 12px; }
-      .faq h3 { font-size: 17px; margin: 22px 0 6px; }
-      .faq p { margin: 0; color: var(--muted); }
-      .center { text-align: center; }
-      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
-      @media (prefers-color-scheme: dark) {
-        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --card: #1f1f22; --line: #2c2c30; }
-        code { background: #2a2a2d; }
-        .cta { background: #fff; color: var(--blue); }
+      html, body { margin: 0; padding: 0; }
+      body { background: var(--bg); color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+      a { color: inherit; }
+      code, .mono { font-family: var(--mono); }
+      .eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; color: var(--accent); display: block; margin: 0 0 14px; }
+      .eyebrow::before { content: "// "; color: var(--muted); }
+      h1, h2, h3 { font-family: var(--mono); text-wrap: balance; font-weight: 700; letter-spacing: -.01em; margin: 0; }
+
+      .shell { max-width: 1180px; margin: 28px auto; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); box-shadow: 0 40px 100px -40px rgba(0,0,0,.5); }
+      .titlebar { display: flex; align-items: center; gap: 14px; padding: 13px 20px; background: var(--surface-2); border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+      .tabname { color: var(--ink); font-weight: 700; }
+      .tabname .dim { color: var(--muted); font-weight: 400; }
+      .titlebar .right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+      .titlebar nav { display: flex; gap: 16px; }
+      .titlebar nav a { text-decoration: none; color: var(--muted); }
+      .titlebar nav a:hover { color: var(--ink); }
+      .titlebar .langs { display: flex; gap: 6px; }
+      .titlebar .langs a, .titlebar .langs span { padding: 2px 5px; border-radius: 4px; text-decoration: none; }
+      .titlebar .langs span { color: var(--ink); background: var(--line); }
+      .titlebar .langs a { color: var(--muted); }
+      .titlebar .langs a:hover { color: var(--ink); }
+
+      .btn { font-family: var(--mono); font-size: 13.5px; font-weight: 700; letter-spacing: .01em; padding: 11px 18px; border-radius: var(--radius); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent; cursor: pointer; }
+      .btn-primary { background: var(--accent); color: var(--accent-ink); }
+      .btn-primary:hover { filter: brightness(1.08); }
+      .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
+      .btn-ghost:hover { border-color: var(--muted); }
+      .btn:focus-visible { outline: 2px solid var(--cursor); outline-offset: 2px; }
+
+      section { padding: 76px 56px; }
+      section + section { border-top: 1px solid var(--line); }
+
+      .hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; padding: 72px 56px; }
+      .hero h1 { font-size: 44px; line-height: 1.12; margin-bottom: 20px; }
+      .hero h1 .slashes { color: var(--accent); }
+      .hero p.lede { font-family: var(--serif); font-size: 18.5px; color: var(--muted); max-width: 46ch; margin: 0 0 28px; }
+      .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+      .hero .trust { font-family: var(--mono); font-size: 12.5px; color: var(--muted); display: flex; gap: 18px; flex-wrap: wrap; }
+      .hero .trust b { color: var(--good); }
+
+      .frame { border-radius: var(--radius-lg); border: 1px solid var(--line); overflow: hidden; background: var(--surface-2); box-shadow: 0 30px 70px -30px rgba(0,0,0,.55); position: relative; }
+      .frame::before { content: ""; position: absolute; inset: -40px -40px auto auto; width: 220px; height: 220px; background: radial-gradient(circle, color-mix(in srgb, var(--cursor) 35%, transparent), transparent 70%); z-index: 0; pointer-events: none; }
+      .frame .fbar { display:flex; align-items:center; padding:9px 14px; background: var(--surface); border-bottom:1px solid var(--line); position:relative; z-index:1; font-family: var(--mono); font-size:11.5px; color: var(--muted); }
+      .frame img { display: block; width: 100%; height: auto; position: relative; z-index: 1; }
+
+      .stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding: 28px 56px; font-family: var(--mono); font-size: 13px; color: var(--muted); background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .stats b { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+      .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); margin-top: 8px; }
+      .feature-row { padding: 22px 0; border-bottom: 1px solid var(--line); }
+      .feature-list .feature-row:nth-child(odd) { padding-right: 28px; border-right: 1px solid var(--line); }
+      .feature-list .feature-row:nth-child(even) { padding-left: 28px; }
+      .feature-row .tag { font-family: var(--mono); font-size: 13px; color: var(--accent); display:block; margin-bottom: 6px; }
+      .feature-row .tag::before { content: "// "; color: var(--muted); }
+      .feature-row p { margin: 0; color: var(--muted); font-size: 15.5px; }
+      .feature-row code { background: var(--surface-2); padding: 1px 6px; border-radius: 4px; color: var(--ink); font-size: .92em; }
+
+      .hiw, .deepdive { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
+      .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+      .steps li { position: relative; padding: 0 0 26px 44px; }
+      .steps li:last-child { padding-bottom: 0; }
+      .steps li::before { counter-increment: step; content: counter(step); font-family: var(--mono); font-weight: 700; position: absolute; left: 0; top: 0; width: 28px; height: 28px; border: 1px solid var(--accent); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+      .steps li p { margin: 0; color: var(--muted); }
+      .steps li code { color: var(--ink); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
+      .deepdive .snippet-box { font-family: var(--mono); font-size: 13.5px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; color: var(--muted); margin: 18px 0; }
+      .deepdive .snippet-box .k { color: var(--cursor); }
+
+      .file-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+      .file-row { display: block; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+      .file-list .file-row:nth-child(odd) { padding-right: 28px; border-right: 1px solid var(--line); }
+      .file-list .file-row:nth-child(even) { padding-left: 28px; }
+      .file-row .fname { font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+      .file-row .fname::before { content: ""; width: 7px; height: 7px; border-radius: 1px; background: var(--accent); flex: none; }
+      .file-row h3 { font-size: 15.5px; margin: 0 0 4px; }
+      .file-row p { margin: 0; color: var(--muted); font-size: 14px; }
+      .file-row:hover .fname, .file-row:hover h3 { color: var(--accent); }
+
+      .faq-item { border-bottom: 1px solid var(--line); padding: 18px 0; }
+      .faq-item summary { cursor: pointer; font-family: var(--mono); font-weight: 700; font-size: 15px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after { content: "+"; color: var(--accent); font-weight: 400; }
+      .faq-item[open] summary::after { content: "–"; }
+      .faq-item p { color: var(--muted); margin: 12px 0 0; max-width: 62ch; }
+      .faq-cta { margin-top: 32px; }
+
+      footer.term { background: var(--surface-2); padding: 30px 56px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+      footer.term .prompt { color: var(--good); }
+      footer.term a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--line); }
+      footer.term a:hover { color: var(--accent); border-color: var(--accent); }
+      footer.term .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center; }
+      footer.term .ph { margin-bottom: 18px; }
+
+      @media (max-width: 860px) {
+        section { padding: 52px 24px; }
+        .hero { grid-template-columns: 1fr; padding: 44px 24px; }
+        .hiw, .deepdive { grid-template-columns: 1fr; }
+        .feature-list, .file-list { grid-template-columns: 1fr; }
+        .feature-list .feature-row:nth-child(odd), .file-list .file-row:nth-child(odd) { padding-right: 0; border-right: none; }
+        .feature-list .feature-row:nth-child(even), .file-list .file-row:nth-child(even) { padding-left: 0; }
+        .titlebar nav { display: none; }
+        .stats { gap: 20px 32px; }
       }
     </style>
   </head>
   <body>
-    <div style="background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px;text-align:center;font-size:13px;color:var(--muted)">
-      Questa pagina in:
-      <a href="../" style="margin:0 6px">EN</a>
-      <span style="margin:0 6px;font-weight:700;color:var(--ink)">IT</span>
-      <a href="../es/" style="margin:0 6px">ES</a>
-      <a href="../fr/" style="margin:0 6px">FR</a>
-      <a href="../de/" style="margin:0 6px">DE</a>
-      <a href="../pt/" style="margin:0 6px">PT</a>
-    </div>
-    <header class="hero">
-      <div class="bubble">//</div>
-      <h1>Snippet di testo e risposte pronte, ovunque tu digiti</h1>
-      <p>Salva le tue risposte più usate una volta e inseriscile in qualsiasi campo di testo digitando <code style="background:rgba(255,255,255,.2);color:#fff">//</code>. Gratis, privato, leggero.</p>
-      <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Aggiungi a Chrome — è gratis</a>
-      <span class="sub">Nessun account · Snippet salvati localmente · Funziona in Gmail e altro</span>
-      <div class="hero-shot">
-        <img src="/assets/demo.gif" alt="Digitando // in un campo di testo si inserisce all'istante uno snippet salvato" width="600" height="400" loading="eager" fetchpriority="high" decoding="async" />
+    <div class="shell">
+      <div class="titlebar">
+        <div class="tabname">reply<span class="dim">kit</span> — nuovo_messaggio.txt</div>
+        <div class="right">
+          <nav>
+            <a href="#features">funzioni</a>
+            <a href="#who">per chi</a>
+            <a href="#guides">guide</a>
+            <a href="#faq">faq</a>
+          </nav>
+          <div class="langs">
+            <a href="../">EN</a><span>IT</span><a href="../es/">ES</a><a href="../fr/">FR</a><a href="../de/">DE</a><a href="../pt/">PT</a>
+          </div>
+        </div>
       </div>
-    </header>
 
-    <main>
-      <section class="wrap">
-        <h2>Perché ReplyKit</h2>
-        <div class="grid">
-          <div class="card"><h3>Un solo tasto</h3><p>Digita <code>//</code> (o una scorciatoia) e scegli uno snippet. Viene inserito esattamente dove si trova il cursore.</p></div>
-          <div class="card"><h3>Funziona ovunque</h3><p>Gmail, helpdesk, marketplace, social, CRM e moduli — qualsiasi campo di testo standard.</p></div>
-          <div class="card"><h3>Privato per design</h3><p>Gli snippet restano nel tuo browser. Niente viene caricato, tracciato o condiviso. Nessun account.</p></div>
-          <div class="card"><h3>Leggero</h3><p>Un selettore veloce, pensato per la tastiera, con ricerca istantanea. Nessun ingombro, nessun rallentamento.</p></div>
-          <div class="card"><img src="/assets/screenshot-copy.png" alt="Pulsante Copia con un clic accanto a uno snippet salvato nel popup di ReplyKit" width="1280" height="800" loading="lazy" decoding="async" /><h3>Copia di riserva</h3><p>Per gli editor che bloccano l'inserimento automatico, un clic copia lo snippet da incollare manualmente.</p></div>
-          <div class="card"><h3>Gratis per iniziare</h3><p>Fino a 10 snippet gratis. Pro sblocca quelli illimitati — un'alternativa equa e semplice ai text expander.</p></div>
-          <div class="card"><img src="/assets/screenshot-shortcuts.png" alt="Scorciatoie di testo come ;ciao e cartelle che organizzano gli snippet in ReplyKit" width="1280" height="800" loading="lazy" decoding="async" /><h3>Abbreviazioni</h3><p>Digita un trigger breve come <code>;ciao</code> e si espande subito nel tuo snippet.</p></div>
-          <div class="card"><img src="/assets/screenshot-variables.png" alt="Segnaposto dinamico {name} compilato prima di inserire uno snippet" width="1280" height="800" loading="lazy" decoding="async" /><h3>Segnaposto dinamici</h3><p><code>{date}</code> e <code>{time}</code> si compilano da soli; <code>{name}</code> te lo chiede all'inserimento.</p></div>
-          <div class="card"><h3>Cartelle</h3><p>Organizza i tuoi snippet in gruppi e filtrali con un clic.</p></div>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">estensione gratuita per chrome</span>
+          <h1>Salvalo una volta.<br>Digita <span class="slashes">//</span> per riaverlo</h1>
+          <p class="lede">Salva le tue risposte più usate una volta e inseriscile in qualsiasi campo di testo digitando <code>//</code>. Gratis, privato, leggero — nessun account, niente caricato.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Aggiungi a Chrome — è gratis</a>
+            <a class="btn btn-ghost" href="#how">Guardalo in Gmail ↓</a>
+          </div>
+          <div class="trust"><span><b>10</b> snippet gratis</span><span><b>0</b> account</span><span><b>6</b> lingue</span></div>
+        </div>
+        <div class="frame">
+          <div class="fbar">web.whatsapp.com / gmail.com / ovunque</div>
+          <img src="/assets/demo.gif" alt="Digitando // in un campo di testo si inserisce all'istante uno snippet salvato" width="600" height="400" loading="eager" fetchpriority="high" decoding="async" />
         </div>
       </section>
 
-      <section class="wrap">
-        <h2>Per chi è pensato</h2>
-        <div class="grid">
-          <div class="card"><h3>Supporto clienti</h3><p>Rispondi a FAQ e ticket in pochi secondi con risposte pronte.</p></div>
-          <div class="card"><h3>Freelance e agenzie</h3><p>Proposte, onboarding e follow-up senza riscrivere nulla.</p></div>
-          <div class="card"><h3>Venditori online</h3><p>Risposte su ordini, spedizioni e recensioni su qualsiasi marketplace.</p></div>
-          <div class="card"><h3>Recruiter e vendite</h3><p>Messaggi di contatto e template che restano personali.</p></div>
+      <div class="stats">
+        <span>installabile su <b>Chrome</b></span>
+        <span>funziona in <b>Gmail</b>, helpdesk, CRM, moduli</span>
+        <span>snippet salvati <b>localmente</b> — chrome.storage</span>
+        <span>in evidenza su <b>Product Hunt</b></span>
+      </div>
+
+      <section id="features">
+        <span class="eyebrow">perché replykit</span>
+        <h2 style="font-size:30px;max-width:22ch">Un trigger lungo un commento, per una risposta lunga un paragrafo</h2>
+        <div class="feature-list">
+          <div class="feature-row"><span class="tag">one_keystroke</span><p>Digita <code>//</code> (o una scorciatoia) e scegli uno snippet. Viene inserito esattamente dove si trova il cursore.</p></div>
+          <div class="feature-row"><span class="tag">works_everywhere</span><p>Gmail, helpdesk, marketplace, social, CRM e moduli — qualsiasi campo di testo standard.</p></div>
+          <div class="feature-row"><span class="tag">private_by_design</span><p>Gli snippet restano nel tuo browser. Niente viene caricato, tracciato o condiviso. Nessun account.</p></div>
+          <div class="feature-row"><span class="tag">abbreviations</span><p>Digita un trigger breve come <code>;ciao</code> e si espande subito nel tuo snippet.</p></div>
+          <div class="feature-row"><span class="tag">dynamic_placeholders</span><p><code>{date}</code> e <code>{time}</code> si compilano da soli; <code>{name}</code> te lo chiede all'inserimento.</p></div>
+          <div class="feature-row"><span class="tag">copy_fallback</span><p>Per gli editor che bloccano l'inserimento automatico, un clic copia lo snippet da incollare manualmente.</p></div>
+          <div class="feature-row"><span class="tag">folders</span><p>Organizza i tuoi snippet in gruppi e filtrali con un clic.</p></div>
+          <div class="feature-row"><span class="tag">free_to_start</span><p>Fino a 10 snippet gratis. Pro sblocca quelli illimitati — un'alternativa equa e semplice ai text expander.</p></div>
         </div>
       </section>
 
-      <section class="wrap">
-        <h2>Come funziona</h2>
-        <div class="grid" style="align-items:center">
+      <section id="who">
+        <span class="eyebrow">per chi è pensato</span>
+        <h2 style="font-size:30px">Chiunque digiti la stessa risposta due volte</h2>
+        <div class="feature-list">
+          <div class="feature-row"><span class="tag">customer_support</span><p>Rispondi a FAQ e ticket in pochi secondi con risposte pronte.</p></div>
+          <div class="feature-row"><span class="tag">freelance_agenzie</span><p>Proposte, onboarding e follow-up senza riscrivere nulla.</p></div>
+          <div class="feature-row"><span class="tag">venditori_online</span><p>Risposte su ordini, spedizioni e recensioni su qualsiasi marketplace.</p></div>
+          <div class="feature-row"><span class="tag">recruiter_vendite</span><p>Messaggi di contatto e template che restano personali.</p></div>
+        </div>
+      </section>
+
+      <section id="how">
+        <span class="eyebrow">come funziona</span>
+        <h2 style="font-size:30px;margin-bottom:32px">Tre passaggi, nessun onboarding necessario</h2>
+        <div class="hiw">
           <ol class="steps">
-            <li>Salva uno snippet dal popup della toolbar — un saluto, una risposta FAQ, un follow-up.</li>
-            <li>In qualsiasi campo di testo, digita <code>//</code> oppure premi <code>Ctrl/Cmd+Shift+Space</code>.</li>
-            <li>Scegli uno snippet dalla ricerca istantanea — viene inserito dove si trova il cursore. Oppure premi Copia.</li>
+            <li><p>Salva uno snippet dal popup della toolbar — un saluto, una risposta FAQ, un follow-up.</p></li>
+            <li><p>In qualsiasi campo di testo, digita <code>//</code> oppure premi <code>Ctrl/Cmd+Shift+Space</code>.</p></li>
+            <li><p>Scegli uno snippet dalla ricerca istantanea — viene inserito dove si trova il cursore. Oppure premi Copia.</p></li>
           </ol>
-          <img class="shot" src="/assets/screenshot-gmail.png" alt="Digitando // in una email di Gmail appare subito il selettore di snippet" width="1280" height="800" loading="lazy" decoding="async" />
+          <div class="frame">
+            <div class="fbar">Gmail — composizione</div>
+            <img src="/assets/screenshot-gmail.png" alt="Digitando // in una email di Gmail appare subito il selettore di snippet" width="1280" height="800" loading="lazy" decoding="async" />
+          </div>
         </div>
       </section>
 
-      <section class="wrap">
-        <h2>FAQ</h2>
-        <div class="faq">
-          <h3>ReplyKit è gratis?</h3>
-          <p>Sì — gratis fino a 10 snippet. Pro sblocca snippet illimitati e altro ancora.</p>
-          <h3>I miei dati sono al sicuro?</h3>
-          <p>Nessuna pubblicità, nessun tracciamento. Nel piano gratuito i tuoi snippet sono salvati localmente tramite <code>chrome.storage.local</code>; con Pro si sincronizzano tra i tuoi dispositivi tramite la sincronizzazione integrata del browser (mai attraverso i nostri server). Vedi l'<a href="../privacy.html">Informativa sulla privacy</a>.</p>
-          <h3>Funziona in Gmail?</h3>
-          <p>Sì. Funziona in Gmail e in qualsiasi campo di testo standard. Per gli editor isolati, usa il pulsante Copia.</p>
-          <h3>È un text expander?</h3>
-          <p>Pensalo come uno strumento leggero e privato per gli snippet di testo — un'alternativa più semplice e gratuita ai text expander più pesanti.</p>
-        </div>
-        <p class="center" style="margin-top:32px"><a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc" style="background:var(--blue);color:#fff">Aggiungi ReplyKit a Chrome</a></p>
-      </section>
-
-      <section class="wrap">
-        <h2>Guide</h2>
-        <div class="grid">
-          <a class="card" href="guides/free-text-expander-alternative.html" style="text-decoration:none">
-            <h3>Un'alternativa gratuita ai text expander</h3>
-            <p>Perché uno strumento leggero di snippet batte un text expander pesante.</p>
-          </a>
-          <a class="card" href="guides/replykit-vs-textexpander.html" style="text-decoration:none">
-            <h3>ReplyKit vs TextExpander</h3>
-            <p>Prezzo, configurazione, privacy e funzioni a confronto.</p>
-          </a>
-          <a class="card" href="guides/replykit-vs-text-blaze.html" style="text-decoration:none">
-            <h3>ReplyKit vs Text Blaze</h3>
-            <p>Snippet semplici vs automazione avanzata — qual è giusto per te.</p>
-          </a>
-          <a class="card" href="guides/canned-responses-in-gmail.html" style="text-decoration:none">
-            <h3>Risposte pronte in Gmail</h3>
-            <p>Inserisci template di risposta in Gmail e ovunque digitando //.</p>
-          </a>
-          <a class="card" href="guides/customer-support-reply-templates.html" style="text-decoration:none">
-            <h3>Template di risposta per il supporto clienti</h3>
-            <p>11 risposte pronte all'uso per team di assistenza.</p>
-          </a>
-          <a class="card" href="guides/etsy-message-templates-for-sellers.html" style="text-decoration:none">
-            <h3>Template di messaggi Etsy per venditori</h3>
-            <p>10 messaggi per acquirenti Etsy, pronti all'uso.</p>
-          </a>
-          <a class="card" href="guides/freelance-email-templates.html" style="text-decoration:none">
-            <h3>Template di email per freelance e clienti</h3>
-            <p>12 email: richieste, proposte, fatture, follow-up.</p>
-          </a>
-          <a class="card" href="guides/text-snippet-variables-placeholders.html" style="text-decoration:none">
-            <h3>Variabili e segnaposto</h3>
-            <p>Template dinamici che si compilano da soli: {date}, {name} e altro.</p>
-          </a>
-          <a class="card" href="guides/text-shortcuts-abbreviations.html" style="text-decoration:none">
-            <h3>Scorciatoie e abbreviazioni</h3>
-            <p>Trasforma trigger brevi come ;ciao in messaggi completi, all'istante.</p>
-          </a>
-          <a class="card" href="guides/live-chat-canned-responses.html" style="text-decoration:none">
-            <h3>Esempi di risposte pronte per la live chat</h3>
-            <p>20 risposte rapide: saluti, attese, rimborsi, chiusure.</p>
-          </a>
-          <a class="card" href="guides/shopify-customer-service-templates.html" style="text-decoration:none">
-            <h3>Template di assistenza clienti per Shopify</h3>
-            <p>12 risposte: ordini, spedizioni, resi, rimborsi, recensioni.</p>
-          </a>
-          <a class="card" href="guides/customer-service-apology-email-templates.html" style="text-decoration:none">
-            <h3>Template di email di scuse per l'assistenza</h3>
-            <p>10 scuse sincere: ritardi, errori di fatturazione, difetti, disservizi.</p>
-          </a>
-          <a class="card" href="guides/cold-email-templates-for-sales.html" style="text-decoration:none">
-            <h3>Template di cold email per le vendite</h3>
-            <p>12 email di contatto, follow-up e chiusura che ottengono risposte.</p>
-          </a>
-          <a class="card" href="guides/whatsapp-business-quick-reply-templates.html" style="text-decoration:none">
-            <h3>Risposte rapide per WhatsApp Business</h3>
-            <p>Saluti, aggiornamenti ordine, pagamenti e follow-up per WhatsApp Web.</p>
-          </a>
+      <section>
+        <div class="deepdive">
+          <div>
+            <span class="eyebrow">segnaposto dinamici</span>
+            <h2 style="font-size:28px;margin-bottom:14px">Template che si compilano da soli</h2>
+            <p style="color:var(--muted);max-width:42ch">Segna una volta le parti che cambiano. <code>{date}</code> e <code>{time}</code> si compilano da soli; qualsiasi altra cosa, come <code>{name}</code>, te lo chiede subito prima di inserire.</p>
+            <div class="snippet-box"><span class="k">snippet:</span> "Ciao {name}, il tuo ordine parte il {date}."</div>
+          </div>
+          <div class="frame">
+            <div class="fbar">compila i campi</div>
+            <img src="/assets/screenshot-variables.png" alt="Segnaposto dinamico {name} compilato prima di inserire uno snippet" width="1280" height="800" loading="lazy" decoding="async" />
+          </div>
         </div>
       </section>
-    </main>
 
-    <footer id="support">
-      <div style="margin-bottom:20px">
+      <section id="guides">
+        <span class="eyebrow">guides</span>
+        <h2 style="font-size:30px;margin-bottom:6px">guides<span style="color:var(--muted)">/</span></h2>
+        <p class="mono" style="color:var(--muted);font-size:13px;margin:0 0 28px">14 file · template e guide pronte da copiare</p>
+        <div class="file-list">
+          <a class="file-row" href="guides/free-text-expander-alternative.html"><span class="fname">free-text-expander-alternative.html</span><h3>Un'alternativa gratuita ai text expander</h3><p>Perché uno strumento leggero di snippet batte un text expander pesante.</p></a>
+          <a class="file-row" href="guides/replykit-vs-textexpander.html"><span class="fname">replykit-vs-textexpander.html</span><h3>ReplyKit vs TextExpander</h3><p>Prezzo, configurazione, privacy e funzioni a confronto.</p></a>
+          <a class="file-row" href="guides/replykit-vs-text-blaze.html"><span class="fname">replykit-vs-text-blaze.html</span><h3>ReplyKit vs Text Blaze</h3><p>Snippet semplici vs automazione avanzata — qual è giusto per te.</p></a>
+          <a class="file-row" href="guides/canned-responses-in-gmail.html"><span class="fname">canned-responses-in-gmail.html</span><h3>Risposte pronte in Gmail</h3><p>Inserisci template di risposta in Gmail e ovunque digitando //.</p></a>
+          <a class="file-row" href="guides/customer-support-reply-templates.html"><span class="fname">customer-support-reply-templates.html</span><h3>Template di risposta per il supporto clienti</h3><p>11 risposte pronte all'uso per team di assistenza.</p></a>
+          <a class="file-row" href="guides/etsy-message-templates-for-sellers.html"><span class="fname">etsy-message-templates-for-sellers.html</span><h3>Template di messaggi Etsy per venditori</h3><p>10 messaggi per acquirenti Etsy, pronti all'uso.</p></a>
+          <a class="file-row" href="guides/freelance-email-templates.html"><span class="fname">freelance-email-templates.html</span><h3>Template di email per freelance e clienti</h3><p>12 email: richieste, proposte, fatture, follow-up.</p></a>
+          <a class="file-row" href="guides/text-snippet-variables-placeholders.html"><span class="fname">text-snippet-variables-placeholders.html</span><h3>Variabili e segnaposto</h3><p>Template dinamici che si compilano da soli: {date}, {name} e altro.</p></a>
+          <a class="file-row" href="guides/text-shortcuts-abbreviations.html"><span class="fname">text-shortcuts-abbreviations.html</span><h3>Scorciatoie e abbreviazioni</h3><p>Trasforma trigger brevi come ;ciao in messaggi completi, all'istante.</p></a>
+          <a class="file-row" href="guides/live-chat-canned-responses.html"><span class="fname">live-chat-canned-responses.html</span><h3>Esempi di risposte pronte per la live chat</h3><p>20 risposte rapide: saluti, attese, rimborsi, chiusure.</p></a>
+          <a class="file-row" href="guides/shopify-customer-service-templates.html"><span class="fname">shopify-customer-service-templates.html</span><h3>Template di assistenza clienti per Shopify</h3><p>12 risposte: ordini, spedizioni, resi, rimborsi, recensioni.</p></a>
+          <a class="file-row" href="guides/customer-service-apology-email-templates.html"><span class="fname">customer-service-apology-email-templates.html</span><h3>Template di email di scuse per l'assistenza</h3><p>10 scuse sincere: ritardi, errori di fatturazione, difetti, disservizi.</p></a>
+          <a class="file-row" href="guides/cold-email-templates-for-sales.html"><span class="fname">cold-email-templates-for-sales.html</span><h3>Template di cold email per le vendite</h3><p>12 email di contatto, follow-up e chiusura che ottengono risposte.</p></a>
+          <a class="file-row" href="guides/whatsapp-business-quick-reply-templates.html"><span class="fname">whatsapp-business-quick-reply-templates.html</span><h3>Risposte rapide per WhatsApp Business</h3><p>Saluti, aggiornamenti ordine, pagamenti e follow-up per WhatsApp Web.</p></a>
+        </div>
+      </section>
+
+      <section id="faq">
+        <span class="eyebrow">faq</span>
+        <h2 style="font-size:30px;margin-bottom:24px">Domande frequenti</h2>
+        <div>
+          <details class="faq-item" open>
+            <summary>ReplyKit è gratis?</summary>
+            <p>Sì — gratis fino a 10 snippet. Pro sblocca snippet illimitati e altro ancora.</p>
+          </details>
+          <details class="faq-item">
+            <summary>I miei dati sono al sicuro?</summary>
+            <p>Nessuna pubblicità, nessun tracciamento. Nel piano gratuito i tuoi snippet sono salvati localmente tramite <code>chrome.storage.local</code>; con Pro si sincronizzano tra i tuoi dispositivi tramite la sincronizzazione integrata del browser (mai attraverso i nostri server). Vedi l'<a href="../privacy.html">Informativa sulla privacy</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Funziona in Gmail?</summary>
+            <p>Sì. Funziona in Gmail e in qualsiasi campo di testo standard. Per gli editor isolati, usa il pulsante Copia.</p>
+          </details>
+          <details class="faq-item">
+            <summary>È un text expander?</summary>
+            <p>Pensalo come uno strumento leggero e privato per gli snippet di testo — un'alternativa più semplice e gratuita ai text expander più pesanti.</p>
+          </details>
+        </div>
+        <p class="faq-cta"><a class="btn btn-primary" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Aggiungi ReplyKit a Chrome</a></p>
+      </section>
+    </div>
+
+    <footer class="term">
+      <div class="ph">
         <a href="https://www.producthunt.com/products/replykit-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-replykit-2" target="_blank" rel="noopener noreferrer"><img alt="ReplyKit - Save replies once, insert them anywhere with &quot;//&quot; | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1179367&amp;theme=light&amp;t=1782238685570" style="width:250px;height:54px" /></a>
       </div>
-      Hai bisogno di aiuto o vuoi richiedere una funzionalità? Scrivi a
-      <a href="mailto:replykit.app@proton.me">replykit.app@proton.me</a><br />
-      ReplyKit · <a href="guides/">Guide</a> · <a href="../privacy.html">Privacy</a>
+      <div class="row">
+        <div><span class="prompt">$</span> hai bisogno di aiuto o vuoi richiedere una funzionalità? <a href="mailto:replykit.app@proton.me">scrivici</a> · <a href="guides/">guide</a> · <a href="../privacy.html">privacy</a></div>
+        <div><a href="../">en</a> · it · <a href="../es/">es</a> · <a href="../fr/">fr</a> · <a href="../de/">de</a> · <a href="../pt/">pt</a></div>
+      </div>
     </footer>
   </body>
 </html>
