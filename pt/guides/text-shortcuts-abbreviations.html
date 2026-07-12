@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Digite mais rápido com atalhos e abreviações de texto</title>
+    <meta
+      name="description"
+      content="Transforme gatilhos curtos como ;oi em mensagens completas. Uma ferramenta de abreviações grátis para o Chrome: defina um atalho, digite, o snippet aparece."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/pt/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="pt" href="https://replykit.pureprompting.com/pt/guides/text-shortcuts-abbreviations.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-shortcuts-abbreviations.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Digite mais rápido com atalhos e abreviações de texto" />
+    <meta property="og:description" content="Transforme gatilhos curtos como ;oi em mensagens completas. Uma ferramenta de abreviações grátis para o Chrome." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/pt/guides/text-shortcuts-abbreviations.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Digite mais rápido com atalhos e abreviações de texto" />
+    <meta name="twitter:description" content="Transforme gatilhos curtos como ;oi em mensagens completas. Ferramenta de abreviações grátis para o Chrome." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Como criar atalhos e abreviações de texto",
+        "description": "Defina gatilhos curtos que se expandem para snippets de texto completos ao serem digitados em qualquer lugar do Chrome.",
+        "step": [
+          { "@type": "HowToStep", "name": "Criar um snippet de texto", "text": "Salve um texto que você envia com frequência, como uma saudação ou um endereço." },
+          { "@type": "HowToStep", "name": "Atribuir um atalho", "text": "Dê a ele um gatilho curto, como ;oi ou ;end." },
+          { "@type": "HowToStep", "name": "Digitar em qualquer lugar", "text": "Digite o gatilho em qualquer campo de texto e ele se expande para o snippet completo." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guias", "item": "https://replykit.pureprompting.com/pt/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Atalhos e abreviações de texto" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "O que é um atalho ou abreviação de texto?", "acceptedAnswer": { "@type": "Answer", "text": "Um gatilho curto — como ;oi — que se expande automaticamente para um snippet de texto salvo mais longo ao ser digitado, transformando alguns caracteres em uma mensagem completa." } },
+          { "@type": "Question", "name": "Como crio um atalho no ReplyKit?", "acceptedAnswer": { "@type": "Answer", "text": "Adicione ou edite um snippet de texto e preencha o campo de atalho (ex: ;oi). Depois digite esse atalho em qualquer campo de texto e ele se expande instantaneamente." } },
+          { "@type": "Question", "name": "Os atalhos se expandem por acidente?", "acceptedAnswer": { "@type": "Answer", "text": "Atalhos alfanuméricos exigem um limite de palavra para disparar, e atalhos que começam com um símbolo (como ;) evitam conflitos com a digitação normal." } },
+          { "@type": "Question", "name": "Os atalhos funcionam em qualquer lugar?", "acceptedAnswer": { "@type": "Answer", "text": "Funcionam em qualquer campo de texto padrão na web — Gmail, helpdesks, formulários e mais. Para editores isolados, há um botão de copiar." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guias › Atalhos e abreviações de texto</div>
+
+      <h1>Digite mais rápido com atalhos e abreviações de texto</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Atualizado em julho de 2026</p>
+      <p class="lede">O texto mais rápido de digitar é aquele que você não digita. Atribua um gatilho curto como <code>;oi</code> a uma mensagem completa, e alguns toques de tecla viram uma resposta completa — no Gmail, no seu helpdesk, em um CRM ou em qualquer formulário.</p>
+
+      <p>Uma ferramenta de snippets de texto (ou abreviações) observa o que você digita e substitui gatilhos curtos por textos mais longos. É a diferença entre digitar uma resposta de 200 caracteres e digitar <code>;obg</code>. O ReplyKit faz isso gratuitamente, em qualquer campo de texto padrão, sem conta.</p>
+
+      <h2>Atalhos vs. o seletor //</h2>
+      <p>O ReplyKit oferece duas formas de inserir um snippet de texto — use a que for mais rápida no momento:</p>
+      <ul>
+        <li><strong>O seletor <code>//</code></strong> — você digita <code>//</code>, procura pelo nome, seleciona. Ótimo quando você não lembra o atalho exato.</li>
+        <li><strong>Atalhos</strong> — você digita o gatilho (ex: <code>;oi</code>) e ele se expande instantaneamente, sem menu. Ótimo para o punhado de snippets que você usa o dia todo.</li>
+      </ul>
+
+      <h2>Como configurar um (em 3 passos)</h2>
+      <ol>
+        <li>Abra o popup do ReplyKit e salve (ou edite) um snippet de texto.</li>
+        <li>Dê a ele um gatilho no campo <strong>Atalho</strong> — algo rápido e memorável como <code>;oi</code>, <code>;ass</code> ou <code>;end</code>.</li>
+        <li>Digite o gatilho em qualquer campo de texto. Ele se expande para o snippet completo exatamente na posição do seu cursor.</li>
+      </ol>
+
+      <h2>Escolhendo bons gatilhos</h2>
+      <ul>
+        <li><strong>Use um símbolo de prefixo</strong> como <code>;</code> ou <code>/</code>, para que os gatilhos nunca disparem acidentalmente dentro de uma palavra comum.</li>
+        <li><strong>Mantenha-os curtos e memoráveis</strong>: <code>;ass</code> para assinatura, <code>;obg</code> para obrigado, <code>;hoje</code> para "hoje em home office".</li>
+        <li><strong>Seja consistente</strong> — escolha um prefixo e use-o em tudo, para que seus dedos aprendam o padrão.</li>
+      </ul>
+
+      <h2>Atalhos práticos para começar</h2>
+      <table>
+        <tr><th>Gatilho</th><th>Se expande para</th></tr>
+        <tr><td><code>;oi</code></td><td>Olá! Obrigado pela sua mensagem — ficarei feliz em ajudar.</td></tr>
+        <tr><td><code>;obg</code></td><td>Muito obrigado, realmente agradeço!</td></tr>
+        <tr><td><code>;ass</code></td><td>Sua assinatura completa de e-mail</td></tr>
+        <tr><td><code>;end</code></td><td>Seu endereço comercial</td></tr>
+        <tr><td><code>;cal</code></td><td>Aqui está meu link de agenda para marcar um horário: …</td></tr>
+      </table>
+
+      <h2>Onde os atalhos de texto economizam mais tempo</h2>
+      <p>Qualquer pessoa que digita mensagens repetitivas se beneficia, mas alguns papéis veem os maiores ganhos:</p>
+      <ul>
+        <li><strong>Suporte ao cliente</strong> — uma saudação, um "vou verificar isso" e uma linha de encerramento cobrem grande parte dos chamados. Três gatilhos substituem centenas de toques de tecla por dia.</li>
+        <li><strong>Vendas e prospecção</strong> — seu link de agenda, um lembrete de acompanhamento e uma linha de preço estão sempre a poucos caracteres de distância.</li>
+        <li><strong>Recrutamento</strong> — agendamento, "obrigado pela candidatura" e recusas que ainda soam humanas.</li>
+        <li><strong>Desenvolvedores e operações</strong> — texto padrão como descrições de PR, atualizações de daily ou uma resposta padrão de incidente.</li>
+      </ul>
+      <p>O padrão é sempre o mesmo: liste as dez frases que você mais redigita nesta semana, dê um gatilho a cada uma, e deixe a memória muscular cuidar do resto.</p>
+
+      <h2>Atalhos vs. autocorreção e substituição de texto do sistema operacional</h2>
+      <p>A substituição de texto do seu telefone ou a autocorreção do seu sistema operacional podem expandir algumas abreviações, mas são limitadas: incômodas de gerenciar em um laptop, não se encaixam no seu trabalho no navegador, e muitas vezes bagunçam respostas mais longas e com múltiplas linhas. Uma ferramenta dedicada do navegador mantém os snippets organizados com nomes, pastas e atalhos, expande mensagens de vários parágrafos de forma limpa, e se comporta da mesma maneira em qualquer app web que você usa — do Gmail ao seu helpdesk até um CRM.</p>
+
+      <h2>Crie uma folha de referência de atalhos</h2>
+      <p>Ao começar, mantenha uma lista curta dos seus gatilhos visível por uma semana — um post-it ou um snippet fixado funciona bem. Depois de alguns dias, os úteis grudam e você pode reduzir o resto. Agrupe gatilhos relacionados com um prefixo comum (<code>;s-</code> para saudações, <code>;a-</code> para acompanhamentos) para facilitar a memorização, e revise a lista mensalmente: remova o que você nunca dispara e adicione as frases que ainda digita à mão. Uma dúzia de gatilhos bem escolhidos vence cinquenta que você não lembra.</p>
+
+      <h2>Os atalhos deixam sua digitação mais lenta?</h2>
+      <p>Não — a expansão acontece no momento em que você completa um gatilho, e o ReplyKit só reage ao pequeno conjunto de atalhos que você definiu, então a digitação normal permanece intacta. Como os gatilhos disparam em um limite de palavra (ou começam com um símbolo), palavras comuns do dia a dia nunca se expandem por acidente. E se um snippet não parecer certo no momento, você ainda pode recorrer ao seletor <code>//</code> — ambos os métodos compartilham a mesma biblioteca.</p>
+      <p>A maioria encontra um ritmo confortável na primeira semana — alguns gatilhos se tornam automáticos, e a décima resposta idêntica da manhã simplesmente para de ser algo em que você pensa.</p>
+
+      <div class="ctabox">
+        <p><strong>Transforme alguns toques de tecla em uma resposta completa.</strong> Defina um atalho e digite-o em qualquer lugar.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Adicionar ReplyKit ao Chrome — grátis</a>
+      </div>
+
+      <h2>Torne-os ainda mais inteligentes</h2>
+      <p>Combine um atalho com placeholders para que o texto expandido se personalize sozinho: um gatilho <code>;pedido</code> pode se expandir para <em>"Olá {name}, seu pedido foi enviado em {date}."</em> — preenchendo a data automaticamente e perguntando o nome. Veja <a href="text-snippet-variables-placeholders.html">Variáveis e placeholders em snippets de texto</a>. Combinar um atalho memorável com um modelo que se preenche sozinho é onde alguns toques de tecla fazem o maior trabalho.</p>
+
+      <p>Relacionado: <a href="text-snippet-variables-placeholders.html">Variáveis e placeholders</a> · <a href="canned-responses-in-gmail.html">Respostas prontas no Gmail</a> · <a href="free-text-expander-alternative.html">Uma alternativa gratuita aos expansores de texto</a></p>
+      <h2>Perguntas frequentes</h2>
+      <p><strong>O que é um atalho ou abreviação de texto?</strong><br />
+      Um gatilho curto — como <code>;oi</code> — que se expande automaticamente para um snippet de texto salvo mais longo ao ser digitado, transformando alguns caracteres em uma mensagem completa.</p>
+      <p><strong>Como crio um atalho no ReplyKit?</strong><br />
+      Adicione ou edite um snippet de texto e preencha o campo de atalho (ex: <code>;oi</code>). Depois digite esse atalho em qualquer campo de texto e ele se expande instantaneamente.</p>
+      <p><strong>Os atalhos se expandem por acidente?</strong><br />
+      Atalhos alfanuméricos exigem um limite de palavra para disparar, e atalhos que começam com um símbolo (como <code>;</code>) evitam conflitos com a digitação normal.</p>
+      <p><strong>Os atalhos funcionam em qualquer lugar?</strong><br />
+      Funcionam em qualquer campo de texto padrão na web — Gmail, helpdesks, formulários e mais. Para editores isolados, há um botão de copiar.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Início</a> · <a href="../../privacy.html">Privacidade</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obter extensão</a>
+    </footer>
+  </body>
+</html>

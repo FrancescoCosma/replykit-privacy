@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Variáveis e placeholders em snippets de texto — ReplyKit</title>
+    <meta
+      name="description"
+      content="Use placeholders dinâmicos nos seus snippets de texto: {date} e {time} se preenchem sozinhos, {name} pergunta a você. Crie modelos que se personalizam."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/pt/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="pt" href="https://replykit.pureprompting.com/pt/guides/text-snippet-variables-placeholders.html" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/guides/text-snippet-variables-placeholders.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Variáveis e placeholders: modelos que se preenchem sozinhos" />
+    <meta property="og:description" content="Placeholders dinâmicos para seus snippets de texto: {date}/{time} se preenchem sozinhos, {name} pergunta a você. Modelos que se personalizam." />
+    <meta property="og:url" content="https://replykit.pureprompting.com/pt/guides/text-snippet-variables-placeholders.html" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Variáveis e placeholders em snippets de texto" />
+    <meta name="twitter:description" content="Modelos dinâmicos que se preenchem sozinhos: {date}/{time} automático, {name} pergunta a você. Grátis com ReplyKit." />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Como usar variáveis e placeholders em snippets de texto",
+        "description": "Adicione placeholders dinâmicos a snippets de texto reutilizáveis para que se personalizem sozinhos ao serem inseridos.",
+        "image": "https://replykit.pureprompting.com/og-image.png",
+        "step": [
+          { "@type": "HowToStep", "name": "Adicionar um placeholder", "text": "Escreva um snippet de texto com tokens entre chaves, como Olá {name}, seu pedido será enviado em {date}." },
+          { "@type": "HowToStep", "name": "Inserir", "text": "Digite // em qualquer campo de texto e selecione o snippet." },
+          { "@type": "HowToStep", "name": "Preenchimento automático e manual", "text": "{date} e {time} se preenchem sozinhos; {name} pergunta o valor antes de inserir." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ReplyKit", "item": "https://replykit.pureprompting.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guias", "item": "https://replykit.pureprompting.com/pt/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Variáveis e placeholders em snippets de texto" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "O que são variáveis ou placeholders em snippets de texto?", "acceptedAnswer": { "@type": "Answer", "text": "Campos dinâmicos em um snippet de texto, como {date} ou {name}, que se preenchem sozinhos ou perguntam um valor a você ao inserir." } },
+          { "@type": "Question", "name": "Quais placeholders se preenchem automaticamente?", "acceptedAnswer": { "@type": "Answer", "text": "{date}, {time} e {datetime} se preenchem sozinhos. Qualquer outro campo, como {name}, pergunta a você ao inserir." } },
+          { "@type": "Question", "name": "Posso criar meus próprios campos personalizados?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Escreva qualquer {palavra} em um snippet de texto e o ReplyKit pedirá para preenchê-la ao inserir." } },
+          { "@type": "Question", "name": "A área de transferência é suportada como placeholder?", "acceptedAnswer": { "@type": "Answer", "text": "Não. {clipboard} não é suportado propositalmente, para que o ReplyKit nunca precise de permissão para ler a área de transferência." } }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #5f6368; --bg: #fff; --line: #ebedf0; --soft: #f6f8fc; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.7; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .nav { max-width: 760px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .logo { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; border-radius: 8px; font-weight: 800; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 16px 24px 64px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+      h1 { font-size: 33px; line-height: 1.2; margin: 8px 0 8px; }
+      .lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; }
+      h2 { font-size: 21px; margin: 32px 0 8px; }
+      p, li { font-size: 17px; }
+      .tpl { background: var(--soft); border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0 4px; font-size: 16px; }
+      code { background: var(--soft); padding: 2px 7px; border-radius: 5px; font-size: .92em; }
+      .cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; padding: 14px 26px; border-radius: 12px; text-decoration: none; font-size: 16px; }
+      .ctabox { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin: 32px 0; text-align: center; }
+      .ctabox p { margin: 0 0 14px; }
+      table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 700; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --line: #2c2c30; --soft: #1f1f22; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav"><a href="../../" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:10px"><span class="logo">//</span> ReplyKit</a></nav>
+
+    <main class="wrap">
+      <div class="crumbs"><a href="../../">ReplyKit</a> › Guias › Variáveis e placeholders em snippets de texto</div>
+
+      <h1>Variáveis e placeholders: modelos que se preenchem sozinhos</h1>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 18px">Atualizado em julho de 2026</p>
+      <p class="lede">Um bom modelo economiza tempo. Um modelo que se personaliza sozinho economiza mais. Com placeholders, um snippet de texto se adapta a cada mensagem — a data se preenche sozinha, e o nome é a única coisa que você digita.</p>
+
+      <p>O problema com respostas salvas simples é a edição. Você insere "Olá [Nome], seu pedido será enviado em [Data]" e depois procura pelos colchetes para corrigi-los à mão. Placeholders removem essa etapa: você marca as partes que mudam uma vez, e o ReplyKit as preenche quando você insere o snippet.</p>
+
+      <h2>Os dois tipos de placeholders</h2>
+      <p>Envolva um token entre chaves em qualquer lugar do seu snippet de texto, como <code>{name}</code>. Existem dois comportamentos:</p>
+      <table>
+        <tr><th>Placeholder</th><th>O que acontece ao inserir</th></tr>
+        <tr><td><code>{date}</code></td><td>Preenche-se sozinho com a data de hoje</td></tr>
+        <tr><td><code>{time}</code></td><td>Preenche-se sozinho com a hora atual</td></tr>
+        <tr><td><code>{datetime}</code></td><td>Preenche-se com data e hora juntas</td></tr>
+        <tr><td><code>{name}</code>, <code>{order}</code>, <code>{qualquer}</code></td><td>Pergunta o valor antes de inserir</td></tr>
+      </table>
+      <p><code>{date}</code>, <code>{time}</code> e <code>{datetime}</code> são automáticos — você nunca os digita. Qualquer outro token vira um campo a preencher: quando você insere o snippet, o ReplyKit pergunta cada um, e depois coloca o texto finalizado na posição do seu cursor.</p>
+
+      <h2>Como usar (em 3 passos)</h2>
+      <ol>
+        <li>Salve um snippet de texto com placeholders, como <code>Olá {name}, seu pedido foi enviado em {date}. Obrigado pela paciência!</code></li>
+        <li>Digite <code>//</code> em qualquer campo de texto e selecione o snippet.</li>
+        <li>O ReplyKit preenche <code>{date}</code> automaticamente e pergunta por <code>{name}</code>. Digite "Maria", e você recebe: <em>Olá Maria, seu pedido foi enviado em 07/07/2026. Obrigado pela paciência!</em></li>
+      </ol>
+
+      <h2>Modelos que vale a pena tornar dinâmicos</h2>
+      <h2>Atualização de pedido</h2>
+      <div class="tpl">Olá {name}, boas notícias — seu pedido {order} foi enviado hoje, {date}. Você pode rastreá-lo aqui: {tracking}.</div>
+
+      <h2>Confirmação de reunião</h2>
+      <div class="tpl">Olá {name}, confirmando nossa ligação em {date} às {time}. Até lá!</div>
+
+      <h2>Acompanhamento de suporte</h2>
+      <div class="tpl">Olá {name}, só passando para verificar o chamado {ticket}. Tudo funcionando agora, ou devo investigar mais?</div>
+
+      <div class="ctabox">
+        <p><strong>Crie modelos que se preenchem sozinhos.</strong> Adicione placeholders a qualquer snippet de texto e insira-o em qualquer lugar digitando //.</p>
+        <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Adicionar ReplyKit ao Chrome — grátis</a>
+      </div>
+
+      <h2>Dicas</h2>
+      <ul>
+        <li>Reutilize o mesmo nome de token para preenchê-lo uma vez — cada <code>{name}</code> em um snippet recebe o valor que você digita.</li>
+        <li>Mantenha nomes de tokens curtos e claros (<code>{name}</code>, <code>{date}</code>, <code>{link}</code>) para lembrar o que digitar.</li>
+        <li>Combine com uma abreviação curta: digite <code>;pedido</code> para expandir instantaneamente seu modelo de atualização de pedido.</li>
+        <li>Use <code>{date}</code> para tudo com data — logs, timestamps, linhas de "a partir de hoje" — e nunca mais a atualize manualmente.</li>
+      </ul>
+
+      <p>Relacionado: <a href="text-shortcuts-abbreviations.html">Digite mais rápido com atalhos e abreviações de texto</a> · <a href="customer-support-reply-templates.html">11 modelos de resposta para suporte ao cliente</a> · <a href="free-text-expander-alternative.html">Uma alternativa gratuita aos expansores de texto</a></p>
+      <h2>Perguntas frequentes</h2>
+      <p><strong>O que são variáveis ou placeholders em snippets de texto?</strong><br />
+      Campos dinâmicos em um snippet de texto, como <code>{date}</code> ou <code>{name}</code>, que se preenchem sozinhos ou perguntam um valor a você ao inserir.</p>
+      <p><strong>Quais placeholders se preenchem automaticamente?</strong><br />
+      <code>{date}</code>, <code>{time}</code> e <code>{datetime}</code> se preenchem sozinhos. Qualquer outro campo, como <code>{name}</code>, pergunta a você ao inserir.</p>
+      <p><strong>Posso criar meus próprios campos personalizados?</strong><br />
+      Sim. Escreva qualquer <code>{palavra}</code> em um snippet de texto e o ReplyKit pedirá para preenchê-la ao inserir.</p>
+      <p><strong>A área de transferência é suportada como placeholder?</strong><br />
+      Não. <code>{clipboard}</code> não é suportado propositalmente, para que o ReplyKit nunca precise de permissão para ler a área de transferência.</p>
+    </main>
+
+    <footer>
+      ReplyKit · <a href="../../">Início</a> · <a href="../../privacy.html">Privacidade</a> · <a href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Obter extensão</a>
+    </footer>
+  </body>
+</html>
