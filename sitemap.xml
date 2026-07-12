@@ -6,6 +6,31 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://replykit.pureprompting.com/it/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://replykit.pureprompting.com/es/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://replykit.pureprompting.com/fr/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://replykit.pureprompting.com/de/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://replykit.pureprompting.com/pt/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://replykit.pureprompting.com/guides/</loc>
     <lastmod>2026-06-22</lastmod>
     <priority>0.8</priority>

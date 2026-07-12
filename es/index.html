@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>ReplyKit — Fragmentos de texto y respuestas guardadas para Chrome | Escribe // para insertar</title>
+    <meta
+      name="description"
+      content="ReplyKit es una extensión gratuita para Chrome para guardar fragmentos de texto e insertar respuestas guardadas donde escribas — Gmail, herramientas de soporte, marketplaces, formularios. Escribe // y listo. Una alternativa ligera y privada a los expansores de texto."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/es/" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/" />
+    <link rel="alternate" hreflang="pt" href="https://replykit.pureprompting.com/pt/" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ReplyKit — Fragmentos de texto y respuestas rápidas para Chrome" />
+    <meta
+      property="og:description"
+      content="Guarda tus respuestas una vez e insértalas donde sea escribiendo //. Gratis, privado, ligero."
+    />
+    <meta property="og:url" content="https://replykit.pureprompting.com/es/" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ReplyKit — Fragmentos de texto y respuestas rápidas para Chrome" />
+    <meta
+      name="twitter:description"
+      content="Guarda tus respuestas una vez e insértalas donde sea escribiendo //. Gratis, privado, ligero."
+    />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ReplyKit",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "description": "Guarda fragmentos de texto e inserta respuestas guardadas donde escribas. Escribe // para insertar. Gratis, privado, ligero.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿ReplyKit es gratis?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. ReplyKit es gratuito hasta 10 fragmentos. Pro desbloquea fragmentos ilimitados y sincronización entre tus dispositivos." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Dónde se guardan mis fragmentos?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En el plan gratuito, localmente en tu navegador, sin necesidad de cuenta. Con Pro, también se sincronizan entre tus dispositivos mediante la sincronización integrada del navegador, nunca a través de nuestros servidores." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Dónde funciona ReplyKit?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En cualquier campo de texto estándar y en Gmail. Para editores aislados hay un botón de copiar para pegar manualmente." }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #6b7280; --bg: #fff; --card: #fff; --line: #ebedf0; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.65; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .hero { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; padding: 80px 24px; text-align: center; }
+      .bubble { display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 70px; background: #fff; color: var(--blue); border-radius: 20px; font-size: 36px; font-weight: 800; margin-bottom: 24px; }
+      .hero h1 { font-size: 42px; line-height: 1.15; margin: 0 0 16px; }
+      .hero p { font-size: 20px; max-width: 600px; margin: 0 auto 28px; opacity: .96; }
+      .cta { display: inline-block; background: #fff; color: var(--blue); font-weight: 700; font-size: 17px; padding: 14px 28px; border-radius: 12px; text-decoration: none; }
+      .cta:hover { opacity: .92; }
+      .sub { display: block; margin-top: 12px; font-size: 13px; opacity: .85; }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 56px 24px; }
+      h2 { font-size: 28px; margin: 0 0 24px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+      .card { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--card); }
+      .card h3 { margin: 0 0 8px; font-size: 17px; }
+      .card p { margin: 0; color: var(--muted); font-size: 15px; }
+      ol.steps { counter-reset: step; list-style: none; padding: 0; }
+      ol.steps li { position: relative; padding: 0 0 18px 48px; }
+      ol.steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+      code { background: #f1f3f5; padding: 2px 7px; border-radius: 5px; font-size: .9em; }
+      .faq { margin-top: 12px; }
+      .faq h3 { font-size: 17px; margin: 22px 0 6px; }
+      .faq p { margin: 0; color: var(--muted); }
+      .center { text-align: center; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --card: #1f1f22; --line: #2c2c30; }
+        code { background: #2a2a2d; }
+        .cta { background: #fff; color: var(--blue); }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px;text-align:center;font-size:13px;color:var(--muted)">
+      Esta página en:
+      <a href="../" style="margin:0 6px">EN</a>
+      <a href="../it/" style="margin:0 6px">IT</a>
+      <span style="margin:0 6px;font-weight:700;color:var(--ink)">ES</span>
+      <a href="../fr/" style="margin:0 6px">FR</a>
+      <a href="../de/" style="margin:0 6px">DE</a>
+      <a href="../pt/" style="margin:0 6px">PT</a>
+    </div>
+    <header class="hero">
+      <div class="bubble">//</div>
+      <h1>Fragmentos de texto y respuestas guardadas, donde escribas</h1>
+      <p>Guarda tus respuestas más usadas una vez e insértalas en cualquier campo de texto escribiendo <code style="background:rgba(255,255,255,.2);color:#fff">//</code>. Gratis, privado, ligero.</p>
+      <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Añadir a Chrome — es gratis</a>
+      <span class="sub">Sin cuenta · Fragmentos guardados localmente · Funciona en Gmail y más</span>
+    </header>
+
+    <main>
+      <section class="wrap">
+        <h2>Por qué ReplyKit</h2>
+        <div class="grid">
+          <div class="card"><h3>Una sola pulsación</h3><p>Escribe <code>//</code> (o un atajo) y elige un fragmento. Se inserta justo donde está tu cursor.</p></div>
+          <div class="card"><h3>Funciona en todas partes</h3><p>Gmail, helpdesks, marketplaces, redes sociales, CRM y formularios — cualquier campo de texto estándar.</p></div>
+          <div class="card"><h3>Privado por diseño</h3><p>Los fragmentos se quedan en tu navegador. Nada se sube, se rastrea ni se comparte. Sin cuenta.</p></div>
+          <div class="card"><h3>Ligero</h3><p>Un selector rápido, pensado para el teclado, con búsqueda instantánea. Sin desorden, sin ralentizar nada.</p></div>
+          <div class="card"><h3>Copia de respaldo</h3><p>Para editores que bloquean la inserción automática, un clic copia el fragmento para pegarlo manualmente.</p></div>
+          <div class="card"><h3>Gratis para empezar</h3><p>Hasta 10 fragmentos gratis. Pro desbloquea ilimitados — una alternativa justa y simple a los expansores de texto.</p></div>
+          <div class="card"><h3>Abreviaturas</h3><p>Escribe un disparador corto como <code>;hola</code> y se expande al instante en tu fragmento.</p></div>
+          <div class="card"><h3>Marcadores dinámicos</h3><p><code>{date}</code> y <code>{time}</code> se rellenan solos; <code>{name}</code> te lo pregunta al insertar.</p></div>
+          <div class="card"><h3>Carpetas</h3><p>Organiza tus fragmentos en grupos y fíltralos con un clic.</p></div>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <h2>Para quién es</h2>
+        <div class="grid">
+          <div class="card"><h3>Soporte al cliente</h3><p>Responde FAQs y tickets en segundos con respuestas guardadas.</p></div>
+          <div class="card"><h3>Freelancers y agencias</h3><p>Propuestas, incorporación y seguimientos sin volver a escribir.</p></div>
+          <div class="card"><h3>Vendedores online</h3><p>Respuestas de pedidos, envíos y reseñas en cualquier marketplace.</p></div>
+          <div class="card"><h3>Reclutadores y ventas</h3><p>Mensajes de contacto y plantillas que siguen siendo personales.</p></div>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <h2>Cómo funciona</h2>
+        <ol class="steps">
+          <li>Guarda un fragmento desde el popup de la barra de herramientas — un saludo, respuesta a FAQ, seguimiento.</li>
+          <li>En cualquier campo de texto, escribe <code>//</code> o pulsa <code>Ctrl/Cmd+Shift+Space</code>.</li>
+          <li>Elige un fragmento en la búsqueda instantánea — se inserta en tu cursor. O pulsa Copiar.</li>
+        </ol>
+      </section>
+
+      <section class="wrap">
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq">
+          <h3>¿ReplyKit es gratis?</h3>
+          <p>Sí — gratis hasta 10 fragmentos. Pro desbloquea fragmentos ilimitados y más.</p>
+          <h3>¿Están seguros mis datos?</h3>
+          <p>Sin anuncios, sin rastreadores. En el plan gratuito tus fragmentos se guardan localmente mediante <code>chrome.storage.local</code>; con Pro se sincronizan entre tus dispositivos mediante la sincronización integrada del navegador (nunca a través de nuestros servidores). Consulta la <a href="../privacy.html">Política de privacidad</a>.</p>
+          <h3>¿Funciona en Gmail?</h3>
+          <p>Sí. Funciona en Gmail y en cualquier campo de texto estándar. Para editores aislados, usa el botón Copiar.</p>
+          <h3>¿Es un expansor de texto?</h3>
+          <p>Piénsalo como una herramienta ligera y privada de fragmentos de texto — una alternativa más simple y gratuita a los expansores de texto más pesados.</p>
+        </div>
+        <p class="center" style="margin-top:32px"><a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc" style="background:var(--blue);color:#fff">Añadir ReplyKit a Chrome</a></p>
+      </section>
+
+      <section class="wrap">
+        <h2>Guías</h2>
+        <div class="grid">
+          <a class="card" href="guides/free-text-expander-alternative.html" style="text-decoration:none">
+            <h3>Una alternativa gratuita a los expansores de texto</h3>
+            <p>Por qué una herramienta ligera de fragmentos supera a un expansor pesado.</p>
+          </a>
+          <a class="card" href="guides/replykit-vs-textexpander.html" style="text-decoration:none">
+            <h3>ReplyKit vs TextExpander</h3>
+            <p>Precio, configuración, privacidad y funciones comparadas.</p>
+          </a>
+          <a class="card" href="guides/replykit-vs-text-blaze.html" style="text-decoration:none">
+            <h3>ReplyKit vs Text Blaze</h3>
+            <p>Fragmentos simples vs automatización avanzada — cuál encaja contigo.</p>
+          </a>
+          <a class="card" href="guides/canned-responses-in-gmail.html" style="text-decoration:none">
+            <h3>Respuestas guardadas en Gmail</h3>
+            <p>Inserta plantillas de respuesta en Gmail y donde sea escribiendo //.</p>
+          </a>
+          <a class="card" href="guides/customer-support-reply-templates.html" style="text-decoration:none">
+            <h3>Plantillas de respuesta para soporte al cliente</h3>
+            <p>11 respuestas listas para usar para equipos de soporte.</p>
+          </a>
+          <a class="card" href="guides/etsy-message-templates-for-sellers.html" style="text-decoration:none">
+            <h3>Plantillas de mensajes de Etsy para vendedores</h3>
+            <p>10 mensajes para compradores de Etsy, listos para usar.</p>
+          </a>
+          <a class="card" href="guides/freelance-email-templates.html" style="text-decoration:none">
+            <h3>Plantillas de correo para freelancers y clientes</h3>
+            <p>12 correos: consultas, propuestas, facturas, seguimientos.</p>
+          </a>
+          <a class="card" href="guides/text-snippet-variables-placeholders.html" style="text-decoration:none">
+            <h3>Variables y marcadores</h3>
+            <p>Plantillas dinámicas que se rellenan solas: {date}, {name} y más.</p>
+          </a>
+          <a class="card" href="guides/text-shortcuts-abbreviations.html" style="text-decoration:none">
+            <h3>Atajos y abreviaturas</h3>
+            <p>Convierte disparadores cortos como ;hola en mensajes completos, al instante.</p>
+          </a>
+          <a class="card" href="guides/live-chat-canned-responses.html" style="text-decoration:none">
+            <h3>Ejemplos de respuestas para chat en vivo</h3>
+            <p>20 respuestas rápidas: saludos, esperas, reembolsos, cierres.</p>
+          </a>
+          <a class="card" href="guides/shopify-customer-service-templates.html" style="text-decoration:none">
+            <h3>Plantillas de atención al cliente para Shopify</h3>
+            <p>12 respuestas: pedidos, envíos, devoluciones, reembolsos, reseñas.</p>
+          </a>
+          <a class="card" href="guides/customer-service-apology-email-templates.html" style="text-decoration:none">
+            <h3>Plantillas de correo de disculpa para atención al cliente</h3>
+            <p>10 disculpas sinceras: retrasos, errores de facturación, defectos, caídas.</p>
+          </a>
+          <a class="card" href="guides/cold-email-templates-for-sales.html" style="text-decoration:none">
+            <h3>Plantillas de correo en frío para ventas</h3>
+            <p>12 correos de contacto, seguimiento y cierre que consiguen respuestas.</p>
+          </a>
+          <a class="card" href="guides/whatsapp-business-quick-reply-templates.html" style="text-decoration:none">
+            <h3>Respuestas rápidas para WhatsApp Business</h3>
+            <p>Saludos, actualizaciones de pedido, pagos y seguimientos para WhatsApp Web.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="support">
+      <div style="margin-bottom:20px">
+        <a href="https://www.producthunt.com/products/replykit-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-replykit-2" target="_blank" rel="noopener noreferrer"><img alt="ReplyKit - Save replies once, insert them anywhere with &quot;//&quot; | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1179367&amp;theme=light&amp;t=1782238685570" style="width:250px;height:54px" /></a>
+      </div>
+      ¿Necesitas ayuda o quieres pedir una función? Escribe a
+      <a href="mailto:replykit.app@proton.me">replykit.app@proton.me</a><br />
+      ReplyKit · <a href="guides/">Guías</a> · <a href="../privacy.html">Privacidad</a>
+    </footer>
+  </body>
+</html>

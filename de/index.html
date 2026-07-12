@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>ReplyKit — Textbausteine & gespeicherte Antworten für Chrome | Tippe // zum Einfügen</title>
+    <meta
+      name="description"
+      content="ReplyKit ist eine kostenlose Chrome-Erweiterung zum Speichern von Textbausteinen und Einfügen gespeicherter Antworten überall, wo du tippst — Gmail, Support-Tools, Marktplätze, Formulare. Tippe // und los geht's. Eine leichte, private Alternative zu Textbausteinprogrammen."
+    />
+    <link rel="canonical" href="https://replykit.pureprompting.com/de/" />
+    <link rel="alternate" hreflang="en" href="https://replykit.pureprompting.com/" />
+    <link rel="alternate" hreflang="it" href="https://replykit.pureprompting.com/it/" />
+    <link rel="alternate" hreflang="es" href="https://replykit.pureprompting.com/es/" />
+    <link rel="alternate" hreflang="fr" href="https://replykit.pureprompting.com/fr/" />
+    <link rel="alternate" hreflang="de" href="https://replykit.pureprompting.com/de/" />
+    <link rel="alternate" hreflang="pt" href="https://replykit.pureprompting.com/pt/" />
+    <link rel="alternate" hreflang="x-default" href="https://replykit.pureprompting.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ReplyKit — Textbausteine & Schnellantworten für Chrome" />
+    <meta
+      property="og:description"
+      content="Speichere deine Antworten einmal und füge sie überall ein, indem du // tippst. Kostenlos, privat, leichtgewichtig."
+    />
+    <meta property="og:url" content="https://replykit.pureprompting.com/de/" />
+    <meta property="og:image" content="https://replykit.pureprompting.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ReplyKit — Textbausteine & Schnellantworten für Chrome" />
+    <meta
+      name="twitter:description"
+      content="Speichere deine Antworten einmal und füge sie überall ein, indem du // tippst. Kostenlos, privat, leichtgewichtig."
+    />
+    <meta name="twitter:image" content="https://replykit.pureprompting.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ReplyKit",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "description": "Speichere Textbausteine und füge gespeicherte Antworten überall ein, wo du tippst. Tippe // zum Einfügen. Kostenlos, privat, leichtgewichtig.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Ist ReplyKit kostenlos?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ja. ReplyKit ist kostenlos für bis zu 10 Textbausteine. Pro schaltet unbegrenzte Textbausteine und Synchronisierung zwischen deinen Geräten frei." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wo werden meine Textbausteine gespeichert?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Im kostenlosen Plan lokal in deinem Browser, ohne Konto. Mit Pro synchronisieren sie sich zusätzlich zwischen deinen Geräten über die integrierte Synchronisierung deines Browsers, niemals über unsere eigenen Server." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wo funktioniert ReplyKit?",
+            "acceptedAnswer": { "@type": "Answer", "text": "In jedem Standard-Textfeld und in Gmail. Für isolierte Editoren gibt es einen Kopieren-Button zum manuellen Einfügen." }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light dark; --blue: #2b7fff; --purple: #6350ff; --ink: #1a1a1a; --muted: #6b7280; --bg: #fff; --card: #fff; --line: #ebedf0; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; line-height: 1.65; color: var(--ink); background: var(--bg); }
+      a { color: var(--blue); }
+      .hero { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; padding: 80px 24px; text-align: center; }
+      .bubble { display: inline-flex; align-items: center; justify-content: center; width: 88px; height: 70px; background: #fff; color: var(--blue); border-radius: 20px; font-size: 36px; font-weight: 800; margin-bottom: 24px; }
+      .hero h1 { font-size: 42px; line-height: 1.15; margin: 0 0 16px; }
+      .hero p { font-size: 20px; max-width: 600px; margin: 0 auto 28px; opacity: .96; }
+      .cta { display: inline-block; background: #fff; color: var(--blue); font-weight: 700; font-size: 17px; padding: 14px 28px; border-radius: 12px; text-decoration: none; }
+      .cta:hover { opacity: .92; }
+      .sub { display: block; margin-top: 12px; font-size: 13px; opacity: .85; }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 56px 24px; }
+      h2 { font-size: 28px; margin: 0 0 24px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+      .card { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--card); }
+      .card h3 { margin: 0 0 8px; font-size: 17px; }
+      .card p { margin: 0; color: var(--muted); font-size: 15px; }
+      ol.steps { counter-reset: step; list-style: none; padding: 0; }
+      ol.steps li { position: relative; padding: 0 0 18px 48px; }
+      ol.steps li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+      code { background: #f1f3f5; padding: 2px 7px; border-radius: 5px; font-size: .9em; }
+      .faq { margin-top: 12px; }
+      .faq h3 { font-size: 17px; margin: 22px 0 6px; }
+      .faq p { margin: 0; color: var(--muted); }
+      .center { text-align: center; }
+      footer { border-top: 1px solid var(--line); padding: 28px 24px; text-align: center; color: var(--muted); font-size: 14px; }
+      @media (prefers-color-scheme: dark) {
+        :root { --ink: #e8e8ea; --muted: #9aa0a6; --bg: #161618; --card: #1f1f22; --line: #2c2c30; }
+        code { background: #2a2a2d; }
+        .cta { background: #fff; color: var(--blue); }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px;text-align:center;font-size:13px;color:var(--muted)">
+      Diese Seite auf:
+      <a href="../" style="margin:0 6px">EN</a>
+      <a href="../it/" style="margin:0 6px">IT</a>
+      <a href="../es/" style="margin:0 6px">ES</a>
+      <a href="../fr/" style="margin:0 6px">FR</a>
+      <span style="margin:0 6px;font-weight:700;color:var(--ink)">DE</span>
+      <a href="../pt/" style="margin:0 6px">PT</a>
+    </div>
+    <header class="hero">
+      <div class="bubble">//</div>
+      <h1>Textbausteine & gespeicherte Antworten, überall wo du tippst</h1>
+      <p>Speichere deine meistgenutzten Antworten einmal und füge sie in jedes Textfeld ein, indem du <code style="background:rgba(255,255,255,.2);color:#fff">//</code> tippst. Kostenlos, privat, leichtgewichtig.</p>
+      <a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc">Zu Chrome hinzufügen — kostenlos</a>
+      <span class="sub">Kein Konto · Textbausteine lokal gespeichert · Funktioniert in Gmail und mehr</span>
+    </header>
+
+    <main>
+      <section class="wrap">
+        <h2>Warum ReplyKit</h2>
+        <div class="grid">
+          <div class="card"><h3>Ein Tastendruck</h3><p>Tippe <code>//</code> (oder eine Abkürzung) und wähle einen Textbaustein. Er wird genau an deiner Cursorposition eingefügt.</p></div>
+          <div class="card"><h3>Funktioniert überall</h3><p>Gmail, Helpdesks, Marktplätze, Social Media, CRMs und Formulare — jedes Standard-Textfeld.</p></div>
+          <div class="card"><h3>Privat per Design</h3><p>Textbausteine bleiben in deinem Browser. Nichts wird hochgeladen, verfolgt oder geteilt. Kein Konto.</p></div>
+          <div class="card"><h3>Leichtgewichtig</h3><p>Ein schneller, tastaturorientierter Selektor mit sofortiger Suche. Kein Ballast, keine Verlangsamung.</p></div>
+          <div class="card"><h3>Kopieren als Rückfall</h3><p>Für Editoren, die automatisches Einfügen blockieren, kopiert ein Klick den Textbaustein zum manuellen Einfügen.</p></div>
+          <div class="card"><h3>Kostenloser Einstieg</h3><p>Bis zu 10 Textbausteine kostenlos. Pro schaltet unbegrenzte frei — eine faire, einfache Alternative zu Textbausteinprogrammen.</p></div>
+          <div class="card"><h3>Abkürzungen</h3><p>Tippe einen kurzen Trigger wie <code>;hi</code> und er erweitert sich sofort zu deinem Textbaustein.</p></div>
+          <div class="card"><h3>Dynamische Platzhalter</h3><p><code>{date}</code> und <code>{time}</code> füllen sich selbst aus; <code>{name}</code> fragt dich beim Einfügen.</p></div>
+          <div class="card"><h3>Ordner</h3><p>Organisiere deine Textbausteine in Gruppen und filtere sie mit einem Klick.</p></div>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <h2>Für wen es gedacht ist</h2>
+        <div class="grid">
+          <div class="card"><h3>Kundensupport</h3><p>Beantworte FAQs und Tickets in Sekunden mit gespeicherten Antworten.</p></div>
+          <div class="card"><h3>Freelancer & Agenturen</h3><p>Angebote, Onboarding und Nachfassungen ohne erneutes Tippen.</p></div>
+          <div class="card"><h3>Online-Verkäufer</h3><p>Antworten zu Bestellungen, Versand und Bewertungen auf jedem Marktplatz.</p></div>
+          <div class="card"><h3>Recruiter & Vertrieb</h3><p>Kontaktaufnahme und Vorlagen-Nachrichten, die persönlich bleiben.</p></div>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <h2>So funktioniert's</h2>
+        <ol class="steps">
+          <li>Speichere einen Textbaustein aus dem Toolbar-Popup — eine Begrüßung, FAQ-Antwort, Nachfassung.</li>
+          <li>Tippe in jedem Textfeld <code>//</code> oder drücke <code>Ctrl/Cmd+Shift+Space</code>.</li>
+          <li>Wähle einen Textbaustein aus der Sofortsuche — er wird an deiner Cursorposition eingefügt. Oder drücke Kopieren.</li>
+        </ol>
+      </section>
+
+      <section class="wrap">
+        <h2>Häufig gestellte Fragen</h2>
+        <div class="faq">
+          <h3>Ist ReplyKit kostenlos?</h3>
+          <p>Ja — kostenlos für bis zu 10 Textbausteine. Pro schaltet unbegrenzte Textbausteine und mehr frei.</p>
+          <h3>Sind meine Daten sicher?</h3>
+          <p>Keine Werbung, kein Tracking. Im kostenlosen Plan werden deine Textbausteine lokal über <code>chrome.storage.local</code> gespeichert; mit Pro synchronisieren sie sich zwischen deinen Geräten über die integrierte Synchronisierung deines Browsers (niemals über unsere Server). Siehe die <a href="../privacy.html">Datenschutzerklärung</a>.</p>
+          <h3>Funktioniert es in Gmail?</h3>
+          <p>Ja. Es funktioniert in Gmail und jedem Standard-Textfeld. Für isolierte Editoren nutze den Kopieren-Button.</p>
+          <h3>Ist es ein Textbausteinprogramm?</h3>
+          <p>Stell es dir als leichtgewichtiges, privates Textbaustein-Tool vor — eine einfachere, kostenlose Alternative zu schwereren Textbausteinprogrammen.</p>
+        </div>
+        <p class="center" style="margin-top:32px"><a class="cta" href="https://chromewebstore.google.com/detail/replykit-%E2%80%94-text-snippets/dgaojmgmbadebkaphbepdbepndihedcc" style="background:var(--blue);color:#fff">ReplyKit zu Chrome hinzufügen</a></p>
+      </section>
+
+      <section class="wrap">
+        <h2>Anleitungen</h2>
+        <div class="grid">
+          <a class="card" href="guides/free-text-expander-alternative.html" style="text-decoration:none">
+            <h3>Eine kostenlose Alternative zu Textbausteinprogrammen</h3>
+            <p>Warum ein leichtes Textbaustein-Tool ein schwerfälliges Programm schlägt.</p>
+          </a>
+          <a class="card" href="guides/replykit-vs-textexpander.html" style="text-decoration:none">
+            <h3>ReplyKit vs TextExpander</h3>
+            <p>Preis, Einrichtung, Datenschutz und Funktionen im Vergleich.</p>
+          </a>
+          <a class="card" href="guides/replykit-vs-text-blaze.html" style="text-decoration:none">
+            <h3>ReplyKit vs Text Blaze</h3>
+            <p>Einfache Textbausteine vs. fortgeschrittene Automatisierung — was zu dir passt.</p>
+          </a>
+          <a class="card" href="guides/canned-responses-in-gmail.html" style="text-decoration:none">
+            <h3>Gespeicherte Antworten in Gmail</h3>
+            <p>Füge Antwortvorlagen in Gmail und überall ein, indem du // tippst.</p>
+          </a>
+          <a class="card" href="guides/customer-support-reply-templates.html" style="text-decoration:none">
+            <h3>Antwortvorlagen für den Kundensupport</h3>
+            <p>11 fertige Antworten für Support-Teams.</p>
+          </a>
+          <a class="card" href="guides/etsy-message-templates-for-sellers.html" style="text-decoration:none">
+            <h3>Etsy-Nachrichtenvorlagen für Verkäufer</h3>
+            <p>10 Nachrichten für Etsy-Käufer, einsatzbereit.</p>
+          </a>
+          <a class="card" href="guides/freelance-email-templates.html" style="text-decoration:none">
+            <h3>E-Mail-Vorlagen für Freelancer und Kunden</h3>
+            <p>12 E-Mails: Anfragen, Angebote, Rechnungen, Nachfassungen.</p>
+          </a>
+          <a class="card" href="guides/text-snippet-variables-placeholders.html" style="text-decoration:none">
+            <h3>Variablen und Platzhalter</h3>
+            <p>Dynamische Vorlagen, die sich selbst ausfüllen: {date}, {name} und mehr.</p>
+          </a>
+          <a class="card" href="guides/text-shortcuts-abbreviations.html" style="text-decoration:none">
+            <h3>Textkürzel und Abkürzungen</h3>
+            <p>Verwandle kurze Trigger wie ;hi sofort in vollständige Nachrichten.</p>
+          </a>
+          <a class="card" href="guides/live-chat-canned-responses.html" style="text-decoration:none">
+            <h3>Antwortbeispiele für den Live-Chat</h3>
+            <p>20 schnelle Antworten: Begrüßungen, Wartezeiten, Rückerstattungen, Abschlüsse.</p>
+          </a>
+          <a class="card" href="guides/shopify-customer-service-templates.html" style="text-decoration:none">
+            <h3>Kundenservice-Vorlagen für Shopify</h3>
+            <p>12 Antworten: Bestellungen, Versand, Rücksendungen, Rückerstattungen, Bewertungen.</p>
+          </a>
+          <a class="card" href="guides/customer-service-apology-email-templates.html" style="text-decoration:none">
+            <h3>Entschuldigungs-E-Mail-Vorlagen für den Kundenservice</h3>
+            <p>10 ehrliche Entschuldigungen: Verzögerungen, Abrechnungsfehler, Defekte, Ausfälle.</p>
+          </a>
+          <a class="card" href="guides/cold-email-templates-for-sales.html" style="text-decoration:none">
+            <h3>Kaltakquise-E-Mail-Vorlagen für den Vertrieb</h3>
+            <p>12 Erstkontakte, Nachfassungen und Abschluss-E-Mails, die Antworten bekommen.</p>
+          </a>
+          <a class="card" href="guides/whatsapp-business-quick-reply-templates.html" style="text-decoration:none">
+            <h3>Schnellantwort-Vorlagen für WhatsApp Business</h3>
+            <p>Begrüßungen, Bestellaktualisierungen, Zahlungen und Nachfassungen für WhatsApp Web.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="support">
+      <div style="margin-bottom:20px">
+        <a href="https://www.producthunt.com/products/replykit-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-replykit-2" target="_blank" rel="noopener noreferrer"><img alt="ReplyKit - Save replies once, insert them anywhere with &quot;//&quot; | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1179367&amp;theme=light&amp;t=1782238685570" style="width:250px;height:54px" /></a>
+      </div>
+      Brauchst du Hilfe oder hast einen Funktionswunsch? Schreib an
+      <a href="mailto:replykit.app@proton.me">replykit.app@proton.me</a><br />
+      ReplyKit · <a href="guides/">Anleitungen</a> · <a href="../privacy.html">Datenschutz</a>
+    </footer>
+  </body>
+</html>
